@@ -1,0 +1,6 @@
+# The Searchers
+
+- **Date:** 2024-09-22
+- **Liked:** no
+- **Tags:** schauburg
+
