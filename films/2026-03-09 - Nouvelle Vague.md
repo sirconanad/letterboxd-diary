@@ -1,0 +1,7 @@
+# Nouvelle Vague
+
+- **Date:** 2026-03-09
+- **Rating:** 4/5
+- **Liked:** yes
+- **Tags:** schauburg, sneak
+
