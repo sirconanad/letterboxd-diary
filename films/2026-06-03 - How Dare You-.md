@@ -1,0 +1,7 @@
+# How Dare You?
+
+- **Date:** 2026-06-03
+- **Rating:** 4/5
+- **Liked:** yes
+- **Tags:** 26th nippon connection
+
