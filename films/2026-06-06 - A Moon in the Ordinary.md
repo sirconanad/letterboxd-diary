@@ -1,0 +1,7 @@
+# A Moon in the Ordinary
+
+- **Date:** 2026-06-06
+- **Rating:** 4.5/5
+- **Liked:** yes
+- **Tags:** 26th nippon connection
+
