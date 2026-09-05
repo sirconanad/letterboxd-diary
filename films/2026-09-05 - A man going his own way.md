@@ -1,0 +1,7 @@
+# A man going his own way
+
+- **Date:** 2026-09-05
+- **Rating:** 3.5/5
+- **Liked:** no
+- **Tags:** cinema, cinema26, berlin, zoo palast, fantasy filmfest
+
