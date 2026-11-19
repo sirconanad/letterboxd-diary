@@ -73,6 +73,18 @@ It scrapes the diary pages directly (same Cloudflare handling as `build.py`);
 use `--pause` to be gentle on rate limits, or `--source rss` for recent
 activity only.
 
+## Highlights page
+
+`generate_site.py` builds a single self-contained `site/index.html` from
+`diary.json` and `sneak-gap.csv`: stat cards, the full contribution graph,
+monthly activity, top tags, favourites, and the sneak-vs-Kinostart table.
+It's meant to be deployed to GitHub Pages (`sirconanad.github.io`).
+
+```sh
+python3 generate_site.py            # writes site/index.html
+python3 generate_site.py -o ~/sirconanad.github.io/index.html
+```
+
 ## Notes
 
 - Commits are backdated to **noon local time** on the watched date for both
