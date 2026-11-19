@@ -67,12 +67,11 @@ def key_of(e: Entry) -> tuple[str, str]:
 
 
 def find_export() -> Path | None:
-    """Locate a Letterboxd backup zip near the repo."""
+    """Locate the newest Letterboxd backup zip near the repo."""
+    hits = []
     for d in (Path.cwd(), Path.cwd().parent):
-        hits = sorted(d.glob("letterboxd-*.zip"))
-        if hits:
-            return hits[0]
-    return None
+        hits.extend(d.glob("letterboxd-*.zip"))
+    return max(hits, key=lambda p: p.stat().st_mtime) if hits else None
 
 
 def read_zip(path: Path) -> dict[str, list[dict]]:

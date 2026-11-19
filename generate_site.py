@@ -1,9 +1,14 @@
 #!/usr/bin/env python3
 """Generate a static highlights page from the Letterboxd diary.
 
-Reads the repository's ``diary.json`` and ``sneak-gap.csv`` and writes a
+Reads the repository's ``diary.json`` and the sneak results CSV and writes a
 single self-contained ``site/index.html`` (inline CSS + inline contribution
 graph SVG) suitable for GitHub Pages.
+
+The repository layout expects sibling folders (see README):
+
+    ../graphs/graph.py            canonical contribution-graph module
+    ../sneak-preview/sneak-gap.csv   sneak-vs-Kinostart results
 
 Examples:
     python3 generate_site.py            # write site/index.html
@@ -14,11 +19,16 @@ import argparse
 import csv
 import html
 import json
+import sys
 from collections import Counter
 from datetime import date
 from pathlib import Path
 
-import letterboxd_graph as graph
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(PROJECT_ROOT / "graphs"))
+import graph  # canonical graphs/graph.py
+
+SNEAK_CSV_DEFAULT = PROJECT_ROOT / "sneak-preview" / "sneak-gap.csv"
 
 
 def escape(s):  # already-unicode-safe short alias
@@ -367,7 +377,7 @@ def main(args: list[str]) -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("-o", "--out", default="site/index.html")
     ap.add_argument("--diary", default="diary.json")
-    ap.add_argument("--sneaks", default="sneak-gap.csv")
+    ap.add_argument("--sneaks", default=str(SNEAK_CSV_DEFAULT))
     ns = ap.parse_args(args)
 
     diary = load_diary(Path(ns.diary))
