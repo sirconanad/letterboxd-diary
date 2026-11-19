@@ -14,6 +14,12 @@ Database (TMDB) for German cinema-release dates.
 > data-visualization projects, which is exactly what this project is — so the
 > scripts deliberately rely on the export instead.
 
+## Documentation
+
+Easy-to-follow per-script guides live in
+[`docs/`](../docs/README.md) — `graph.md`, `tags.md`, `sneak-gap.md`,
+`build.md` and `generate-site.md`.
+
 ## Repository layout
 
 ```
