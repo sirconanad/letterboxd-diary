@@ -36,6 +36,27 @@ you want fresh tags.
 Only edits to existing entries are *not* picked up (they're already
 committed); a `--full` run rewrites the film files from the current pages.
 
+## Sneak vs. Kinostart
+
+`sneak-gap.py` measures how far in advance each **sneak** / **ov sneak**
+screening happened compared to the German theatrical release (Kinostart).
+
+```sh
+export TMDB_API_KEY=...        # free key from themoviedb.org settings/api
+python3 sneak-gap.py                     # fetch lookups, print table
+python3 sneak-gap.py --csv sneak-gap.csv --markdown sneak-gap.md
+python3 sneak-gap.py --no-lookup         # just list the sneak films
+```
+
+- The watch dates and tags come from the Letterboxd data export (same
+  `letterboxd-*-utc.zip` as `build.py`); the German premiere comes from TMDB
+  (country `DE`, theatrical release).
+- The API key is never stored or committed — pass it via the `TMDB_API_KEY`
+  env var, `--api-key`, or a `~/.tmdb_api_key` file.
+- Lookup results are cached in `sneak-cache.json` (gitignored) so re-runs
+  cost no further API calls.
+- `sneak-gap.csv` and `sneak-gap.md` are the generated result exports.
+
 ## Notes
 
 - Commits are backdated to **noon local time** on the watched date for both
