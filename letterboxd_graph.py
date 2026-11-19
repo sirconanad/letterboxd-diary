@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 """Letterboxd diary -> GitHub-style contribution graph.
 
-Fetches a Letterboxd profile's diary (HTML pages or RSS) and renders the
-number of films watched per day as a contribution graph, similar to
-GitHub's.
+Pulls a profile's diary through the authenticated Letterboxd API
+(``GET /log-entries`` with ``where=HasDiaryDate``) and renders the number of
+films watched per day as a contribution graph, similar to GitHub's. An
+optional ``--source rss`` path uses the public RSS feed instead (recent
+activity only, no authentication required).
 
 Examples:
     python3 letterboxd_graph.py https://letterboxd.com/sirconanad/            # diary, current year
@@ -12,26 +14,26 @@ Examples:
     python3 letterboxd_graph.py https://letterboxd.com/sirconanad/ --source rss --all
     python3 letterboxd_graph.py https://letterboxd.com/sirconanad/ --svg graph.svg
 
-The Letterboxd RSS feed only carries recent activity, so the default
-``diary`` source scrapes the diary pages (which Cloudflare rate-limits;
-``curl_cffi`` is used for browser TLS impersonation when available).
+Authentication (OAuth2, see letterboxd_api.py):
 
-Pro tip: be a good citizen and add a delay between page fetches (--pause).
+    export LETTERBOXD_CLIENT_ID=...        # registered API key / client id
+    export LETTERBOXD_CLIENT_SECRET=...
+    python3 -m letterboxd_api login        # one-time browser approval
+
+The API token is cached in ``.letterboxd_tokens.json`` next to this repo.
 """
 
 import argparse
 import re
-import subprocess
 import sys
-import time
 from collections import Counter
 from datetime import date, timedelta
 from xml.etree import ElementTree
 
-try:
-    from curl_cffi import requests as cffi_requests
-except Exception:  # optional dependency
-    cffi_requests = None
+import urllib.error
+import urllib.request
+
+from letterboxd_api import LetterboxdData, LetterboxdError
 
 LETTERBOXD_NS = "https://letterboxd.com"
 
@@ -44,100 +46,25 @@ GITHUB_GREENS = {
 }
 NO_COLOR_CHARS = {0: " ", 1: ".", 2: "+", 3: "*", 4: "#"}
 
-BROWSER_HEADERS = {
+RSS_HEADERS = {
     "User-Agent": ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
                    "AppleWebKit/537.36 (KHTML, like Gecko) "
                    "Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0"),
-    "Accept": ("text/html,application/xhtml+xml,application/xml;q=0.9,"
-               "image/avif,image/webp,*/*;q=0.8"),
-    "Accept-Language": "en-US,en;q=0.9",
-    "Upgrade-Insecure-Requests": "1",
-    "sec-ch-ua": '"Not.A/Brand";v="8", "Chromium";v="125", '
-                 '"Microsoft Edge";v="125"',
-    "sec-ch-ua-mobile": "?0",
-    "sec-ch-ua-platform": '"Windows"',
-    "Sec-Fetch-Dest": "document",
-    "Sec-Fetch-Mode": "navigate",
-    "Sec-Fetch-Site": "same-origin",
-    "Sec-Fetch-User": "?1",
+    "Accept": "application/rss+xml, application/xml, text/xml, */*",
 }
-
-MONTHS = {m: i + 1 for i, m in enumerate(
-    ("jan", "feb", "mar", "apr", "may", "jun",
-     "jul", "aug", "sep", "oct", "nov", "dec"))}
 
 # ---------------------------------------------------------------- fetching
 
 
-def fetch_page(url: str, referer: str | None = None,
-               retries: int = 4, base_sleep: float = 2.0):
-    """Return (http_status, bytes). Retries with backoff on 403/429 blocks.
-
-    Tries curl_cffi (browser TLS impersonation) and falls back to the
-    ``curl`` binary.  A Cloudflare challenge response is treated as a
-    failure so it can be retried.
-    """
-    for attempt in range(retries):
-        if cffi_requests is not None:
-            try:
-                r = cffi_requests.get(url, impersonate="chrome",
-                                      headers=BROWSER_HEADERS,
-                                      referer=referer, timeout=30)
-                data = r.content
-                status = r.status_code
-                if status == 200 and b"Just a moment" in data[:20000]:
-                    status = 403  # Cloudflare interstitial, not real content
-                if status not in (403, 429):
-                    return status, data
-            except Exception:
-                pass
-        res = _fetch_curl(url, referer)
-        if res is not None and res[0] not in (403, 429):
-            return res
-        time.sleep(base_sleep * (attempt + 1))
-    return 403, b""
-
-
-def _fetch_curl(url: str, referer: str | None):
-    cmd = ["curl", "-sS", "-L", "--max-time", "40"]
-    for key, value in BROWSER_HEADERS.items():
-        cmd += ["-H", f"{key}: {value}"]
-    if referer:
-        cmd += ["-H", f"Referer: {referer}"]
-    cmd += ["-w", "\n__CODE__%{http_code}", url]
-    try:
-        proc = subprocess.run(cmd, capture_output=True, timeout=60)
-    except Exception:
-        return None
-    out = proc.stdout.split(b"__CODE__")
-    if len(out) != 2:
-        return None
-    try:
-        status = int(out[1])
-    except ValueError:
-        return None
-    data = out[0]
-    if status == 200 and b"Just a moment" in data[:20000]:
-        status = 403
-    return status, data
-
-
 def fetch_rss(user: str) -> bytes:
     url = f"https://letterboxd.com/{user}/rss/"
-    status, data = fetch_page(url)
-    if status != 200:
-        raise RuntimeError(f"could not fetch RSS ({status}); try the "
-                           f"diary source instead")
-    return data
-
-
-def diary_year_url(user: str, year: int | None) -> str:
-    if year is None:
-        return f"https://letterboxd.com/{user}/diary/"
-    return f"https://letterboxd.com/{user}/diary/films/for/{year}/"
-
-
-# ----------------------------------------------------------------- parsing
+    req = urllib.request.Request(url, headers=RSS_HEADERS)
+    try:
+        with urllib.request.urlopen(req, timeout=30) as resp:
+            return resp.read()
+    except urllib.error.HTTPError as exc:
+        raise RuntimeError(f"could not fetch RSS ({exc.code}); use the "
+                           f"diary (API) source instead") from exc
 
 
 def parse_rss(data: bytes) -> list[tuple[date, str, float | None, bool]]:
@@ -160,53 +87,6 @@ def parse_rss(data: bytes) -> list[tuple[date, str, float | None, bool]]:
     return entries
 
 
-def parse_diary_page(data: bytes):
-    """Parse one diary page -> (entries, has_next_page).
-
-    Rows are ordered newest-first; only the first row of each month carries
-    the month/year cells, so those values are carried forward for the rows
-    that follow.
-    """
-    text = data.decode("utf-8", "replace")
-    entries = []
-    cur_month = cur_year = None
-    start = text.find('id="diary-table"')
-    end = text.find("</table>", start) if start != -1 else -1
-    if start != -1 and end != -1:
-        table = text[start:end]
-        for row in re.findall(r'<tr class="diary-entry-row.*?</tr>',
-                              table, re.S):
-            ym = re.search(r'<a class="month"[^>]*>([A-Za-z]{3})</a>', row)
-            yy = re.search(r'<a class="year"[^>]*>(\d{4})</a>', row)
-            dd = re.search(r'<a class="daydate"[^>]*>(\d{1,2})</a>', row)
-            if ym and yy:
-                try:
-                    cur_month = MONTHS[ym.group(1).lower()]
-                except KeyError:
-                    continue
-                cur_year = int(yy.group(1))
-            if not dd or cur_month is None or cur_year is None:
-                continue
-            try:
-                when = date(cur_year, cur_month, int(dd.group(1)))
-            except ValueError:
-                continue
-            m = re.search(r'data-item-full-display-name="([^"]+)"', row)
-            title = re.sub(r"\s*\(\d{4}\)\s*$", "", m.group(1)) if m else "?"
-            rating = None
-            m = re.search(r'rateit-field[^>]*value="(\d+)"', row) \
-                or re.search(r'rating rated-(\d+)', row)
-            if m:
-                rating = int(m.group(1)) / 2
-                if rating <= 0:
-                    rating = None  # unrated entries carry value="0"
-            rew = re.search(r'class="[^"]*js-td-rewatch[^"]*"', row)
-            rewatch = rew is not None and "icon-status-off" not in rew.group(0)
-            entries.append((when, title, rating, rewatch))
-    has_next = re.search(r'class="next" href="[^"]+"', text) is not None
-    return entries, has_next
-
-
 def username_from_url(url: str) -> str:
     m = re.search(r'letterboxd\.com/([^/?#]+)', url)
     if not m:
@@ -221,40 +101,34 @@ def load_entries(source: str, user: str, scopes: list[int | None],
     ``scopes`` holds years to fetch, or ``[None]`` for the whole diary.
     """
     if source == "rss":
-        data = fetch_rss(user)
+        try:
+            data = fetch_rss(user)
+        except urllib.error.URLError as exc:
+            raise RuntimeError(f"could not fetch RSS: {exc}") from exc
         entries = parse_rss(data)
         return [(d, t, r, w) for d, t, r, w in entries
                 if None in scopes or d.year in scopes]
 
+    api = LetterboxdData()
+    lid = api.member_lid(user)
+    raw = api.log_entries(member=lid, where=("HasDiaryDate",), sort="Date")
     entries = []
-    for year in scopes:
-        base = diary_year_url(user, year)
-        page = 1
-        while page <= 60:
-            url = base if page == 1 else f"{base}page/{page}/"
-            status, data = fetch_page(url, referer=base)
-            if status == 404:
-                if page == 1:
-                    print(f"note: no diary for "
-                          f"{year or 'that filter'} ({status})",
-                          file=sys.stderr)
-                break
-            if status != 200:
-                print(f"error: diary page blocked ({status}); stopped at "
-                      f"page {page} of {year or 'diary'}", file=sys.stderr)
-                break
-            page_entries, has_next = parse_diary_page(data)
-            if not page_entries:
-                break
-            word = "entry" if len(page_entries) == 1 else "entries"
-            print(f"{year or 'all'}: page {page} -> "
-                  f"{len(page_entries)} {word}", file=sys.stderr)
-            entries.extend(page_entries)
-            if not has_next:
-                break
-            page += 1
-            if pause > 0:
-                time.sleep(pause)
+    for le in raw:
+        diary = le.get("diaryDetails") or {}
+        prod = le.get("production") or {}
+        when_text = diary.get("diaryDate")
+        if not when_text:
+            continue
+        try:
+            when = date.fromisoformat(when_text)
+        except ValueError:
+            continue
+        if None not in scopes and when.year not in scopes:
+            continue
+        entries.append((when, (prod.get("name") or "?").strip(),
+                        le.get("rating"), bool(diary.get("rewatch"))))
+    print(f"api: {len(entries)} diary entries for {user}",
+          file=sys.stderr)
     return entries
 
 
@@ -380,8 +254,8 @@ def main(argv: list[str]) -> int:
                                     "https://letterboxd.com/USER/")
     parser.add_argument("--source", choices=("diary", "rss"),
                         default="diary",
-                        help="diary = scraped diary pages (full history); "
-                             "rss = recent-activity feed")
+                        help="diary = API (authenticated, full history); "
+                             "rss = public recent-activity feed")
     parser.add_argument("--year", action="append", type=int, metavar="YYYY",
                         help="Restrict to year(s); repeatable. "
                              "Default: current year.")
@@ -395,8 +269,8 @@ def main(argv: list[str]) -> int:
     parser.add_argument("--months", type=int,
                         help="Graph window: last N months")
     parser.add_argument("--pause", type=float, default=2.0,
-                        help="Delay between page fetches in seconds "
-                             "(default 2.0)")
+                        help="Ignored for the API source; kept for the RSS "
+                             "path and CLI compatibility")
     parser.add_argument("--svg", metavar="FILE",
                         help="Also write an SVG render to FILE")
     parser.add_argument("--no-color", action="store_true",
@@ -410,13 +284,10 @@ def main(argv: list[str]) -> int:
         return 1
 
     today = date.today()
-    if args.source == "rss":
-        scopes = [None] if args.all else sorted(args.year or [today.year])
-    else:
-        scopes = [None] if args.all else sorted(args.year or [today.year])
+    scopes = [None] if args.all else sorted(args.year or [today.year])
     try:
         entries = load_entries(args.source, user, scopes, args.pause)
-    except RuntimeError as exc:
+    except (RuntimeError, LetterboxdError) as exc:
         print(f"error: {exc}", file=sys.stderr)
         return 1
 

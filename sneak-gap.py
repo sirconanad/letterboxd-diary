@@ -39,6 +39,8 @@ from dataclasses import asdict, dataclass
 from datetime import date, datetime
 from pathlib import Path
 
+from letterboxd_api import LetterboxdData, LetterboxdError
+
 SLEAK_TAGS = ("sneak", "ov sneak")
 
 
@@ -92,6 +94,38 @@ def collect_sneaks(rows: list[dict]) -> list[Sneak]:
                   if t.strip()],
         ))
     return out
+
+
+# --------------------------------------------------------------------- API
+
+
+def rows_from_api() -> list[dict]:
+    """Pull the diary through the authenticated Letterboxd API.
+
+    Shapes each log entry like a row of the export CSV (Name, Year, Watched
+    Date, Tags) so the existing collection logic can be reused. Uses the
+    release year from the production, and diary tags from ``tags2``.
+    """
+    api = LetterboxdData()
+    lid = api.me().get("id")
+    raw = api.log_entries(member=lid, where=("HasDiaryDate",), sort="Date")
+    rows = []
+    for le in raw:
+        diary = le.get("diaryDetails") or {}
+        prod = le.get("production") or {}
+        when = diary.get("diaryDate")
+        if not when:
+            continue
+        tags = [(t.get("displayTag") or t.get("code"))
+                for t in (le.get("tags2") or [])]
+        tags = [t for t in tags if t]
+        rows.append({
+            "Name": (prod.get("name") or "?").strip(),
+            "Year": str(prod.get("releaseYear") or ""),
+            "Watched Date": when,
+            "Tags": ", ".join(tags),
+        })
+    return rows
 
 
 # -------------------------------------------------------------------- TMDB
@@ -279,7 +313,8 @@ def fmt_markdown(sneaks: list[Sneak]) -> str:
 def main(argv: list[str]) -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--export", metavar="PATH",
-                    help="Letterboxd backup zip or diary.csv (auto-detected)")
+                    help="letterboxd backup zip or diary.csv to use instead "
+                         "of the authenticated API (auto-detected)")
     ap.add_argument("--api-key", dest="api_key",
                     help="TMDB API key (or set TMDB_API_KEY)")
     ap.add_argument("--no-lookup", action="store_true",
@@ -294,15 +329,31 @@ def main(argv: list[str]) -> int:
                     help="only process the first N films (testing)")
     args = ap.parse_args(argv)
 
-    export = Path(args.export) if args.export else find_export()
-    if export is None or not export.exists():
-        print("error: no export found; pass --export PATH", file=sys.stderr)
-        return 1
-    sneaks = collect_sneaks(read_diary_csv(export))
+    # Prefer the authenticated API; fall back to a local data export.
+    from_api = False
+    if not args.export:
+        try:
+            sneaks = collect_sneaks(rows_from_api())
+            from_api = True
+        except LetterboxdError as exc:
+            print(f"note: letterboxd API unavailable ({exc}); "
+                  f"falling back to the data export", file=sys.stderr)
+    if not from_api:
+        export = Path(args.export) if args.export else find_export()
+        if export is None or not export.exists():
+            print("error: no Letterboxd export found and the API could not "
+                  "be used; pass --export PATH or set the LETTERBOXD_* "
+                  "environment variables (see letterboxd_api.py)",
+                  file=sys.stderr)
+            return 1
+        sneaks = collect_sneaks(read_diary_csv(export))
+        print(f"{export} -> {len(sneaks)} sneak/OV-sneak "
+              f"entr{'y' if len(sneaks) == 1 else 'ies'}")
+    else:
+        print(f"API -> {len(sneaks)} sneak/OV-sneak "
+              f"entr{'y' if len(sneaks) == 1 else 'ies'}")
     if args.limit:
         sneaks = sneaks[: args.limit]
-    print(f"{export} -> {len(sneaks)} sneak/OV-sneak "
-          f"entr{'y' if len(sneaks) == 1 else 'ies'}")
     if not sneaks:
         return 0
 

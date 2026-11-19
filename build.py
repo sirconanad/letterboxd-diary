@@ -1,118 +1,53 @@
 #!/usr/bin/env python3
-"""Fetch a Letterboxd diary and backdate one git commit per film.
+"""Fetch a Letterboxd diary via the official API and backdate one git commit
+per film.
 
-- Scrapes the public diary pages (Cloudflare-protected; uses curl_cffi
-  browser impersonation, falls back to the curl binary).
-- Incremental: only pulls entries that are not yet committed. The diary is
-  served newest-first, so pages are fetched until one contains no new entry
-  (everything older is already committed).
-- Writes ``diary.json`` (a merged record of everything pulled so far) and
-  one markdown file per new film under ``films/``.
+- Pulls the diary through the authenticated Letterboxd API
+  (``GET /log-entries`` with ``where=HasDiaryDate``), see letterboxd_api.py
+  and https://api-docs.letterboxd.com/ for setup.
+- Incremental: only pulls entries that are not yet committed. Already
+  committed entries are skipped, everything else is new.
+- Writes ``diary.json`` (a merged record of everything pulled so far, now
+  including ``year`` and ``tags`` from the API) and one markdown file per new
+  film under ``films/``.
 - Creates one git commit per new film in chronological order, with both the
-  author and committer dates set to noon (local time) on the day the film
-  was watched, so GitHub's contribution graph shows it on that day.
+  author and committer dates set to noon (local time) on the day the film was
+  watched, so GitHub's contribution graph shows it on that day.
 
 Requires a git repo. Commits are authored as ``sirconanad
 <sirconanad@cock.li>``.
-Already-committed entries are never re-fetched beyond the first page that
-falls entirely within the committed region.
+
+Authentication (OAuth2):
+
+    export LETTERBOXD_CLIENT_ID=...    # your registered API key/client id
+    export LETTERBOXD_CLIENT_SECRET=...
+    python3 -m letterboxd_api login    # one-time browser approval
+
+Tags come straight from the API (``LogEntry.tags2``), so a data export is no
+longer required; ``--export PATH`` remains as an optional fallback for entries
+the API would otherwise leave untagged.
 """
 
 import argparse
 import csv
-import html
 import io
 import json
 import os
 import re
 import subprocess
 import sys
-import time
 import zipfile
 from collections import Counter, defaultdict, deque
 from dataclasses import asdict, dataclass, field
 from datetime import date, datetime, time as dtime
 from pathlib import Path
 
-try:
-    from curl_cffi import requests as cffi_requests
-except Exception:  # optional dependency
-    cffi_requests = None
+from letterboxd_api import LetterboxdData, LetterboxdError
 
 USER = "sirconanad"
 AUTHOR_NAME = "sirconanad"
 AUTHOR_EMAIL = "sirconanad@cock.li"
-BASE = f"https://letterboxd.com/{USER}/diary"
-PAUSE = 1.2          # seconds between page fetches (be a good citizen)
-MAX_PAGES = 200      # safety cap
 COMMIT_HOUR = 12     # noon local, keeps US/Pacific day aligned
-
-BROWSER_HEADERS = {
-    "User-Agent": ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-                   "AppleWebKit/537.36 (KHTML, like Gecko) "
-                   "Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0"),
-    "Accept": ("text/html,application/xhtml+xml,application/xml;q=0.9,"
-               "image/avif,image/webp,*/*;q=0.8"),
-    "Accept-Language": "en-US,en;q=0.9",
-    "Upgrade-Insecure-Requests": "1",
-    "Sec-Fetch-Dest": "document",
-    "Sec-Fetch-Mode": "navigate",
-    "Sec-Fetch-Site": "same-origin",
-}
-
-MONTHS = {m: i + 1 for i, m in enumerate(
-    ("jan", "feb", "mar", "apr", "may", "jun",
-     "jul", "aug", "sep", "oct", "nov", "dec"))}
-
-
-# ---------------------------------------------------------------- fetching
-
-
-def _fetch_curl(url: str, referer: str):
-    cmd = ["curl", "-sS", "-L", "--max-time", "40"]
-    for key, value in BROWSER_HEADERS.items():
-        cmd += ["-H", f"{key}: {value}"]
-    cmd += ["-H", f"Referer: {referer}"]
-    cmd += ["-w", "\n__CODE__%{http_code}", url]
-    try:
-        proc = subprocess.run(cmd, capture_output=True, timeout=60)
-    except Exception:
-        return None
-    out = proc.stdout.split(b"__CODE__")
-    if len(out) != 2:
-        return None
-    try:
-        status = int(out[1])
-    except ValueError:
-        return None
-    return status, out[0]
-
-
-def fetch_page(url: str, referer: str, retries: int = 5,
-               base_sleep: float = 2.0):
-    """Return (http_status, text). Retries with backoff on 403/429."""
-    for attempt in range(retries):
-        if cffi_requests is not None:
-            try:
-                r = cffi_requests.get(url, impersonate="chrome",
-                                      headers=BROWSER_HEADERS,
-                                      referer=referer, timeout=40)
-                data = r.content
-                status = r.status_code
-                if status == 200 and b"Just a moment" in data[:20000]:
-                    status = 403
-                if status not in (403, 429):
-                    return status, data
-            except Exception:
-                pass
-        res = _fetch_curl(url, referer)
-        if res is not None and res[0] not in (403, 429):
-            return res[0], res[1]
-        time.sleep(base_sleep * (attempt + 1))
-    return 403, b""
-
-
-# ----------------------------------------------------------------- parsing
 
 
 @dataclass
@@ -123,89 +58,70 @@ class Entry:
     rewatch: bool
     liked: bool = False
     tags: list[str] = field(default_factory=list)
+    year: int | None = None
 
 
 def key_of(e: Entry) -> tuple[str, str]:
     return (e.when.isoformat(), safe_filename(e.title).lower())
 
 
-def parse_diary_page(text: str) -> tuple[list[Entry], bool]:
-    """Parse one diary page -> (entries, has_next_page)."""
-    entries: list[Entry] = []
-    cur_month = cur_year = None
-    start = text.find('id="diary-table"')
-    end = text.find("</table>", start) if start != -1 else -1
-    if start != -1 and end != -1:
-        table = text[start:end]
-        for row in re.findall(r'<tr class="diary-entry-row.*?</tr>',
-                              table, re.S):
-            ym = re.search(r'<a class="month"[^>]*>([A-Za-z]{3})</a>', row)
-            yy = re.search(r'<a class="year"[^>]*>(\d{4})</a>', row)
-            dd = re.search(r'<a class="daydate"[^>]*>(\d{1,2})</a>', row)
-            if ym and yy:
-                try:
-                    cur_month = MONTHS[ym.group(1).lower()]
-                except KeyError:
-                    continue
-                cur_year = int(yy.group(1))
-            if not dd or cur_month is None or cur_year is None:
-                continue
-            try:
-                when = date(cur_year, cur_month, int(dd.group(1)))
-            except ValueError:
-                continue
-            m = re.search(r'data-item-full-display-name="([^"]+)"', row)
-            title = html.unescape(
-                re.sub(r"\s*\(\d{4}\)\s*$", "", m.group(1))) if m else "?"
-            rating = None
-            m = re.search(r'rateit-field[^>]*value="(\d+)"', row) \
-                or re.search(r'rating rated-(\d+)', row)
-            if m:
-                rating = int(m.group(1)) / 2
-                if rating <= 0:
-                    rating = None
-            rew = re.search(r'class="[^"]*js-td-rewatch[^"]*"', row)
-            rewatch = rew is not None and "icon-status-off" not in rew.group(0)
-            liked = "icon-liked" in row
-            entries.append(Entry(when, title, rating, rewatch, liked))
-    has_next = re.search(r'class="next" href="[^"]+"', text) is not None
-    return entries, has_next
+# ----------------------------------------------------------------- fetching
+
+
+def get_api() -> LetterboxdData:
+    """Build an authenticated API client, resolving our own member LID."""
+    api = LetterboxdData()
+    return api
+
+
+def member_lid(api: LetterboxdData) -> str:
+    me = api.me()
+    return me.get("id")
 
 
 def fetch_new_entries(known: Counter, full: bool = False) -> list[Entry]:
-    """Fetch diary pages (newest-first) until everything newer is known.
+    """Pull the whole diary via the API and keep entries not yet committed.
 
     ``known`` is a multiset of (date, base-title) already committed; each
-    matching diary row consumes one entry. Returns only rows with nothing
-    left to consume. Stops at the first page that contains no new entry (all
-    older pages must be committed too), unless ``full`` is set.
+    matching entry consumes one slot, exactly like the scraped builder.
+    Returns only the entries with nothing left to consume, newest first (so
+    ``main`` can reverse them into chronological order for committing).
     """
+    api = get_api()
+    lid = member_lid(api)
+    raw = api.log_entries(member=lid, where=("HasDiaryDate",), sort="Date")
+    print(f"api: {len(raw)} diary entry/entries for {USER}", file=sys.stderr)
+
     new_entries: list[Entry] = []
-    for page in range(1, MAX_PAGES + 1):
-        url = BASE if page == 1 else f"{BASE}/page/{page}/"
-        status, data = fetch_page(url, referer=BASE)
-        if status != 200:
-            print(f"error: blocked fetching {url} ({status})", file=sys.stderr)
-            break
-        text = data.decode("utf-8", "replace")
-        page_entries, has_next = parse_diary_page(text)
-        page_new = []
-        for e in page_entries:
-            key = key_of(e)
-            if known.get(key, 0) > 0:
-                known[key] -= 1
-                continue
-            page_new.append(e)
-        new_entries.extend(page_new)
-        word = "entry" if len(page_new) == 1 else "entries"
-        print(f"page {page}: {len(page_entries)} total, "
-              f"{len(page_new)} new {word}", file=sys.stderr)
-        if not has_next or not page_entries:
-            break
-        if not full and not page_new:
-            print("  stopping (rest already committed)", file=sys.stderr)
-            break
-        time.sleep(PAUSE)
+    missing_tags = 0
+    for le in raw:
+        diary = le.get("diaryDetails") or {}
+        prod = le.get("production") or {}
+        tags = [(t.get("displayTag") or t.get("code"))
+                for t in (le.get("tags2") or [])]
+        tags = [t for t in tags if t]
+        if not tags:
+            missing_tags += 1
+        e = Entry(
+            when=date.fromisoformat(diary.get("diaryDate")),
+            title=(prod.get("name") or "?").strip(),
+            rating=le.get("rating"),
+            rewatch=bool(diary.get("rewatch")),
+            liked=bool(le.get("like")),
+            tags=tags,
+            year=prod.get("releaseYear"),
+        )
+        key = key_of(e)
+        if known.get(key, 0) > 0:
+            known[key] -= 1
+            continue  # already committed
+        new_entries.append(e)
+
+    if missing_tags:
+        print(f"note: {missing_tags} entry/entries without tags from the API",
+              file=sys.stderr)
+
+    new_entries.sort(key=lambda e: e.when, reverse=True)  # newest first
     return new_entries
 
 
@@ -227,8 +143,7 @@ def find_export() -> Path | None:
 def load_export_tags(path: Path) -> dict[tuple[str, str], deque]:
     """Map (watched-date, name) -> deque of tag lists from the backup.
 
-    Letterboxd's diary page does not expose tags; they only come from the
-    official data export (``diary.csv`` inside the backup zip).
+    Fallback source of tags for entries the API did not tag.
     """
     result: dict[tuple[str, str], deque] = defaultdict(deque)
     if zipfile.is_zipfile(path):
@@ -247,8 +162,11 @@ def load_export_tags(path: Path) -> dict[tuple[str, str], deque]:
 
 
 def apply_tags(entries: list[Entry], tagmap: dict[tuple[str, str], deque]) -> int:
+    """Fill in export tags for entries that have none from the API."""
     matched = 0
     for e in entries:
+        if e.tags:
+            continue
         bucket = tagmap.get((e.when.isoformat(), e.title))
         if bucket:
             e.tags = bucket.popleft()
@@ -374,6 +292,19 @@ def load_diary_json(path: Path) -> list[dict]:
         return []
 
 
+def merge_diary(merged: list[dict], new_entries: list[Entry]):
+    """Append API entries that aren't already represented in diary.json."""
+    merged_keys = {(e.get("when"), e.get("title")) for e in merged}
+    for e in new_entries:
+        row = asdict(e)
+        row["when"] = e.when.isoformat()
+        key = (row["when"], e["title"])
+        if key not in merged_keys:
+            merged.append(row)
+            merged_keys.add(key)
+    return merged
+
+
 # -------------------------------------------------------------------- main
 
 
@@ -383,10 +314,10 @@ def main(argv: list[str]) -> int:
     ap.add_argument("--no-commit", action="store_true",
                     help="fetch and write files but do not commit")
     ap.add_argument("--export", metavar="PATH",
-                    help="Path to Letterboxd backup zip or diary.csv "
-                         "(source of tags)")
+                    help="optional Letterboxd backup zip or diary.csv as a "
+                         "fallback source of tags")
     ap.add_argument("--full", action="store_true",
-                    help="ignore committed state; fetch every page")
+                    help="ignore committed state; treat every diary entry as new")
     args = ap.parse_args(argv)
 
     identity = git_identity() if not args.no_commit else {}
@@ -399,16 +330,20 @@ def main(argv: list[str]) -> int:
         known, base_counts = Counter(), {}
     print(f"already committed: {sum(known.values())} film(s)", file=sys.stderr)
 
-    # Newest-first from the site -> chronological for oldest-first commits.
-    new_entries = fetch_new_entries(known, full=args.full)
+    sys.path.insert(0, str(repo))
+    try:
+        new_entries = fetch_new_entries(known, full=args.full)
+    except LetterboxdError as exc:
+        print(f"error: {exc}", file=sys.stderr)
+        return 1
     if not new_entries:
         print("no new diary entries to add", file=sys.stderr)
         return 0
-    new_entries.reverse()
+    new_entries.reverse()  # newest-first -> chronological for commits
     print(f"{len(new_entries)} new film(s): "
           f"{new_entries[0].when} .. {new_entries[-1].when}", file=sys.stderr)
 
-    # Likes are scraped from the diary page; tags come from the data export.
+    # Optional export fallback for tags the API did not provide.
     export_path = Path(args.export) if args.export else find_export()
     if export_path is not None and export_path.exists():
         tagmap = load_export_tags(export_path)
@@ -416,16 +351,12 @@ def main(argv: list[str]) -> int:
         print(f"tags merged from {export_path.name}: "
               f"{ntags}/{len(new_entries)} entry(ies)", file=sys.stderr)
     else:
-        print("note: no Letterboxd export found next to the repo; "
-              "tags will be empty (pass --export PATH)", file=sys.stderr)
+        print("note: no Letterboxd export found next to the repo; tags come "
+              "from the API", file=sys.stderr)
 
     # Merge into diary.json (kept as a complete chronological record).
     merged = load_diary_json(repo / "diary.json")
-    merged_keys = {(e.get("when"), e.get("title")) for e in merged}
-    for e in new_entries:
-        key = (e.when.isoformat(), e.title)
-        if key not in merged_keys:
-            merged.append(asdict(e))
+    merged = merge_diary(merged, new_entries)
     (repo / "diary.json").write_text(
         json.dumps(merged, indent=2, default=str) + "\n", encoding="utf-8")
 
