@@ -240,9 +240,16 @@ def sneak_rows_html(sneaks: list[dict]) -> str:
         else:
             gap = "<span class='gap-grey'>n/a</span>"
             ks = "–"
+        rating = (s.get("rating") or "").strip()
+        rt = escape(rating) if rating else "–"
+        liked = (s.get("liked") or "").strip().lower()
+        lk = ("<span class='like'>♥</span>"
+              if liked in ("1", "true", "yes", "y") else "–")
         rows.append(
             f"<tr><td class='t-title'>{escape(s['title'])}</td>"
             f"<td>{escape(s['year'])}</td>"
+            f"<td class='t-rating'>{rt}</td>"
+            f"<td class='t-like'>{lk}</td>"
             f"<td>{s['watched']}</td><td>{ks}</td>"
             f"<td class='t-gap'>{gap}</td>"
             f"<td class='t-tags'>{escape(s.get('tags') or '')}</td></tr>")
@@ -326,6 +333,8 @@ PAGE = """<!doctype html>
   .gap-late {{ color:var(--late); }} .gap-grey {{ color:var(--muted); }}
   .t-title {{ white-space:normal; min-width:180px; }}
   .t-tags {{ color:var(--muted); white-space:normal; max-width:220px; }}
+  .t-rating {{ text-align:center; }}
+  .t-like {{ text-align:center; }} .like {{ color:var(--late); }}
   .scroll {{ overflow:auto; max-height:520px; border:1px solid var(--border);
          border-radius:10px; }}
   .subtle {{ color:var(--muted); font-size:13px; }}
@@ -357,7 +366,7 @@ PAGE = """<!doctype html>
 
 <h2>Sneak / OV-sneak vs. German cinema release <small>({sneak_count} entries, on average {avg_gap} days early)</small></h2>
 <div class="scroll"><table>
-  <thead><tr><th scope="col">Film</th><th scope="col">Year</th>
+  <thead><tr><th scope="col">Film</th><th scope="col">Year</th><th scope="col">Rating</th><th scope="col">Liked</th>
   <th scope="col">Watched</th>
   <th scope="col">Cinema release (DE)</th><th scope="col" class="t-gap">Gap</th><th scope="col">Tags</th></tr></thead>
   <tbody>{sneak_rows}</tbody>
