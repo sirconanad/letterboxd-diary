@@ -37,23 +37,25 @@ def load_sneaks(path: Path) -> list[dict]:
     return rows
 
 
-SVG_BG = "#1f2430"  # blends with the dark theme instead of white
+SVG_BG = "#1f2430"     # blends with the dark theme instead of white
+SVG_EMPTY = "#2c3240"  # no-activity day cells
 
 
 def year_graph_svg(diary: list[dict], year: int) -> str:
     ds = [e for e in diary if e["when"].startswith(str(year))]
     if not ds:
         return ""
-    counts = Counter(e["when"] for e in ds)
+    counts = Counter(date.fromisoformat(e["when"]) for e in ds)
     start = date(year, 1, 1)
     end = date(year, 12, 31) if year < date.today().year else date.today()
     levels = graph.build_levels(counts)
     svg = graph.render_svg(levels, counts, start, end)
-    return svg.replace('fill="#ffffff"', f'fill="{SVG_BG}"')
+    return (svg.replace('fill="#ffffff"', f'fill="{SVG_BG}"')
+               .replace('fill="#ebedf0"', f'fill="{SVG_EMPTY}"'))
 
 
 def yearly_graphs_html(diary: list[dict]) -> str:
-    years = sorted({int(e["when"][:4]) for e in diary})
+    years = sorted({int(e["when"][:4]) for e in diary}, reverse=True)
     blocks = []
     for year in years:
         svg = year_graph_svg(diary, year)
