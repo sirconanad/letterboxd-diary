@@ -1,39 +1,34 @@
 #!/usr/bin/env python3
 """Letterboxd diary tag analysis: groups, rankings and charts.
 
-Pulls a profile's diary tags through the authenticated Letterboxd API:
-``GET /member/{id}/log-entry-tags`` for the tag list and
-``GET /log-entries?includeTags=...`` for the entries carrying each tag. It
-then produces:
-
+Reads a fresh Letterboxd data export (``letterboxd-*.zip``, from
+https://letterboxd.com/settings/data/) and analyses the diary tags:
   * a ranked tag list grouped by frequency tier (and optional custom rules)
   * a horizontal bar chart (terminal + SVG)
   * per-tag monthly trends (terminal table + SVG multi-line chart)
   * a co-occurrence matrix (which tags are used together) and top pairs
 
-Authentication (OAuth2, see letterboxd_api.py):
-
-    export LETTERBOXD_CLIENT_ID=...        # registered API key / client id
-    export LETTERBOXD_CLIENT_SECRET=...
-    python3 -m letterboxd_api login        # one-time browser approval
+No HTML scraping and no Letterboxd API -- the export is the only data source.
 
 Examples:
-    python3 letterboxd_tags.py https://letterboxd.com/sirconanad/
-    python3 letterboxd_tags.py <url> --top 20 --year 2026
-    python3 letterboxd_tags.py <url> --group "cinema|kino=cinemas" --svg out.svg
-    python3 letterboxd_tags.py <url> --all-tags --json tags.json --svg out.svg
-    python3 letterboxd_tags.py <url> --tag schauburg --tag cinema --svg out.svg
+    python3 letterboxd_tags.py letterboxd-....zip
+    python3 letterboxd_tags.py letterboxd-....zip --top 20 --year 2026
+    python3 letterboxd_tags.py <export> --group "cinema|kino=cinemas" --svg out.svg
+    python3 letterboxd_tags.py <export> --all-tags --json tags.json --svg out.svg
+    python3 letterboxd_tags.py <export> --tag schauburg --tag cinema --svg out.svg
 """
 
 import argparse
+import csv
+import io
 import json
 import re
 import sys
+import zipfile
 from collections import Counter, defaultdict
 from datetime import date
 from html import escape as html_escape
-
-from letterboxd_api import LetterboxdData, LetterboxdError
+from pathlib import Path
 
 BLOCKS = "\u2581\u2582\u2583\u2584\u2585\u2586\u2587\u2588"  # ▁..█
 MONTH_ABBR = "JFMAMJJASOND"
@@ -43,41 +38,52 @@ PALETTE = ["#216e39", "#9be9a8", "#30a14e", "#40c463", "#7a9e4f",
            "#1e6b4e", "#8fd4a8", "#55a868"]
 
 
-# ---------------------------------------------------------------- fetching
+# ---------------------------------------------------------------- reading
 
 
-def fetch_tag_list(api: LetterboxdData, member: str
-                   ) -> list[tuple[str, str, int]]:
-    """Return [(tag code, display label, diary-entry count), ...]."""
-    items = api.member_log_entry_tags(member)
-    tags = []
-    for it in items:
-        code = it.get("code") or ""
-        label = it.get("displayTag") or it.get("tag") or code
-        counts = it.get("counts") or {}
-        count = int(counts.get("films", 0) or 0)
-        tags.append((code, label, count))
-    tags.sort(key=lambda t: t[2], reverse=True)
-    return tags
+def find_export() -> Path | None:
+    """Locate a Letterboxd backup zip near the repo."""
+    for d in (Path.cwd(), Path.cwd().parent):
+        hits = sorted(d.glob("letterboxd-*.zip"))
+        if hits:
+            return hits[0]
+    return None
 
 
-def fetch_tag_keys(api: LetterboxdData, member: str, code: str
-                   ) -> list[tuple[date, str]]:
-    """Fetch the diary entries carrying one tag -> [(date, film_key), ...]."""
-    entries = api.log_entries(member=member, where=("HasDiaryDate",),
-                              tag_codes=[code])
+def diary_rows(path: Path) -> list[dict]:
+    if not zipfile.is_zipfile(path):
+        raise ValueError(f"{path} is not a Letterboxd export zip")
+    with zipfile.ZipFile(path) as zf:
+        raw = zf.read("diary.csv").decode("utf-8", "replace")
+    return list(csv.DictReader(io.StringIO(raw)))
+
+
+def entry_tags(e: dict) -> list[str]:
+    return [t.strip() for t in (e.get("Tags") or "").split(",") if t.strip()]
+
+
+def fetch_tag_list(rows: list[dict]) -> list[tuple[str, str, int]]:
+    """Return [(tag, label, count), ...] sorted by count (label == tag)."""
+    counts = Counter(t for e in rows for t in entry_tags(e))
+    return [(tag, tag, n) for tag, n in counts.most_common()]
+
+
+def fetch_tag_keys(rows: list[dict], label: str) -> list[tuple[date, str]]:
+    """Diary entries carrying a tag -> [(watched date, film key), ...]."""
     keys = []
-    for le in entries:
-        diary = le.get("diaryDetails") or {}
-        prod = le.get("production") or {}
-        when_text = diary.get("diaryDate")
+    want = label.lower()
+    for e in rows:
+        if not any(t.lower() == want for t in entry_tags(e)):
+            continue
+        when_text = (e.get("Watched Date") or "").strip()
+        name = (e.get("Name") or "?").strip()
         if not when_text:
             continue
         try:
             when = date.fromisoformat(when_text)
         except ValueError:
             continue
-        keys.append((when, prod.get("id") or prod.get("name") or "?"))
+        keys.append((when, name.lower()))
     return keys
 
 
@@ -229,7 +235,7 @@ def _matrix_svg(tags: list[str], matrix: list[list[int]],
     return out
 
 
-def build_svg(user: str, year: int, tags, rules, want, labels,
+def build_svg(title_note: str, year: int, tags, rules, want, labels,
               keys_by_tag, matrix_n: int) -> str:
     """Assemble every chart into one SVG, stacked top to bottom."""
     W = 960
@@ -242,7 +248,7 @@ def build_svg(user: str, year: int, tags, rules, want, labels,
 
     out += _bar_chart_svg(
         [(label, None, c) for _s, label, c in tags[:15]],
-        x, y, 460, 300, f"Most-used diary tags — {user}", False)
+        x, y, 460, 300, f"Most-used diary tags — {title_note}", False)
     y += 340
 
     if rules:
@@ -280,20 +286,17 @@ def build_svg(user: str, year: int, tags, rules, want, labels,
 # ------------------------------------------------------------------- main
 
 
-def get_api_member(api: LetterboxdData, user: str) -> str:
-    return api.member_lid(user)
-
-
 def main(argv: list[str]) -> int:
     parser = argparse.ArgumentParser(
-        description="Analyse a Letterboxd profile's diary tags.")
-    parser.add_argument("url", help="Letterboxd profile URL, e.g. "
-                                    "https://letterboxd.com/USER/")
+        description="Analyse a Letterboxd diary export's tags.")
+    parser.add_argument("export", nargs="?",
+                        help="Path to a Letterboxd data export zip "
+                             "(auto-detected next to the repo)")
     parser.add_argument("--top", type=int, default=10,
                         help="Number of top tags to fetch in detail "
                              "(default 10)")
-    parser.add_argument("--tag", action="append", metavar="CODE",
-                        help="Explicit tag code(s) to analyse instead of "
+    parser.add_argument("--tag", action="append", metavar="LABEL",
+                        help="Explicit tag label(s) to analyse instead of "
                              "the top-N")
     parser.add_argument("--year", type=int,
                         help="Year for monthly trends "
@@ -309,60 +312,53 @@ def main(argv: list[str]) -> int:
                              "SVG (default 0 = off)")
     parser.add_argument("--all-tags", action="store_true",
                         help="Fetch diary entries for every tag (slower)")
-    parser.add_argument("--pause", type=float, default=0.0,
-                        help="Ignored (API); kept for CLI compatibility")
     parser.add_argument("--svg", metavar="FILE",
                         help="Write charts to an SVG file")
     parser.add_argument("--json", metavar="FILE",
                         help="Write analysis data to a JSON file")
-    parser.add_argument("--no-color", action="store_true",
-                        help="Disable ANSI colour in terminal output")
     args = parser.parse_args(argv)
 
-    try:
-        from letterboxd_graph import username_from_url
-    except ImportError:  # pragma: no cover
-        print("error: could not import letterboxd_graph.py -- run this "
-              "from the same directory", file=sys.stderr)
-        return 1
-    try:
-        user = username_from_url(args.url)
-    except ValueError as exc:
-        print(f"error: {exc}", file=sys.stderr)
+    path = Path(args.export) if args.export else find_export()
+    if path is None or not path.exists():
+        print("error: no Letterboxd data export found; download one from "
+              "https://letterboxd.com/settings/data/ and pass its path or "
+              "place it next to the repo", file=sys.stderr)
         return 1
 
     year = args.year or date.today().year
 
     try:
-        api = LetterboxdData()
-        member = get_api_member(api, user)
-        print(f"Fetching tag list for {user} ...", file=sys.stderr)
-        tags = fetch_tag_list(api, member)
-    except LetterboxdError as exc:
-        print(f"error: {exc}", file=sys.stderr)
+        rows = diary_rows(path)
+    except (ValueError, OSError, KeyError, csv.Error) as exc:
+        print(f"error: could not read export: {exc}", file=sys.stderr)
         return 1
+    print(f"{path.name}: {len(rows)} diary entry/entries", file=sys.stderr)
+
+    tags = fetch_tag_list(rows)
     tags = [t for t in tags if t[2] >= args.min_count]
     if not tags:
-        print("no tags found for this profile", file=sys.stderr)
+        print("no tags found in this export", file=sys.stderr)
         return 1
 
     if args.tag:
-        by_slug = {t[0]: t for t in tags}
-        missing = [s for s in args.tag if s not in by_slug]
+        by_label = {t[1].lower(): t for t in tags}
+        missing = [s for s in args.tag if s.lower() not in by_label]
         if missing:
-            print(f"note: unknown tag code(s): {', '.join(missing)}",
+            print(f"note: unknown tag(s): {', '.join(missing)}",
                   file=sys.stderr)
-        want = [by_slug[s] for s in args.tag if s in by_slug]
+        want = [by_label[s.lower()] for s in args.tag if s.lower() in by_label]
     else:
         want = tags if args.all_tags else tags[:args.top]
 
     labels = {t[0]: t[1] for t in tags}
     keys_by_tag: dict[str, list[tuple[date, str]]] = {}
+
+    tags_by_lower = {t[1].lower(): t[1] for t in tags}
     print(f"Fetching diary entries for {len(want)} tag(s) ...",
           file=sys.stderr)
     for idx, (code, label, _count) in enumerate(want, 1):
         print(f"  [{idx}/{len(want)}] {label} ({code})", file=sys.stderr)
-        keys_by_tag[code] = fetch_tag_keys(api, member, code)
+        keys_by_tag[code] = fetch_tag_keys(rows, tags_by_lower[label.lower()])
 
     entry_tags: dict[tuple[date, str], set] = defaultdict(set)
     for slug, keys in keys_by_tag.items():
@@ -442,9 +438,9 @@ def main(argv: list[str]) -> int:
     # ---- JSON / SVG
     if args.json:
         data = {
-            "user": user,
+            "export": str(path),
             "year": year,
-            "tags": [{"tag": label, "code": slug, "count": c}
+            "tags": [{"tag": label, "count": c}
                      for slug, label, c in tags],
             "monthly": {slug: {"label": labels.get(slug, slug),
                                "months": monthly_series(keys, year)}
@@ -462,7 +458,7 @@ def main(argv: list[str]) -> int:
 
     if args.svg:
         try:
-            svg = build_svg(user, year, tags, rules, want, labels,
+            svg = build_svg(str(path.name), year, tags, rules, want, labels,
                             keys_by_tag, args.matrix)
             with open(args.svg, "w") as fh:
                 fh.write(svg)

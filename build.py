@@ -1,31 +1,31 @@
 #!/usr/bin/env python3
-"""Fetch a Letterboxd diary via the official API and backdate one git commit
-per film.
+"""Build the Letterboxd diary history from a fresh data export.
 
-- Pulls the diary through the authenticated Letterboxd API
-  (``GET /log-entries`` with ``where=HasDiaryDate``), see letterboxd_api.py
-  and https://api-docs.letterboxd.com/ for setup.
+Reads the official Letterboxd data export (a ``letterboxd-*-utc.zip``
+backup, as downloadable from https://letterboxd.com/settings/data/) and
+backdates one git commit per film:
+
+- Reads every diary entry from the export's ``diary.csv`` (watched date,
+  title, year, rating, rewatch and tags) and marks ``liked`` from
+  ``likes/films.csv``. No HTML scraping, no Letterboxd API -- the only data
+  source is your own export.
 - Incremental: only pulls entries that are not yet committed. Already
   committed entries are skipped, everything else is new.
-- Writes ``diary.json`` (a merged record of everything pulled so far, now
-  including ``year`` and ``tags`` from the API) and one markdown file per new
-  film under ``films/``.
+- Writes ``diary.json`` (a merged record of everything pulled so far) and
+  one markdown file per new film under ``films/``.
 - Creates one git commit per new film in chronological order, with both the
-  author and committer dates set to noon (local time) on the day the film was
-  watched, so GitHub's contribution graph shows it on that day.
+  author and committer dates set to noon (local time) on the day the film
+  was watched, so GitHub's contribution graph shows it on that day.
 
 Requires a git repo. Commits are authored as ``sirconanad
 <sirconanad@cock.li>``.
 
-Authentication (OAuth2):
+Download a fresh export whenever you want new entries reflected:
 
-    export LETTERBOXD_CLIENT_ID=...    # your registered API key/client id
-    export LETTERBOXD_CLIENT_SECRET=...
-    python3 -m letterboxd_api login    # one-time browser approval
+    https://letterboxd.com/settings/data/   -> "Letterboxd data" zip
 
-Tags come straight from the API (``LogEntry.tags2``), so a data export is no
-longer required; ``--export PATH`` remains as an optional fallback for entries
-the API would otherwise leave untagged.
+The export is auto-detected next to the repo (``letterboxd-*.zip``) or can
+be passed explicitly with ``--export PATH``.
 """
 
 import argparse
@@ -41,8 +41,6 @@ from collections import Counter, defaultdict, deque
 from dataclasses import asdict, dataclass, field
 from datetime import date, datetime, time as dtime
 from pathlib import Path
-
-from letterboxd_api import LetterboxdData, LetterboxdError
 
 USER = "sirconanad"
 AUTHOR_NAME = "sirconanad"
@@ -65,113 +63,106 @@ def key_of(e: Entry) -> tuple[str, str]:
     return (e.when.isoformat(), safe_filename(e.title).lower())
 
 
-# ----------------------------------------------------------------- fetching
+# ------------------------------------------------------------------ export
 
 
-def get_api() -> LetterboxdData:
-    """Build an authenticated API client, resolving our own member LID."""
-    api = LetterboxdData()
-    return api
+def find_export() -> Path | None:
+    """Locate a Letterboxd backup zip near the repo."""
+    for d in (Path.cwd(), Path.cwd().parent):
+        hits = sorted(d.glob("letterboxd-*.zip"))
+        if hits:
+            return hits[0]
+    return None
 
 
-def member_lid(api: LetterboxdData) -> str:
-    me = api.me()
-    return me.get("id")
+def read_zip(path: Path) -> dict[str, list[dict]]:
+    """Read the export's diary and likes CSVs into lists of row dicts."""
+    if not zipfile.is_zipfile(path):
+        raise ValueError(f"{path} is not a Letterboxd export zip")
+    with zipfile.ZipFile(path) as zf:
+        def rows(name: str) -> list[dict]:
+            try:
+                raw = zf.read(name).decode("utf-8", "replace")
+            except KeyError:
+                return []
+            return list(csv.DictReader(io.StringIO(raw)))
+
+        return {"diary": rows("diary.csv"), "likes": rows("likes/films.csv")}
 
 
-def fetch_new_entries(known: Counter, full: bool = False) -> list[Entry]:
-    """Pull the whole diary via the API and keep entries not yet committed.
+def liked_keys(like_rows: list[dict]) -> set[tuple[str, str]]:
+    """Set of (name, year) the member has liked, from likes/films.csv."""
+    out = set()
+    for r in like_rows:
+        name = (r.get("Name") or "").strip()
+        year = (r.get("Year") or "").strip()
+        if name and year:
+            out.add((name, year))
+    return out
+
+
+def parse_diagram_row(r: dict) -> Entry | None:
+    when = (r.get("Watched Date") or "").strip()
+    title = (r.get("Name") or "").strip()
+    if not when or not title:
+        return None
+    try:
+        when_date = date.fromisoformat(when)
+    except ValueError:
+        return None
+    rating = (r.get("Rating") or "").strip()
+    rewatch = (r.get("Rewatch") or "").strip().lower() == "yes"
+    year = None
+    try:
+        year = int((r.get("Year") or "").strip())
+    except ValueError:
+        pass
+    tags = [t.strip() for t in (r.get("Tags") or "").split(",") if t.strip()]
+    return Entry(when=when_date, title=title,
+                 rating=float(rating) / 2 if rating else None,
+                 rewatch=rewatch, tags=tags, year=year)
+
+
+def export_entries(path: Path) -> tuple[list[Entry], set[tuple[str, str]]]:
+    """Parse the export into (chronological entries, liked name/year set)."""
+    data = read_zip(path)
+    liked = liked_keys(data["likes"])
+    entries = []
+    for r in data["diary"]:
+        e = parse_diagram_row(r)
+        if e is None:
+            continue
+        if (e.title, str(e.year or "")) in liked:
+            e.liked = True
+        entries.append(e)
+    entries.sort(key=lambda e: e.when)
+    return entries, liked
+
+
+def fetch_new_entries(export: Path, known: Counter, full: bool = False
+                      ) -> list[Entry]:
+    """Parse the export and keep entries not yet committed.
 
     ``known`` is a multiset of (date, base-title) already committed; each
-    matching entry consumes one slot, exactly like the scraped builder.
-    Returns only the entries with nothing left to consume, newest first (so
-    ``main`` can reverse them into chronological order for committing).
+    matching entry consumes one slot. Returns only the entries with nothing
+    left to consume, newest first (so ``main`` can reverse them into
+    chronological order for committing).
     """
-    api = get_api()
-    lid = member_lid(api)
-    raw = api.log_entries(member=lid, where=("HasDiaryDate",), sort="Date")
-    print(f"api: {len(raw)} diary entry/entries for {USER}", file=sys.stderr)
-
-    new_entries: list[Entry] = []
-    missing_tags = 0
-    for le in raw:
-        diary = le.get("diaryDetails") or {}
-        prod = le.get("production") or {}
-        tags = [(t.get("displayTag") or t.get("code"))
-                for t in (le.get("tags2") or [])]
-        tags = [t for t in tags if t]
-        if not tags:
-            missing_tags += 1
-        e = Entry(
-            when=date.fromisoformat(diary.get("diaryDate")),
-            title=(prod.get("name") or "?").strip(),
-            rating=le.get("rating"),
-            rewatch=bool(diary.get("rewatch")),
-            liked=bool(le.get("like")),
-            tags=tags,
-            year=prod.get("releaseYear"),
-        )
+    entries, _liked = export_entries(export)
+    print(f"export {export.name}: {len(entries)} diary entry/entries",
+          file=sys.stderr)
+    uncommitted: list[Entry] = []
+    for e in entries:
         key = key_of(e)
         if known.get(key, 0) > 0:
             known[key] -= 1
             continue  # already committed
-        new_entries.append(e)
-
-    if missing_tags:
-        print(f"note: {missing_tags} entry/entries without tags from the API",
-              file=sys.stderr)
-
-    new_entries.sort(key=lambda e: e.when, reverse=True)  # newest first
-    return new_entries
+        uncommitted.append(e)
+    uncommitted.sort(key=lambda e: e.when, reverse=True)  # newest first
+    return uncommitted
 
 
 # ------------------------------------------------------------------- files
-
-
-def find_export() -> Path | None:
-    """Locate a Letterboxd backup zip (or loose diary.csv) near the repo."""
-    patterns = ("letterboxd-*.zip",)
-    for d in (Path.cwd(), Path.cwd().parent):
-        for pat in patterns:
-            hits = sorted(d.glob(pat))
-            if hits:
-                return hits[0]
-    diary = Path.cwd().parent / "diary.csv"
-    return diary if diary.exists() else None
-
-
-def load_export_tags(path: Path) -> dict[tuple[str, str], deque]:
-    """Map (watched-date, name) -> deque of tag lists from the backup.
-
-    Fallback source of tags for entries the API did not tag.
-    """
-    result: dict[tuple[str, str], deque] = defaultdict(deque)
-    if zipfile.is_zipfile(path):
-        with zipfile.ZipFile(path) as zf:
-            raw = zf.read("diary.csv").decode("utf-8", "replace")
-    else:
-        raw = path.read_text(encoding="utf-8", errors="replace")
-    for row in csv.DictReader(io.StringIO(raw)):
-        when = (row.get("Watched Date") or "").strip()
-        name = (row.get("Name") or "").strip()
-        tags = [t.strip() for t in (row.get("Tags") or "").split(",")
-                if t.strip()]
-        if when and name:
-            result[(when, name)].append(tags)
-    return result
-
-
-def apply_tags(entries: list[Entry], tagmap: dict[tuple[str, str], deque]) -> int:
-    """Fill in export tags for entries that have none from the API."""
-    matched = 0
-    for e in entries:
-        if e.tags:
-            continue
-        bucket = tagmap.get((e.when.isoformat(), e.title))
-        if bucket:
-            e.tags = bucket.popleft()
-            matched += 1
-    return matched
 
 
 def safe_filename(title: str) -> str:
@@ -293,7 +284,7 @@ def load_diary_json(path: Path) -> list[dict]:
 
 
 def merge_diary(merged: list[dict], new_entries: list[Entry]):
-    """Append API entries that aren't already represented in diary.json."""
+    """Append export entries that aren't already represented in diary.json."""
     merged_keys = {(e.get("when"), e.get("title")) for e in merged}
     for e in new_entries:
         row = asdict(e)
@@ -310,12 +301,12 @@ def merge_diary(merged: list[dict], new_entries: list[Entry]):
 
 def main(argv: list[str]) -> int:
     ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument("--user", default=USER)
-    ap.add_argument("--no-commit", action="store_true",
-                    help="fetch and write files but do not commit")
     ap.add_argument("--export", metavar="PATH",
-                    help="optional Letterboxd backup zip or diary.csv as a "
-                         "fallback source of tags")
+                    help="Letterboxd data export zip (auto-detected next to "
+                         "the repo); a fresh download is required for new "
+                         "entries")
+    ap.add_argument("--no-commit", action="store_true",
+                    help="parse and write files but do not commit")
     ap.add_argument("--full", action="store_true",
                     help="ignore committed state; treat every diary entry as new")
     args = ap.parse_args(argv)
@@ -325,16 +316,23 @@ def main(argv: list[str]) -> int:
     films_dir = repo / "films"
     films_dir.mkdir(exist_ok=True)
 
+    export = Path(args.export) if args.export else find_export()
+    if export is None or not export.exists():
+        print("error: no Letterboxd data export found; download a fresh "
+              "export from https://letterboxd.com/settings/data/ and place "
+              "the zip next to the repo, or pass --export PATH",
+              file=sys.stderr)
+        return 1
+
     known, base_counts = committed_state()
     if args.full:
         known, base_counts = Counter(), {}
     print(f"already committed: {sum(known.values())} film(s)", file=sys.stderr)
 
-    sys.path.insert(0, str(repo))
     try:
-        new_entries = fetch_new_entries(known, full=args.full)
-    except LetterboxdError as exc:
-        print(f"error: {exc}", file=sys.stderr)
+        new_entries = fetch_new_entries(export, known, full=args.full)
+    except (ValueError, OSError, json.JSONDecodeError) as exc:
+        print(f"error: could not read export: {exc}", file=sys.stderr)
         return 1
     if not new_entries:
         print("no new diary entries to add", file=sys.stderr)
@@ -342,17 +340,6 @@ def main(argv: list[str]) -> int:
     new_entries.reverse()  # newest-first -> chronological for commits
     print(f"{len(new_entries)} new film(s): "
           f"{new_entries[0].when} .. {new_entries[-1].when}", file=sys.stderr)
-
-    # Optional export fallback for tags the API did not provide.
-    export_path = Path(args.export) if args.export else find_export()
-    if export_path is not None and export_path.exists():
-        tagmap = load_export_tags(export_path)
-        ntags = apply_tags(new_entries, tagmap)
-        print(f"tags merged from {export_path.name}: "
-              f"{ntags}/{len(new_entries)} entry(ies)", file=sys.stderr)
-    else:
-        print("note: no Letterboxd export found next to the repo; tags come "
-              "from the API", file=sys.stderr)
 
     # Merge into diary.json (kept as a complete chronological record).
     merged = load_diary_json(repo / "diary.json")
@@ -371,9 +358,8 @@ def main(argv: list[str]) -> int:
         ["git", "rev-parse", "--verify", "--quiet", "HEAD"],
         capture_output=True).returncode == 0)
     if not has_head:
-        commit_files(identity, date.today(), "Import Letterboxd diary",
-                     [repo / f for f in
-                      ("README.md", "build.py", "diary.json")])
+        commit_files(identity, date.today(), "Import Letterboxd diary", [
+            repo / "README.md", repo / "build.py", repo / "diary.json"])
 
     for e, path in zip(new_entries, film_paths):
         commit_files(identity, e.when, e.title, [path])

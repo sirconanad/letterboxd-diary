@@ -1,41 +1,27 @@
 #!/usr/bin/env python3
 """Letterboxd diary -> GitHub-style contribution graph.
 
-Pulls a profile's diary through the authenticated Letterboxd API
-(``GET /log-entries`` with ``where=HasDiaryDate``) and renders the number of
-films watched per day as a contribution graph, similar to GitHub's. An
-optional ``--source rss`` path uses the public RSS feed instead (recent
-activity only, no authentication required).
+Reads a fresh Letterboxd data export (``letterboxd-*.zip``, from
+https://letterboxd.com/settings/data/) and renders the number of films
+watched per day as a contribution graph, similar to GitHub's. No HTML
+scraping and no Letterboxd API -- the export is the only data source.
 
 Examples:
-    python3 letterboxd_graph.py https://letterboxd.com/sirconanad/            # diary, current year
-    python3 letterboxd_graph.py https://letterboxd.com/sirconanad/ --year 2025 --year 2026
-    python3 letterboxd_graph.py https://letterboxd.com/sirconanad/ --all     # entire diary
-    python3 letterboxd_graph.py https://letterboxd.com/sirconanad/ --source rss --all
-    python3 letterboxd_graph.py https://letterboxd.com/sirconanad/ --svg graph.svg
-
-Authentication (OAuth2, see letterboxd_api.py):
-
-    export LETTERBOXD_CLIENT_ID=...        # registered API key / client id
-    export LETTERBOXD_CLIENT_SECRET=...
-    python3 -m letterboxd_api login        # one-time browser approval
-
-The API token is cached in ``.letterboxd_tokens.json`` next to this repo.
+    python3 letterboxd_graph.py letterboxd-....zip                    # current year
+    python3 letterboxd_graph.py letterboxd-....zip --year 2025 --year 2026
+    python3 letterboxd_graph.py letterboxd-....zip --all             # entire diary
+    python3 letterboxd_graph.py letterboxd-....zip --all --svg graph.svg
 """
 
 import argparse
+import csv
+import io
 import re
 import sys
+import zipfile
 from collections import Counter
 from datetime import date, timedelta
-from xml.etree import ElementTree
-
-import urllib.error
-import urllib.request
-
-from letterboxd_api import LetterboxdData, LetterboxdError
-
-LETTERBOXD_NS = "https://letterboxd.com"
+from pathlib import Path
 
 GITHUB_GREENS = {
     0: "#ebedf0",
@@ -46,78 +32,36 @@ GITHUB_GREENS = {
 }
 NO_COLOR_CHARS = {0: " ", 1: ".", 2: "+", 3: "*", 4: "#"}
 
-RSS_HEADERS = {
-    "User-Agent": ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-                   "AppleWebKit/537.36 (KHTML, like Gecko) "
-                   "Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0"),
-    "Accept": "application/rss+xml, application/xml, text/xml, */*",
-}
-
 # ---------------------------------------------------------------- fetching
 
 
-def fetch_rss(user: str) -> bytes:
-    url = f"https://letterboxd.com/{user}/rss/"
-    req = urllib.request.Request(url, headers=RSS_HEADERS)
-    try:
-        with urllib.request.urlopen(req, timeout=30) as resp:
-            return resp.read()
-    except urllib.error.HTTPError as exc:
-        raise RuntimeError(f"could not fetch RSS ({exc.code}); use the "
-                           f"diary (API) source instead") from exc
+def find_export() -> Path | None:
+    """Locate a Letterboxd backup zip near the repo."""
+    for d in (Path.cwd(), Path.cwd().parent):
+        hits = sorted(d.glob("letterboxd-*.zip"))
+        if hits:
+            return hits[0]
+    return None
 
 
-def parse_rss(data: bytes) -> list[tuple[date, str, float | None, bool]]:
-    """Parse diary entries from the RSS document."""
-    root = ElementTree.fromstring(data)
-    entries = []
-    for item in root.iter("item"):
-        watched = item.findtext(f"{{{LETTERBOXD_NS}}}watchedDate")
-        if not watched or not watched.strip():
-            continue
-        title = item.findtext("title") or "<untitled>"
-        rating = item.findtext(f"{{{LETTERBOXD_NS}}}memberRating")
-        rating = float(rating) if rating else None
-        rewatch = item.findtext(f"{{{LETTERBOXD_NS}}}rewatch") == "Yes"
-        try:
-            when = date.fromisoformat(watched.strip())
-        except ValueError:
-            continue
-        entries.append((when, title.strip(), rating, rewatch))
-    return entries
+def diary_rows(path: Path) -> list[dict]:
+    if not zipfile.is_zipfile(path):
+        raise ValueError(f"{path} is not a Letterboxd export zip")
+    with zipfile.ZipFile(path) as zf:
+        raw = zf.read("diary.csv").decode("utf-8", "replace")
+    return list(csv.DictReader(io.StringIO(raw)))
 
 
-def username_from_url(url: str) -> str:
-    m = re.search(r'letterboxd\.com/([^/?#]+)', url)
-    if not m:
-        raise ValueError(f"not a Letterboxd URL: {url}")
-    return m.group(1)
-
-
-def load_entries(source: str, user: str, scopes: list[int | None],
-                 pause: float) -> list:
+def load_entries(path: Path, scopes: list[int | None]) -> list:
     """Fetch diary entries as [(date, title, rating, rewatch), ...].
 
     ``scopes`` holds years to fetch, or ``[None]`` for the whole diary.
     """
-    if source == "rss":
-        try:
-            data = fetch_rss(user)
-        except urllib.error.URLError as exc:
-            raise RuntimeError(f"could not fetch RSS: {exc}") from exc
-        entries = parse_rss(data)
-        return [(d, t, r, w) for d, t, r, w in entries
-                if None in scopes or d.year in scopes]
-
-    api = LetterboxdData()
-    lid = api.member_lid(user)
-    raw = api.log_entries(member=lid, where=("HasDiaryDate",), sort="Date")
     entries = []
-    for le in raw:
-        diary = le.get("diaryDetails") or {}
-        prod = le.get("production") or {}
-        when_text = diary.get("diaryDate")
-        if not when_text:
+    for r in diary_rows(path):
+        when_text = (r.get("Watched Date") or "").strip()
+        title = (r.get("Name") or "?").strip()
+        if not when_text or not title:
             continue
         try:
             when = date.fromisoformat(when_text)
@@ -125,9 +69,12 @@ def load_entries(source: str, user: str, scopes: list[int | None],
             continue
         if None not in scopes and when.year not in scopes:
             continue
-        entries.append((when, (prod.get("name") or "?").strip(),
-                        le.get("rating"), bool(diary.get("rewatch"))))
-    print(f"api: {len(entries)} diary entries for {user}",
+        rating_text = (r.get("Rating") or "").strip()
+        rating = float(rating_text) / 2 if rating_text else None
+        rewatch = (r.get("Rewatch") or "").strip().lower() == "yes"
+        entries.append((when, title, rating, rewatch))
+    entries.sort()
+    print(f"{path.name}: {len(entries)} diary entry/entries",
           file=sys.stderr)
     return entries
 
@@ -248,14 +195,10 @@ def render_svg(levels: dict[date, int], counts: Counter, start: date,
 
 def main(argv: list[str]) -> int:
     parser = argparse.ArgumentParser(
-        description="Render a Letterboxd diary as a GitHub-style "
+        description="Render a Letterboxd diary export as a GitHub-style "
                     "contribution graph.")
-    parser.add_argument("url", help="Letterboxd profile URL, e.g. "
-                                    "https://letterboxd.com/USER/")
-    parser.add_argument("--source", choices=("diary", "rss"),
-                        default="diary",
-                        help="diary = API (authenticated, full history); "
-                             "rss = public recent-activity feed")
+    parser.add_argument("export", nargs="?", help="Path to a Letterboxd "
+                        "data export zip (auto-detected next to the repo)")
     parser.add_argument("--year", action="append", type=int, metavar="YYYY",
                         help="Restrict to year(s); repeatable. "
                              "Default: current year.")
@@ -268,27 +211,25 @@ def main(argv: list[str]) -> int:
                         help="Graph window: last N days")
     parser.add_argument("--months", type=int,
                         help="Graph window: last N months")
-    parser.add_argument("--pause", type=float, default=2.0,
-                        help="Ignored for the API source; kept for the RSS "
-                             "path and CLI compatibility")
     parser.add_argument("--svg", metavar="FILE",
                         help="Also write an SVG render to FILE")
     parser.add_argument("--no-color", action="store_true",
                         help="Disable ANSI colors in terminal output")
     args = parser.parse_args(argv)
 
-    try:
-        user = username_from_url(args.url)
-    except ValueError as exc:
-        print(f"error: {exc}", file=sys.stderr)
+    path = Path(args.export) if args.export else find_export()
+    if path is None or not path.exists():
+        print("error: no Letterboxd data export found; download one from "
+              "https://letterboxd.com/settings/data/ and pass its path or "
+              "place it next to the repo", file=sys.stderr)
         return 1
 
     today = date.today()
     scopes = [None] if args.all else sorted(args.year or [today.year])
     try:
-        entries = load_entries(args.source, user, scopes, args.pause)
-    except (RuntimeError, LetterboxdError) as exc:
-        print(f"error: {exc}", file=sys.stderr)
+        entries = load_entries(path, scopes)
+    except (ValueError, OSError, KeyError, csv.Error) as exc:
+        print(f"error: could not read export: {exc}", file=sys.stderr)
         return 1
 
     if not entries:

@@ -1,5 +1,4 @@
 __pycache__/
 sneak-cache.json
 site/
-.letterboxd_tokens.json
 .env
