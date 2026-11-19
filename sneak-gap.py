@@ -3,7 +3,8 @@
 
 Pulls every diary entry tagged ``sneak`` or ``ov sneak`` from a Letterboxd
 data export, records the watch date, then looks up the German theatrical
-release date (Kinostart) on The Movie Database (TMDB) and prints the gap:
+release date (German cinema release, aka Kinostart) on The Movie Database
+(TMDB) and prints the gap:
 how many days before the German premiere the film was screened.
 
 Sources of truth:
@@ -132,12 +133,12 @@ class TMDB:
             theatrical = [d for d in dates if d.get("type") == 3]
             pool = theatrical or dates
             if not pool:
-                return None, "kein Datum gefunden"
+                return None, "no date found"
             best = min(pool, key=lambda d: d.get("release_date", "9999"))
-            note = best.get("note") or "Kino" if theatrical else \
-                (best.get("note") or "andere")
+            note = best.get("note") or "Theatrical" if theatrical else \
+                (best.get("note") or "other")
             return best.get("release_date", "")[:10] or None, note
-        return None, "keine DE-Veröffentlichung"
+        return None, "no DE release"
 
 
 # ------------------------------------------------------------ cache + lookup
@@ -170,13 +171,13 @@ def fill_kinostarts(sneaks: list[Sneak], tmdb: TMDB, cache: dict,
             s.kinostart = (date.fromisoformat(hit["kinostart"])
                            if hit.get("kinostart") else None)
             print(f"[{i}/{len(sneaks)}] (cached) {s.title} "
-                  f"({s.year}) -> {hit.get('kinostart') or 'ohne'}")
+                  f"({s.year}) -> {hit.get('kinostart') or 'none'}")
             continue
         print(f"[{i}/{len(sneaks)}] {s.title} ({s.year})", flush=True)
         res = tmdb.search(s.title, s.year)
         if res is None:
             cache[key] = {"id": None, "kinostart": None}
-            print("    kein TMDB-Treffer")
+            print("    no TMDB match")
         else:
             s.tmdb_id = res["id"]
             iso, note = tmdb.de_release(res["id"])
@@ -197,37 +198,38 @@ def fill_kinostarts(sneaks: list[Sneak], tmdb: TMDB, cache: dict,
 
 
 def fmt_table(sneaks: list[Sneak]) -> str:
-    header = (f"{'Film':<42} {'Jahr':<5} {'Watched':<11} "
-              f"{'Kinostart':<11} {'Gap':>10}")
+    header = (f"{'Film':<42} {'Year':<5} {'Watched':<11} "
+              f"{'Cinema (DE)':<13} {'Gap':>10}")
     rows = [header, "-" * len(header)]
     for s in sorted(sneaks, key=lambda x: (x.gap_days is None,
                                            -(x.gap_days or 0))):
         if s.kinostart and s.gap_days is not None:
-            gap = (f"{abs(s.gap_days)} Tage "
-                   f"{'vor' if s.gap_days > 0 else 'nach'} Kinostart")
+            gap = (f"{abs(s.gap_days)} days "
+                   f"{'before' if s.gap_days > 0 else 'after'} release")
         else:
             gap = "n/a"
         rows.append(f"{s.title[:42]:<42} {s.year:<5} "
                     f"{s.watched.isoformat():<11} "
-                    f"{s.kinostart.isoformat() if s.kinostart else '–':<11} "
+                    f"{s.kinostart.isoformat() if s.kinostart else '–':<13} "
                     f"{gap:>10}")
     rows.append("-" * len(header))
     with_release = [s for s in sneaks if s.gap_days is not None]
     if with_release:
         avg = sum(s.gap_days for s in with_release) / len(with_release)
         most_ahead = max(with_release, key=lambda s: s.gap_days)
-        rows.append(f"Sneaks mit Kinostart: {len(with_release)}/{len(sneaks)}")
-        rows.append(f"Durchschnittlich {avg:.1f} Tage vor dem Kinostart gesehen")
-        rows.append(f"Größter Vorsprung: {most_ahead.title} "
-                    f"({most_ahead.gap_days} Tage vorher)")
+        rows.append(f"Sneaks with a German release: "
+                    f"{len(with_release)}/{len(sneaks)}")
+        rows.append(f"On average seen {avg:.1f} days before the release")
+        rows.append(f"Biggest lead: {most_ahead.title} "
+                    f"({most_ahead.gap_days} days early)")
     not_found = [s for s in sneaks if s.tmdb_id is None]
     no_de = [s for s in sneaks if s.tmdb_id is not None
              and s.kinostart is None]
     if not_found:
-        rows.append(f"Ohne TMDB-Treffer ({len(not_found)}): "
+        rows.append(f"No TMDB match ({len(not_found)}): "
                     + ", ".join(s.title for s in not_found))
     if no_de:
-        rows.append(f"Ohne deutschen Kinostart ({len(no_de)}): "
+        rows.append(f"No German release ({len(no_de)}): "
                     + ", ".join(s.title for s in no_de))
     return "\n".join(rows)
 
@@ -235,16 +237,16 @@ def fmt_table(sneaks: list[Sneak]) -> str:
 def fmt_markdown(sneaks: list[Sneak]) -> str:
     ordered = sorted(sneaks, key=lambda x: (x.gap_days is None,
                                             -(x.gap_days or 0)))
-    lines = ["# Sneak / OV-Sneak vs. deutscher Kinostart", "",
-             f"{len(sneaks)} Diary-Entries mit dem Tag **sneak** oder "
-             f"**ov sneak**; \"Gap\" = Kinostart − Watch-Datum (negative "
-             "bedeutet: nach dem Kinostart gesehen).", "",
-             "| Film | Jahr | Gesehen | Kinostart (DE) | Gap | Tags |",
+    lines = ["# Sneak / OV-Sneak vs. German cinema release", "",
+             f"{len(sneaks)} diary entries tagged **sneak** or **ov sneak**; "
+             "\"gap\" = release date − watch date (negative means watched "
+             "after the release).", "",
+             "| Film | Year | Watched | Cinema release (DE) | Gap | Tags |",
              "|---|---|---|---|---|---|"]
     for s in ordered:
         if s.kinostart and s.gap_days is not None:
-            gap = (f"+{s.gap_days} (vorher)" if s.gap_days > 0
-                   else f"{s.gap_days} (nachher)")
+            gap = (f"+{s.gap_days} (early)" if s.gap_days > 0
+                   else f"{s.gap_days} (late)")
         else:
             gap = "n/a"
         lines.append(
@@ -255,21 +257,20 @@ def fmt_markdown(sneaks: list[Sneak]) -> str:
     if with_release:
         avg = sum(s.gap_days for s in with_release) / len(with_release)
         most_ahead = max(with_release, key=lambda s: s.gap_days)
-        lines += ["", "## Zusammenfassung", "",
-                  f"- Sneaks mit deutschem Kinostart: "
+        lines += ["", "## Summary", "",
+                  f"- Sneaks with a German release: "
                   f"{len(with_release)}/{len(sneaks)}",
-                  f"- Durchschnittlich **{avg:.1f} Tage** vor dem Kinostart "
-                  f"gesehen",
-                  f"- Größter Vorsprung: **{most_ahead.title}** "
-                  f"({most_ahead.gap_days} Tage vorher)"]
+                  f"- On average seen **{avg:.1f} days** before the release",
+                  f"- Biggest lead: **{most_ahead.title}** "
+                  f"({most_ahead.gap_days} days early)"]
     not_found = [s for s in sneaks if s.tmdb_id is None]
     no_de = [s for s in sneaks if s.tmdb_id is not None
              and s.kinostart is None]
     if not_found:
-        lines += ["", f"### Ohne TMDB-Treffer ({len(not_found)})"] + \
+        lines += ["", f"### No TMDB match ({len(not_found)})"] + \
                  [f"- {s.title} ({s.year})" for s in not_found]
     if no_de:
-        lines += ["", f"### Ohne deutschen Kinostart ({len(no_de)})"] + \
+        lines += ["", f"### No German cinema release ({len(no_de)})"] + \
                  [f"- {s.title} ({s.year})" for s in no_de]
     return "\n".join(lines) + "\n"
 
@@ -302,7 +303,8 @@ def main(argv: list[str]) -> int:
     sneaks = collect_sneaks(read_diary_csv(export))
     if args.limit:
         sneaks = sneaks[: args.limit]
-    print(f"{export} -> {len(sneaks)} Sneak/OV-Sneak-Entries")
+    print(f"{export} -> {len(sneaks)} sneak/OV-sneak "
+          f"entr{'y' if len(sneaks) == 1 else 'ies'}")
     if not sneaks:
         return 0
 

@@ -84,12 +84,11 @@ def build_stat_cards(diary: list[dict], sneaks: list[dict]) -> str:
     avg_gap = (sum(s["gap_days"] for s in with_gap) / len(with_gap)
                if with_gap else 0)
     return "".join([
-        card("accent", f"{n}", f"Filme seit {min(years)} ({len(years)} Jahre)"),
-        card("accent", f"{avg:.2f}", "Ø Bewertung (5-Skala)"),
-        card("accent", f"{liked}", "geherzt / geliked"),
+        card("accent", f"{n}", f"Films since {min(years)} ({len(years)} years)"),
+        card("accent", f"{avg:.2f}", "Average rating (5-point scale)"),
+        card("accent", f"{liked}", "Liked"),
         card("accent", f"{rewatch}", "Rewatches"),
-        card("accent", f"{avg_gap:.1f} Tage", "Sneak vor Kinostart"),
-        card("accent", f"{len(with_gap)}/{len(sneaks)}", "Sneaks mit Kinostart"),
+        card("accent", f"{avg_gap:.1f} days", "Sneak before cinema release"),
     ])
 
 
@@ -97,7 +96,7 @@ def tags_html(diary: list[dict], top: int = 12) -> str:
     tag_count = Counter(t for e in diary for t in (e.get("tags") or []))
     items = tag_count.most_common(top)
     if not items:
-        return "<p>Keine Tags.</p>"
+        return "<p>No tags.</p>"
     mx = items[0][1]
     rows = []
     for tag, n in items:
@@ -111,36 +110,103 @@ def tags_html(diary: list[dict], top: int = 12) -> str:
 
 
 def favorites_html(diary: list[dict], limit: int = 12) -> str:
-    favs = sorted(
-        (e for e in diary if e.get("rating") == 5 and e.get("liked")),
-        key=lambda e: e["when"], reverse=True)
-    if not favs:
-        return "<p>Keine Favoriten gefunden.</p>"
+    favs = (e for e in diary if e.get("rating") == 5 and e.get("liked"))
+    grouped: dict[str, list[str]] = {}
+    for e in favs:
+        grouped.setdefault(e["title"], []).append(e["when"])
+    if not grouped:
+        return "<p>No favourites found.</p>"
+    items = sorted(grouped.items(), key=lambda kv: max(kv[1]), reverse=True)
     cells = []
-    for e in favs[:limit]:
+    for title, dates in items[:limit]:
+        n = len(dates)
+        label = escape(title) + (f" ×{n}" if n > 1 else "")
         cells.append(f'<span class="chip"><span class="chip-star">★</span>'
-                     f"{escape(e['title'])} <em>{e['when']}</em></span>")
+                     f"{label} <em>{max(dates)}</em></span>")
     return '\n'.join(cells) + \
-        (f'<p class="subtle">… und {len(favs) - limit} weitere '
-         f"5-Sterne-Filme.</p>" if len(favs) > limit else "")
+        (f'<p class="subtle">… and {len(items) - limit} more '
+         f"five-star film{'s' if len(items) - limit != 1 else ''}.</p>"
+         if len(items) > limit else "")
 
 
-def monthly_html(diary: list[dict]) -> str:
-    months = Counter(e["when"][:7] for e in diary)
-    ordered = sorted(months)
-    if not ordered:
+def _nice_step(maxv: int) -> int:
+    """Round step so the y axis ends up with <=6 ticks."""
+    for s in (1, 2, 5, 10, 20, 50, 100, 200):
+        if maxv / s <= 6:
+            return s
+    return 500
+
+
+def monthly_line_svg(diary: list[dict]) -> str:
+    """Line chart of films watched per month, from first entry to today.
+
+    X axis is time (each month from the first diary entry up to the current
+    month), Y axis is the number of films watched that month.
+    """
+    counts = Counter(e["when"][:7] for e in diary)
+    if not counts:
         return ""
-    mx = max(months.values())
-    rows = []
-    for m in ordered:
-        n = months[m]
-        w = max(3, round(n / mx * 100))
-        rows.append(
-            f'<div class="month"><span class="month-name">{m}</span>'
-            f'<span class="month-bar"><span class="month-fill" '
-            f"style='width:{w}%'></span></span>"
-            f"<span class='month-count'>{n}</span></div>")
-    return "\n".join(rows)
+    sy, sm = map(int, min(counts).split("-"))
+    today = date.today()
+    months: list[str] = []
+    y, m = sy, sm
+    while (y, m) <= (today.year, today.month):
+        months.append(f"{y:04d}-{m:02d}")
+        m += 1
+        if m > 12:
+            y, m = y + 1, 1
+    series = [counts.get(mm, 0) for mm in months]
+    n = len(months)
+    maxv = max(series) or 1
+
+    W, H = 1000, 240
+    pad_l, pad_r, pad_t, pad_b = 44, 18, 16, 42
+    plot_w = W - pad_l - pad_r
+    plot_h = H - pad_t - pad_b
+
+    def x(i: int) -> float:
+        return pad_l + plot_w * i / (n - 1) if n > 1 \
+            else pad_l + plot_w / 2
+
+    def y(v: int) -> float:
+        return pad_t + plot_h * (1 - v / maxv)
+
+    out = [f'<svg xmlns="http://www.w3.org/2000/svg" '
+           f'viewBox="0 0 {W} {H}">']
+    step = _nice_step(maxv)
+    for k in range(0, maxv + 1, step):
+        gy = y(k)
+        out.append(f'<line x1="{pad_l}" y1="{gy:.1f}" x2="{W - pad_r}" '
+                   f'y2="{gy:.1f}" stroke="#252b38" stroke-width="1"/>')
+        out.append(f'<text x="{pad_l - 8}" y="{gy + 3:.1f}" font-size="10" '
+                   f'fill="#9aa3b2" text-anchor="end">{k}</text>')
+    out.append(f'<line x1="{pad_l}" y1="{pad_t + plot_h:.1f}" '
+               f'x2="{W - pad_r}" y2="{pad_t + plot_h:.1f}" '
+               f'stroke="#3a4150" stroke-width="1"/>')
+
+    label_step = max(1, (n - 1) // 24 + 1)
+    for i, mm in enumerate(months):
+        if i % label_step != 0:
+            continue
+        d = date.fromisoformat(mm + "-01")
+        txt = d.strftime("%b %Y") if i == 0 or mm.endswith("-01") \
+            else d.strftime("%b")
+        out.append(f'<text x="{x(i):.1f}" y="{H - 22}" font-size="10" '
+                   f'fill="#9aa3b2" text-anchor="middle">{txt}</text>')
+
+    pts = " ".join(f"{x(i):.1f},{y(v):.1f}" for i, v in enumerate(series))
+    out.append(f'<polyline points="{pts}" fill="none" stroke="#7ee08e" '
+               f'stroke-width="2" stroke-linejoin="round"/>')
+    for i, v in enumerate(series):
+        if v == 0:
+            continue
+        d = date.fromisoformat(months[i] + "-01")
+        word = "film" if v == 1 else "films"
+        out.append(f'<circle cx="{x(i):.1f}" cy="{y(v):.1f}" r="3" '
+                   f'fill="#7ee08e"><title>{d.strftime("%B %Y")}: '
+                   f'{v} {word} watched</title></circle>')
+    out.append("</svg>")
+    return "\n".join(out) + "\n"
 
 
 def sneak_rows_html(sneaks: list[dict]) -> str:
@@ -167,7 +233,7 @@ def sneak_rows_html(sneaks: list[dict]) -> str:
 
 
 PAGE = """<!doctype html>
-<html lang="de">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -202,22 +268,18 @@ PAGE = """<!doctype html>
          align-items:center; }}
   .tag-name {{ font-size:13.5px; overflow:hidden; text-overflow:ellipsis;
               white-space:nowrap; }}
-  .tag-bar, .month-bar {{ background:var(--panel2); border-radius:6px;
-         height:10px; overflow:hidden; }}
-  .tag-fill, .month-fill {{ display:block; height:100%;
+  .tag-bar {{ background:var(--panel2); border-radius:6px;
+          height:10px; overflow:hidden; }}
+  .tag-fill {{ display:block; height:100%;
          background:linear-gradient(90deg,var(--accent2),var(--accent));
          border-radius:6px; }}
-  .tag-count, .month-count {{ text-align:right; color:var(--muted);
+  .tag-count {{ text-align:right; color:var(--muted);
          font-size:12.5px; }}
   .chips {{ display:flex; flex-wrap:wrap; gap:8px; }}
   .chip {{ background:var(--panel2); border:1px solid var(--border);
          padding:6px 12px; border-radius:999px; font-size:13.5px; }}
   .chip-star {{ color:#f7b32b; }} .chip em {{ color:var(--muted);
          font-style:normal; font-size:12px; }}
-  .months {{ display:grid; gap:4px; }}
-  .month {{ display:grid; grid-template-columns:70px 1fr 40px; gap:10px;
-         align-items:center; font-size:12.5px; }}
-  .month-name, .month-count {{ color:var(--muted); }}
   .year {{ margin:6px 0 18px; }}
   .year-label {{ text-align:center; color:var(--muted); font-size:13px;
          margin-bottom:4px; letter-spacing:.08em; }}
@@ -241,34 +303,35 @@ PAGE = """<!doctype html>
 <div class="wrap">
 <header>
   <h1>sirconanad<span class="dot">·</span>cinema</h1>
-  <div class="sub">Letterboxd-Highlights · {generated}</div>
+  <div class="sub">Letterboxd highlights · {generated}</div>
 </header>
 
-<h2>Im Überblick</h2>
+<h2>Overview</h2>
 <div class="stats">{stat_cards}</div>
 
-<h2>Kinotage <small>(Filme pro Tag, pro Jahr)</small></h2>
+<h2>Cinema days <small>(films per day, per year)</small></h2>
 <div class="panel">{year_graphs}</div>
 
-<h2>Monatliche Aktivität</h2>
-<div class="panel"><div class="months">{monthly}</div></div>
+<h2>Monthly activity <small>(films per month)</small></h2>
+<div class="panel">{monthly}</div>
 
-<h2>Beliebteste Tags</h2>
+<h2>Most-used tags</h2>
 <div class="panel"><div class="tags">{tags}</div></div>
 
-<h2>Favoriten <small>(5★ &amp; herz)</small></h2>
+<h2>Favourites <small>(5★ &amp; liked)</small></h2>
 <div class="panel"><div class="chips">{favorites}</div></div>
 
-<h2>Sneak / OV-Sneak vs. deutscher Kinostart <small>({sneak_count} Einträge, Ø {avg_gap} Tage vorher)</small></h2>
+<h2>Sneak / OV-sneak vs. German cinema release <small>({sneak_count} entries, on average {avg_gap} days early)</small></h2>
 <div class="scroll"><table>
-  <thead><tr><th>Film</th><th>Jahr</th><th>Gesehen</th>
-  <th>Kinostart (DE)</th><th class="t-gap">Gap</th><th>Tags</th></tr></thead>
+  <thead><tr><th>Film</th><th>Year</th><th>Watched</th>
+  <th>Cinema release (DE)</th><th class="t-gap">Gap</th><th>Tags</th></tr></thead>
   <tbody>{sneak_rows}</tbody>
 </table></div>
 
-<footer>Generiert von <code>generate_site.py</code> am {generated}.
-  Daten: Letterboxd-Diary (Export vom 2026-11-19), TMDB-Premieredaten.
-  <br>Alle Titel sind © ihrer jeweiligen Rechteinhaber.</footer>
+<footer>Generated by <code>generate_site.py</code> on {generated}.
+  Data: Letterboxd diary (export from 2026-11-19), TMDB premiere dates.
+  <br>All titles are © their respective copyright holders.</footer>
+
 </div>
 </body>
 </html>
@@ -296,7 +359,7 @@ def main(args: list[str]) -> int:
         generated=generated,
         stat_cards=build_stat_cards(diary, sneaks),
         year_graphs=yearly_graphs_html(diary),
-        monthly=monthly_html(diary),
+        monthly=monthly_line_svg(diary),
         tags=tags_html(diary),
         favorites=favorites_html(diary),
         sneak_count=len(sneaks),
