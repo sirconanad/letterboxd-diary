@@ -57,6 +57,22 @@ python3 sneak-gap.py --no-lookup         # just list the sneak films
   cost no further API calls.
 - `sneak-gap.csv` and `sneak-gap.md` are the generated result exports.
 
+## Contribution graph
+
+`letterboxd_graph.py` renders the diary as a GitHub-style contribution
+graph, either on the terminal or as an SVG.
+
+```sh
+python3 letterboxd_graph.py https://letterboxd.com/sirconanad/            # this year
+python3 letterboxd_graph.py https://letterboxd.com/sirconanad/ --all     # whole diary
+python3 letterboxd_graph.py https://letterboxd.com/sirconanad/ --year 2025 --year 2026
+python3 letterboxd_graph.py https://letterboxd.com/sirconanad/ --all --svg graph.svg
+```
+
+It scrapes the diary pages directly (same Cloudflare handling as `build.py`);
+use `--pause` to be gentle on rate limits, or `--source rss` for recent
+activity only.
+
 ## Notes
 
 - Commits are backdated to **noon local time** on the watched date for both
