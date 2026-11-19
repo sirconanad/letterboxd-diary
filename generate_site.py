@@ -215,6 +215,7 @@ def favorites_html(diary: list[dict]) -> str:
     posters = fetch_posters([t for t, _ in items])
     cards = []
     for title, dates in items:
+        n = len(dates)
         poster = posters.get(title)
         if poster:
             art = (f"<img src='{TMDB_IMAGE}{poster}' "
@@ -227,7 +228,8 @@ def favorites_html(diary: list[dict]) -> str:
             for d in sorted(dates))
         cards.append(
             f"<div class='fcard'><div class='fposter'>{art}</div>"
-            f"<div class='fname'>{escape(title)}</div>"
+            f"<div class='fname'>{escape(title)} "
+            f"<span class='fwatch-n'>({n})</span></div>"
             f"<div class='fwatched'>Watched on {escape(when)}</div></div>")
     return "\n".join(cards)
 
@@ -415,6 +417,7 @@ PAGE = """<!doctype html>
   .fwatched {{ color:var(--muted); font-size:11.5px; margin-top:2px;
           line-height:1.35; }}
   .fname {{ font-size:12.5px; margin-top:6px; line-height:1.25; }}
+  .fwatch-n {{ color:var(--muted); }}
   .fplaceholder {{ display:flex; align-items:center; justify-content:center;
           width:100%; aspect-ratio:2/3; border-radius:8px; font-size:34px;
           color:var(--muted); background:linear-gradient(135deg,
