@@ -1,0 +1,7561 @@
+[
+  {
+    "when": "2024-01-17",
+    "title": "Perfect Days",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2024-01-22",
+    "title": "The Boy and the Heron",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": []
+  },
+  {
+    "when": "2024-01-29",
+    "title": "Perfect Days",
+    "rating": null,
+    "rewatch": true,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2024-01-30",
+    "title": "Spirited Away",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "filmpalast"
+    ]
+  },
+  {
+    "when": "2024-03-03",
+    "title": "Poor Things",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": []
+  },
+  {
+    "when": "2024-03-17",
+    "title": "Oppenheimer",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": []
+  },
+  {
+    "when": "2024-03-21",
+    "title": "Dune",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "jellyfin"
+    ]
+  },
+  {
+    "when": "2024-03-22",
+    "title": "Dune: Part Two",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": []
+  },
+  {
+    "when": "2024-03-24",
+    "title": "Monster",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": []
+  },
+  {
+    "when": "2024-03-26",
+    "title": "Princess Mononoke",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": []
+  },
+  {
+    "when": "2024-04-01",
+    "title": "2001: A Space Odyssey",
+    "rating": null,
+    "rewatch": true,
+    "liked": false,
+    "tags": []
+  },
+  {
+    "when": "2024-04-11",
+    "title": "The Castle of Cagliostro",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2024-04-18",
+    "title": "Nausica\u00e4 of the Valley of the Wind",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2024-04-20",
+    "title": "Batman",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "jellyfin"
+    ]
+  },
+  {
+    "when": "2024-04-21",
+    "title": "Evil Does Not Exist",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2024-04-24",
+    "title": "The Zone of Interest",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "cinema with steve"
+    ]
+  },
+  {
+    "when": "2024-04-25",
+    "title": "Castle in the Sky",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2024-04-28",
+    "title": "F for Fake",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2024-05-02",
+    "title": "My Neighbor Totoro",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2024-05-05",
+    "title": "Rashomon",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2024-05-08",
+    "title": "Harakiri",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "jellyfin"
+    ]
+  },
+  {
+    "when": "2024-05-09",
+    "title": "Princess Mononoke",
+    "rating": null,
+    "rewatch": true,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2024-05-14",
+    "title": "The Shining",
+    "rating": null,
+    "rewatch": true,
+    "liked": false,
+    "tags": [
+      "jellyfin"
+    ]
+  },
+  {
+    "when": "2024-05-16",
+    "title": "Spirited Away",
+    "rating": null,
+    "rewatch": true,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2024-05-23",
+    "title": "Howl's Moving Castle",
+    "rating": null,
+    "rewatch": true,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2024-05-30",
+    "title": "The Wind Rises",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2024-06-06",
+    "title": "Kiki's Delivery Service",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2024-06-13",
+    "title": "Porco Rosso",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2024-06-20",
+    "title": "Princess Mononoke",
+    "rating": null,
+    "rewatch": true,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2024-06-27",
+    "title": "Ponyo",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2024-07-04",
+    "title": "The Boy and the Heron",
+    "rating": null,
+    "rewatch": true,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2024-07-07",
+    "title": "A Serious Man",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2024-07-07",
+    "title": "The Promised Land",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2024-07-08",
+    "title": "A Serious Man",
+    "rating": null,
+    "rewatch": true,
+    "liked": false,
+    "tags": [
+      "jellyfin"
+    ]
+  },
+  {
+    "when": "2024-07-09",
+    "title": "Kinds of Kindness",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2024-07-14",
+    "title": "The Hateful Eight",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2024-07-16",
+    "title": "Love Lies Bleeding",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "preview"
+    ]
+  },
+  {
+    "when": "2024-07-20",
+    "title": "Poor Things",
+    "rating": null,
+    "rewatch": true,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "openair"
+    ]
+  },
+  {
+    "when": "2024-07-21",
+    "title": "2001: A Space Odyssey",
+    "rating": null,
+    "rewatch": true,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2024-07-23",
+    "title": "Hang 'em High",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2024-07-25",
+    "title": "Love Lies Bleeding",
+    "rating": null,
+    "rewatch": true,
+    "liked": false,
+    "tags": [
+      "openair"
+    ]
+  },
+  {
+    "when": "2024-07-28",
+    "title": "Paterson",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2024-07-30",
+    "title": "The Virgin Spring",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2024-08-04",
+    "title": "Perfect Days",
+    "rating": null,
+    "rewatch": true,
+    "liked": false,
+    "tags": [
+      "openair"
+    ]
+  },
+  {
+    "when": "2024-08-06",
+    "title": "Cape Fear",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2024-08-07",
+    "title": "The Boy and the Heron",
+    "rating": null,
+    "rewatch": true,
+    "liked": false,
+    "tags": [
+      "openair"
+    ]
+  },
+  {
+    "when": "2024-08-10",
+    "title": "The Prestige",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": []
+  },
+  {
+    "when": "2024-08-11",
+    "title": "The 39 Steps",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2024-08-13",
+    "title": "Irreversible",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2024-08-15",
+    "title": "Kinds of Kindness",
+    "rating": null,
+    "rewatch": true,
+    "liked": false,
+    "tags": [
+      "openair"
+    ]
+  },
+  {
+    "when": "2024-08-18",
+    "title": "Rope",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2024-08-19",
+    "title": "Moonfall",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": []
+  },
+  {
+    "when": "2024-08-19",
+    "title": "The Ritual Killer",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": []
+  },
+  {
+    "when": "2024-08-20",
+    "title": "Death Wish",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2024-08-25",
+    "title": "Strangers on a Train",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2024-08-27",
+    "title": "Case Closed: The Million-Dollar Pentagram",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "filmpalast"
+    ]
+  },
+  {
+    "when": "2024-08-27",
+    "title": "Freaks",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2024-09-01",
+    "title": "Dial M for Murder",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2024-09-02",
+    "title": "First Blood",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "blu-ray"
+    ]
+  },
+  {
+    "when": "2024-09-03",
+    "title": "RoboCop",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "filmpalast"
+    ]
+  },
+  {
+    "when": "2024-09-08",
+    "title": "Vertigo",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2024-09-08",
+    "title": "D\u00ecdi (\u5f1f\u5f1f)",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2024-09-09",
+    "title": "The Guard",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "jellyfin"
+    ]
+  },
+  {
+    "when": "2024-09-10",
+    "title": "Kill Bill: Vol. 1",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "jellyfin"
+    ]
+  },
+  {
+    "when": "2024-09-10",
+    "title": "Kill Bill: Vol. 2",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2024-09-14",
+    "title": "Detective Conan: Black Iron Submarine",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "crunchyroll"
+    ]
+  },
+  {
+    "when": "2024-09-15",
+    "title": "North by Northwest",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2024-09-17",
+    "title": "Gladiator",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2024-09-22",
+    "title": "Psycho",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2024-09-22",
+    "title": "The Searchers",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2024-09-24",
+    "title": "The Godfather",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2024-09-29",
+    "title": "The Birds",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2024-10-01",
+    "title": "The Skin I Live In",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2024-10-08",
+    "title": "Carrie",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2024-10-17",
+    "title": "First Blood",
+    "rating": null,
+    "rewatch": true,
+    "liked": false,
+    "tags": [
+      "blu-ray"
+    ]
+  },
+  {
+    "when": "2024-10-19",
+    "title": "RoboCop",
+    "rating": null,
+    "rewatch": true,
+    "liked": false,
+    "tags": [
+      "jellyfin"
+    ]
+  },
+  {
+    "when": "2024-11-01",
+    "title": "In Time",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "jellyfin"
+    ]
+  },
+  {
+    "when": "2024-11-10",
+    "title": "Kings of the Road",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2024-11-13",
+    "title": "10 Cloverfield Lane",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "jellyfin"
+    ]
+  },
+  {
+    "when": "2024-11-13",
+    "title": "Die Hard",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "jellyfin"
+    ]
+  },
+  {
+    "when": "2024-11-14",
+    "title": "All About My Mother",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2024-11-15",
+    "title": "Raiders of the Lost Ark",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "blu-ray"
+    ]
+  },
+  {
+    "when": "2024-11-15",
+    "title": "Indiana Jones and the Last Crusade",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "blu-ray"
+    ]
+  },
+  {
+    "when": "2024-11-16",
+    "title": "Indiana Jones and the Temple of Doom",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "blu-ray"
+    ]
+  },
+  {
+    "when": "2024-11-16",
+    "title": "Indiana Jones and the Kingdom of the Crystal Skull",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "blu-ray"
+    ]
+  },
+  {
+    "when": "2024-11-17",
+    "title": "The American Friend",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2024-11-17",
+    "title": "Pulp Fiction",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "blu-ray"
+    ]
+  },
+  {
+    "when": "2024-11-18",
+    "title": "Jojo Rabbit",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "blu-ray"
+    ]
+  },
+  {
+    "when": "2024-11-20",
+    "title": "Borrego",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "blu-ray"
+    ]
+  },
+  {
+    "when": "2024-11-24",
+    "title": "A Serious Man",
+    "rating": null,
+    "rewatch": true,
+    "liked": false,
+    "tags": [
+      "jellyfin"
+    ]
+  },
+  {
+    "when": "2024-12-01",
+    "title": "The State of Things",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2024-12-08",
+    "title": "Paris, Texas",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2024-12-10",
+    "title": "The Lord of the Rings: The Fellowship of the Ring",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "blu-ray"
+    ]
+  },
+  {
+    "when": "2024-12-12",
+    "title": "The Lord of the Rings: The Two Towers",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": []
+  },
+  {
+    "when": "2024-12-13",
+    "title": "The Lord of the Rings: The Return of the King",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "blu-ray"
+    ]
+  },
+  {
+    "when": "2024-12-15",
+    "title": "Tokyo-Ga",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2024-12-17",
+    "title": "Tokyo Story",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "blu-ray"
+    ]
+  },
+  {
+    "when": "2024-12-22",
+    "title": "Wings of Desire",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2024-12-25",
+    "title": "Little Lord Fauntleroy",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": []
+  },
+  {
+    "when": "2024-12-29",
+    "title": "Heretic",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2024-12-31",
+    "title": "Last Man Standing",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "blu-ray"
+    ]
+  },
+  {
+    "when": "2024-12-31",
+    "title": "Exit Plan",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "blu-ray"
+    ]
+  },
+  {
+    "when": "2024-12-31",
+    "title": "Special Delivery",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "blu-ray"
+    ]
+  },
+  {
+    "when": "2024-12-31",
+    "title": "Taken",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "blu-ray"
+    ]
+  },
+  {
+    "when": "2025-01-01",
+    "title": "Calvary",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "blu-ray"
+    ]
+  },
+  {
+    "when": "2025-01-01",
+    "title": "American Ultra",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "blu-ray"
+    ]
+  },
+  {
+    "when": "2025-01-01",
+    "title": "Nomadland",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "blu-ray"
+    ]
+  },
+  {
+    "when": "2025-01-01",
+    "title": "Knives Out",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "blu-ray"
+    ]
+  },
+  {
+    "when": "2025-01-02",
+    "title": "Wolf's Calling",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "blu-ray"
+    ]
+  },
+  {
+    "when": "2025-01-02",
+    "title": "Go Seppuku Yourselves",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "blu-ray"
+    ]
+  },
+  {
+    "when": "2025-01-02",
+    "title": "The Day of Destruction",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "blu-ray"
+    ]
+  },
+  {
+    "when": "2025-01-10",
+    "title": "Soylent Green",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "dvd"
+    ]
+  },
+  {
+    "when": "2025-01-10",
+    "title": "Indiana Jones and the Dial of Destiny",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "blu-ray"
+    ]
+  },
+  {
+    "when": "2025-01-12",
+    "title": "Faraway, So Close!",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2025-01-13",
+    "title": "Total Recall",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "jellyfin"
+    ]
+  },
+  {
+    "when": "2025-01-13",
+    "title": "Total Recall",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "blu-ray"
+    ]
+  },
+  {
+    "when": "2025-01-14",
+    "title": "Beer! The Best Film Ever Brewed",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "dvd"
+    ]
+  },
+  {
+    "when": "2025-01-26",
+    "title": "The Million Dollar Hotel",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2025-02-05",
+    "title": "The Equalizer",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "dvd"
+    ]
+  },
+  {
+    "when": "2025-03-04",
+    "title": "Fargo",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "filmpalast",
+      "cinema with steve"
+    ]
+  },
+  {
+    "when": "2025-03-05",
+    "title": "The Equalizer 2",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "blu-ray"
+    ]
+  },
+  {
+    "when": "2025-03-06",
+    "title": "The Equalizer 3",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "dvd"
+    ]
+  },
+  {
+    "when": "2025-03-07",
+    "title": "Her",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "blu-ray"
+    ]
+  },
+  {
+    "when": "2025-03-08",
+    "title": "The Good, the Bad and the Ugly",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "blu-ray"
+    ]
+  },
+  {
+    "when": "2025-03-09",
+    "title": "A Clockwork Orange",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "blu-ray"
+    ]
+  },
+  {
+    "when": "2025-03-11",
+    "title": "Ghost in the Shell",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "filmpalast",
+      "cinema with luke"
+    ]
+  },
+  {
+    "when": "2025-03-12",
+    "title": "A Complete Unknown",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2025-03-13",
+    "title": "Parasite",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2025-03-20",
+    "title": "Snowpiercer",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2025-03-23",
+    "title": "Dirty Harry",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2025-03-27",
+    "title": "Mother",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2025-04-01",
+    "title": "The Crimson Rivers",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "filmpalast"
+    ]
+  },
+  {
+    "when": "2025-04-03",
+    "title": "The Host",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2025-04-05",
+    "title": "COLORFUL STAGE! The Movie: A Miku Who Can't Sing",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "filmpalast"
+    ]
+  },
+  {
+    "when": "2025-04-10",
+    "title": "Memories of Murder",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2025-04-14",
+    "title": "Starship Troopers",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "dvd"
+    ]
+  },
+  {
+    "when": "2025-04-14",
+    "title": "Taxi Driver",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "dvd"
+    ]
+  },
+  {
+    "when": "2025-04-17",
+    "title": "Barking Dogs Never Bite",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2025-04-20",
+    "title": "Heart of an Oak",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "dvd"
+    ]
+  },
+  {
+    "when": "2025-05-03",
+    "title": "Ice Age",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "jellyfin"
+    ]
+  },
+  {
+    "when": "2025-05-04",
+    "title": "Eraserhead",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2025-05-06",
+    "title": "Red Heat",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "filmpalast"
+    ]
+  },
+  {
+    "when": "2025-05-11",
+    "title": "The Elephant Man",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2025-05-18",
+    "title": "Dune",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2025-05-25",
+    "title": "Blue Velvet",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2025-05-29",
+    "title": "The Phoenician Scheme",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2025-05-31",
+    "title": "Logan",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "blu-ray"
+    ]
+  },
+  {
+    "when": "2025-05-31",
+    "title": "Parasite",
+    "rating": null,
+    "rewatch": true,
+    "liked": false,
+    "tags": [
+      "blu-ray"
+    ]
+  },
+  {
+    "when": "2025-06-01",
+    "title": "Wild at Heart",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2025-06-02",
+    "title": "Once Upon a Time... in Hollywood",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "blu-ray"
+    ]
+  },
+  {
+    "when": "2025-06-03",
+    "title": "Run Lola Run",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "filmpalast"
+    ]
+  },
+  {
+    "when": "2025-06-04",
+    "title": "The Friend",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2025-06-05",
+    "title": "Asteroid City",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2025-06-06",
+    "title": "The Priest's Wife",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "7th technicolor festival"
+    ]
+  },
+  {
+    "when": "2025-06-06",
+    "title": "Dirty Harry",
+    "rating": null,
+    "rewatch": true,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "7th technicolor festival"
+    ]
+  },
+  {
+    "when": "2025-06-06",
+    "title": "The Murder Clinic",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "7th technicolor festival"
+    ]
+  },
+  {
+    "when": "2025-06-07",
+    "title": "Charlie Bubbles",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "7th technicolor festival"
+    ]
+  },
+  {
+    "when": "2025-06-07",
+    "title": "Bird of Paradise",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "7th technicolor festival"
+    ]
+  },
+  {
+    "when": "2025-06-07",
+    "title": "A Pistol for Ringo",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "7th technicolor festival"
+    ]
+  },
+  {
+    "when": "2025-06-07",
+    "title": "My Geisha",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "7th technicolor festival"
+    ]
+  },
+  {
+    "when": "2025-06-07",
+    "title": "Winning",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "7th technicolor festival"
+    ]
+  },
+  {
+    "when": "2025-06-08",
+    "title": "Lili",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "7th technicolor festival"
+    ]
+  },
+  {
+    "when": "2025-06-08",
+    "title": "Uptight",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "7th technicolor festival"
+    ]
+  },
+  {
+    "when": "2025-06-08",
+    "title": "Hollywood or Bust",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "7th technicolor festival"
+    ]
+  },
+  {
+    "when": "2025-06-08",
+    "title": "The Phantom of the Opera",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "7th technicolor festival",
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2025-06-08",
+    "title": "Interlude",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "7th technicolor festival"
+    ]
+  },
+  {
+    "when": "2025-06-09",
+    "title": "Up the Junction",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "7th technicolor festival"
+    ]
+  },
+  {
+    "when": "2025-06-09",
+    "title": "The World in His Arms",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "7th technicolor festival",
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2025-06-09",
+    "title": "Summer of '42",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "7th technicolor festival"
+    ]
+  },
+  {
+    "when": "2025-06-09",
+    "title": "The Wrong Box",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "7th technicolor festival"
+    ]
+  },
+  {
+    "when": "2025-06-11",
+    "title": "Four Mothers",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "ov sneak"
+    ]
+  },
+  {
+    "when": "2025-06-12",
+    "title": "The French Dispatch of the Liberty, Kansas Evening Sun",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2025-06-19",
+    "title": "Isle of Dogs",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2025-06-22",
+    "title": "The Straight Story",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2025-06-22",
+    "title": "David Lynch: The Art Life",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "dvd"
+    ]
+  },
+  {
+    "when": "2025-06-23",
+    "title": "Rave On",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "sneak"
+    ]
+  },
+  {
+    "when": "2025-06-24",
+    "title": "Mirai",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "filmpalast"
+    ]
+  },
+  {
+    "when": "2025-06-25",
+    "title": "Mr. K",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "ov sneak"
+    ]
+  },
+  {
+    "when": "2025-06-26",
+    "title": "The Grand Budapest Hotel",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2025-06-27",
+    "title": "The Unbearable Weight of Massive Talent",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "blu-ray"
+    ]
+  },
+  {
+    "when": "2025-06-28",
+    "title": "A Most Wanted Man",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "blu-ray"
+    ]
+  },
+  {
+    "when": "2025-06-29",
+    "title": "Mulholland Drive",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2025-06-30",
+    "title": "#BlackSheep",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "sneak"
+    ]
+  },
+  {
+    "when": "2025-07-02",
+    "title": "The Blues Brothers",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "jellyfin"
+    ]
+  },
+  {
+    "when": "2025-07-02",
+    "title": "The Ballad of Wallis Island",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "ov sneak"
+    ]
+  },
+  {
+    "when": "2025-07-03",
+    "title": "Moonrise Kingdom",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2025-07-06",
+    "title": "Inland Empire",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2025-07-07",
+    "title": "Oxana",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "sneak"
+    ]
+  },
+  {
+    "when": "2025-07-09",
+    "title": "The Life of Chuck",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "ov sneak"
+    ]
+  },
+  {
+    "when": "2025-07-10",
+    "title": "Fantastic Mr. Fox",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2025-07-13",
+    "title": "Interstellar",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2025-07-14",
+    "title": "Better Days",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "sneak"
+    ]
+  },
+  {
+    "when": "2025-07-16",
+    "title": "Memoir of a Snail",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "ov sneak"
+    ]
+  },
+  {
+    "when": "2025-07-17",
+    "title": "The Darjeeling Limited",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2025-07-21",
+    "title": "Sir\u0101t",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "sneak"
+    ]
+  },
+  {
+    "when": "2025-07-23",
+    "title": "Electric Child",
+    "rating": 0.5,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "ov sneak"
+    ]
+  },
+  {
+    "when": "2025-07-28",
+    "title": "Colours of Time",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "sneak"
+    ]
+  },
+  {
+    "when": "2025-07-30",
+    "title": "Holy Meat",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "ov sneak"
+    ]
+  },
+  {
+    "when": "2025-07-31",
+    "title": "The Royal Tenenbaums",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2025-08-04",
+    "title": "Bump",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "sneak"
+    ]
+  },
+  {
+    "when": "2025-08-05",
+    "title": "Jaws",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "filmpalast",
+      "best of cinema"
+    ]
+  },
+  {
+    "when": "2025-08-06",
+    "title": "Weapons",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "ov sneak"
+    ]
+  },
+  {
+    "when": "2025-08-07",
+    "title": "Rushmore",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2025-08-11",
+    "title": "Kill the Jockey",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "sneak"
+    ]
+  },
+  {
+    "when": "2025-08-13",
+    "title": "Nobody 2",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "ov sneak"
+    ]
+  },
+  {
+    "when": "2025-08-14",
+    "title": "Bottle Rocket",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2025-08-18",
+    "title": "When Fall Is Coming",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "sneak"
+    ]
+  },
+  {
+    "when": "2025-08-20",
+    "title": "Happy Holidays",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "ov sneak"
+    ]
+  },
+  {
+    "when": "2025-08-25",
+    "title": "Jane Austen Wrecked My Life",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "sneak"
+    ]
+  },
+  {
+    "when": "2025-08-26",
+    "title": "Pirates of the Caribbean: The Curse of the Black Pearl",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "blu-ray",
+      "high seas"
+    ]
+  },
+  {
+    "when": "2025-08-26",
+    "title": "Detective Conan: One-Eyed Flashback",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "filmpalast",
+      "anime night"
+    ]
+  },
+  {
+    "when": "2025-08-27",
+    "title": "Men in Black",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "blu-ray"
+    ]
+  },
+  {
+    "when": "2025-08-27",
+    "title": "The Roses",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "ov sneak"
+    ]
+  },
+  {
+    "when": "2025-08-28",
+    "title": "Men in Black II",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "dvd",
+      "library loan"
+    ]
+  },
+  {
+    "when": "2025-08-28",
+    "title": "Men in Black 3",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "dvd",
+      "library loan"
+    ]
+  },
+  {
+    "when": "2025-08-31",
+    "title": "The Favourite",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "blu-ray",
+      "library loan"
+    ]
+  },
+  {
+    "when": "2025-08-31",
+    "title": "Death Proof",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "dvd",
+      "library loan"
+    ]
+  },
+  {
+    "when": "2025-09-01",
+    "title": "Eyes Wide Shut",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "dvd",
+      "library loan"
+    ]
+  },
+  {
+    "when": "2025-09-01",
+    "title": "Miroirs No. 3",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "sneak"
+    ]
+  },
+  {
+    "when": "2025-09-02",
+    "title": "Walk the Line",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "best of cinema",
+      "filmpalast"
+    ]
+  },
+  {
+    "when": "2025-09-05",
+    "title": "The Boxer's Omen",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "filmrauschpalast moabit"
+    ]
+  },
+  {
+    "when": "2025-09-06",
+    "title": "Peking Opera Blues",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "filmrauschpalast moabit"
+    ]
+  },
+  {
+    "when": "2025-09-11",
+    "title": "Honey Don't!",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2025-09-15",
+    "title": "Dracula",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "sneak"
+    ]
+  },
+  {
+    "when": "2025-09-16",
+    "title": "The Long Walk",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "universum city kino"
+    ]
+  },
+  {
+    "when": "2025-09-17",
+    "title": "The Toxic Avenger",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "ov sneak"
+    ]
+  },
+  {
+    "when": "2025-09-21",
+    "title": "Hard Target",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "blu-ray"
+    ]
+  },
+  {
+    "when": "2025-09-22",
+    "title": "Bubbles",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "sneak"
+    ]
+  },
+  {
+    "when": "2025-09-24",
+    "title": "One Battle After Another",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "ov sneak"
+    ]
+  },
+  {
+    "when": "2025-09-28",
+    "title": "All the President's Men",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "robert redford memorial"
+    ]
+  },
+  {
+    "when": "2025-09-29",
+    "title": "Zweigstelle",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "sneak"
+    ]
+  },
+  {
+    "when": "2025-10-01",
+    "title": "The Mastermind",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "ov sneak"
+    ]
+  },
+  {
+    "when": "2025-10-02",
+    "title": "All About Eve",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2025-10-05",
+    "title": "The Way We Were",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2025-10-06",
+    "title": "Present Perfect",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "sneak"
+    ]
+  },
+  {
+    "when": "2025-10-07",
+    "title": "They Live",
+    "rating": null,
+    "rewatch": true,
+    "liked": true,
+    "tags": [
+      "filmpalast",
+      "best of cinema"
+    ]
+  },
+  {
+    "when": "2025-10-08",
+    "title": "OZI: Voice of the Forest",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "ov sneak"
+    ]
+  },
+  {
+    "when": "2025-10-09",
+    "title": "Fantasia",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2025-10-12",
+    "title": "Die Hard",
+    "rating": null,
+    "rewatch": true,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "todd ao 70mm film festival"
+    ]
+  },
+  {
+    "when": "2025-10-13",
+    "title": "How to Make a Killing",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "sneak"
+    ]
+  },
+  {
+    "when": "2025-10-14",
+    "title": "A Big Bold Beautiful Journey",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "universum city kino"
+    ]
+  },
+  {
+    "when": "2025-10-15",
+    "title": "Reading Lolita in Tehran",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "ov sneak"
+    ]
+  },
+  {
+    "when": "2025-10-16",
+    "title": "Bride of Frankenstein",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2025-10-19",
+    "title": "Shadow of a Doubt",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "traumfabrik"
+    ]
+  },
+  {
+    "when": "2025-10-20",
+    "title": "Anniversary",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "sneak"
+    ]
+  },
+  {
+    "when": "2025-10-22",
+    "title": "Eddington",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "ov sneak"
+    ]
+  },
+  {
+    "when": "2025-10-23",
+    "title": "The Gold Rush",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2025-10-25",
+    "title": "WALL\u00b7E",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "filme mit fabio"
+    ]
+  },
+  {
+    "when": "2025-10-26",
+    "title": "North by Northwest",
+    "rating": null,
+    "rewatch": true,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2025-10-27",
+    "title": "Bugonia",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "sneak"
+    ]
+  },
+  {
+    "when": "2025-11-02",
+    "title": "The Lord of the Rings: The Fellowship of the Ring",
+    "rating": null,
+    "rewatch": true,
+    "liked": false,
+    "tags": [
+      "filmpalast"
+    ]
+  },
+  {
+    "when": "2025-11-02",
+    "title": "The Rocky Horror Picture Show",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "filmpalast"
+    ]
+  },
+  {
+    "when": "2025-11-03",
+    "title": "No One Will Know",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "sneak"
+    ]
+  },
+  {
+    "when": "2025-11-04",
+    "title": "The Silence of the Lambs",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "filmpalast",
+      "best of cinema"
+    ]
+  },
+  {
+    "when": "2025-11-05",
+    "title": "Roofman",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "ov sneak"
+    ]
+  },
+  {
+    "when": "2025-11-09",
+    "title": "The Lord of the Rings: The Two Towers",
+    "rating": null,
+    "rewatch": true,
+    "liked": false,
+    "tags": [
+      "filmpalast"
+    ]
+  },
+  {
+    "when": "2025-11-09",
+    "title": "Good Boy",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2025-11-10",
+    "title": "To Be or Not to Be",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2025-11-10",
+    "title": "Die My Love",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "sneak"
+    ]
+  },
+  {
+    "when": "2025-11-11",
+    "title": "Idiocracy",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "dvd",
+      "library loan"
+    ]
+  },
+  {
+    "when": "2025-11-12",
+    "title": "HIM",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "ov sneak"
+    ]
+  },
+  {
+    "when": "2025-11-16",
+    "title": "The Lord of the Rings: The Return of the King",
+    "rating": null,
+    "rewatch": true,
+    "liked": false,
+    "tags": [
+      "filmpalast"
+    ]
+  },
+  {
+    "when": "2025-11-17",
+    "title": "Berlin Hero",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "sneak"
+    ]
+  },
+  {
+    "when": "2025-11-18",
+    "title": "Toy Story",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "4k blu-ray",
+      "jellyfin"
+    ]
+  },
+  {
+    "when": "2025-11-19",
+    "title": "Toy Story 2",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "4k blu-ray",
+      "jellyfin"
+    ]
+  },
+  {
+    "when": "2025-11-19",
+    "title": "Anemone",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "ov sneak"
+    ]
+  },
+  {
+    "when": "2025-11-25",
+    "title": "Die My Love",
+    "rating": null,
+    "rewatch": true,
+    "liked": false,
+    "tags": [
+      "filmrauschpalast moabit"
+    ]
+  },
+  {
+    "when": "2025-11-27",
+    "title": "Toy Story 3",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "4k blu-ray"
+    ]
+  },
+  {
+    "when": "2025-11-27",
+    "title": "Toy Story 4",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "4k blu-ray"
+    ]
+  },
+  {
+    "when": "2025-12-01",
+    "title": "The Little Sister",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "sneak"
+    ]
+  },
+  {
+    "when": "2025-12-08",
+    "title": "Bon Voyage, Marie",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "sneak"
+    ]
+  },
+  {
+    "when": "2025-12-10",
+    "title": "Song Sung Blue",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "ov sneak"
+    ]
+  },
+  {
+    "when": "2025-12-15",
+    "title": "The Stranger",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "sneak"
+    ]
+  },
+  {
+    "when": "2025-12-17",
+    "title": "Lesbian Space Princess",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "ov sneak"
+    ]
+  },
+  {
+    "when": "2025-12-22",
+    "title": "The Last Viking",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "sneak"
+    ]
+  },
+  {
+    "when": "2025-12-27",
+    "title": "The Little Witch",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "amazon"
+    ]
+  },
+  {
+    "when": "2025-12-28",
+    "title": "It Was Just an Accident",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "preview"
+    ]
+  },
+  {
+    "when": "2025-12-29",
+    "title": "Hamnet",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "preview"
+    ]
+  },
+  {
+    "when": "2025-12-30",
+    "title": "Rental Family",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "preview"
+    ]
+  },
+  {
+    "when": "2026-01-01",
+    "title": "The Whale",
+    "rating": null,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "blu-ray",
+      "library loan"
+    ]
+  },
+  {
+    "when": "2026-01-05",
+    "title": "Easy Girl",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "sneak"
+    ]
+  },
+  {
+    "when": "2026-01-07",
+    "title": "Dust Bunny",
+    "rating": 5.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "ov sneak"
+    ]
+  },
+  {
+    "when": "2026-01-12",
+    "title": "Cycle of Time",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "sneak"
+    ]
+  },
+  {
+    "when": "2026-01-14",
+    "title": "Silent Friend",
+    "rating": 5.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "ov sneak"
+    ]
+  },
+  {
+    "when": "2026-01-19",
+    "title": "You Believe in Angels, Mr. Drowak?",
+    "rating": 5.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "filmfestival max oph\u00fcl preis"
+    ]
+  },
+  {
+    "when": "2026-01-20",
+    "title": "Noah",
+    "rating": 5.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "filmfestival max oph\u00fcl preis"
+    ]
+  },
+  {
+    "when": "2026-01-20",
+    "title": "Run Me Wild",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "filmfestival max oph\u00fcl preis"
+    ]
+  },
+  {
+    "when": "2026-01-20",
+    "title": "Solo Show",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "filmfestival max oph\u00fcl preis"
+    ]
+  },
+  {
+    "when": "2026-01-21",
+    "title": "Wovon sollen wir tr\u00e4umen",
+    "rating": 5.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "filmfestival max oph\u00fcl preis"
+    ]
+  },
+  {
+    "when": "2026-01-21",
+    "title": "Tale Of A Sad Man",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "filmfestival max oph\u00fcl preis"
+    ]
+  },
+  {
+    "when": "2026-01-21",
+    "title": "Harika",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "filmfestival max oph\u00fcl preis"
+    ]
+  },
+  {
+    "when": "2026-01-21",
+    "title": "Arme Hunde",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "filmfestival max oph\u00fcl preis"
+    ]
+  },
+  {
+    "when": "2026-01-21",
+    "title": "Wir sind da",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "filmfestival max oph\u00fcl preis"
+    ]
+  },
+  {
+    "when": "2026-01-21",
+    "title": "Wolves",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "filmfestival max oph\u00fcl preis"
+    ]
+  },
+  {
+    "when": "2026-01-22",
+    "title": "Gropiusstadt Supernova",
+    "rating": 5.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "filmfestival max oph\u00fcl preis"
+    ]
+  },
+  {
+    "when": "2026-01-22",
+    "title": "H\u00e4tten wir doch die Aida genommen",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "filmfestival max oph\u00fcl preis"
+    ]
+  },
+  {
+    "when": "2026-01-22",
+    "title": "Hygge",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "filmfestival max oph\u00fcl preis"
+    ]
+  },
+  {
+    "when": "2026-01-22",
+    "title": "Der tote Winkel der Wahrnehmung",
+    "rating": 5.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "filmfestival max oph\u00fcl preis"
+    ]
+  },
+  {
+    "when": "2026-01-23",
+    "title": "Teresa\u2019s Body",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "filmfestival max oph\u00fcl preis"
+    ]
+  },
+  {
+    "when": "2026-01-23",
+    "title": "Affordable Solutions for a Better Life",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "filmfestival max oph\u00fcl preis"
+    ]
+  },
+  {
+    "when": "2026-01-23",
+    "title": "M.",
+    "rating": 2.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "filmfestival max oph\u00fcl preis"
+    ]
+  },
+  {
+    "when": "2026-01-23",
+    "title": "Eyes won't see",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "filmfestival max oph\u00fcls preis"
+    ]
+  },
+  {
+    "when": "2026-01-23",
+    "title": "Mary",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "filmfestival max oph\u00fcl preis"
+    ]
+  },
+  {
+    "when": "2026-01-23",
+    "title": "Taut",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "filmfestival max oph\u00fcl preis"
+    ]
+  },
+  {
+    "when": "2026-01-23",
+    "title": "The Girl Is Taken by Aliens",
+    "rating": 5.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "filmfestival max oph\u00fcl preis"
+    ]
+  },
+  {
+    "when": "2026-01-23",
+    "title": "Hanteln f\u00fcr Heten",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "filmfestival max oph\u00fcl preis"
+    ]
+  },
+  {
+    "when": "2026-01-23",
+    "title": "Vom Ende der Menschheit",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "filmfestival max oph\u00fcl preis"
+    ]
+  },
+  {
+    "when": "2026-01-24",
+    "title": "Closed for the Virus Break",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "filmfestival max oph\u00fcl preis"
+    ]
+  },
+  {
+    "when": "2026-01-24",
+    "title": "Rike",
+    "rating": 5.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "filmfestival max oph\u00fcl preis"
+    ]
+  },
+  {
+    "when": "2026-01-24",
+    "title": "Ein Arm ist ein Arm ist ein Arm",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "filmfestival max oph\u00fcl preis"
+    ]
+  },
+  {
+    "when": "2026-01-24",
+    "title": "Still February",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "filmfestival max oph\u00fcl preis"
+    ]
+  },
+  {
+    "when": "2026-01-24",
+    "title": "Nasty Little Things",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "filmfestival max oph\u00fcl preis"
+    ]
+  },
+  {
+    "when": "2026-01-24",
+    "title": "White Snail",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "filmfestival max oph\u00fcl preis"
+    ]
+  },
+  {
+    "when": "2026-01-24",
+    "title": "Every Time I Look at You",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "filmfestival max oph\u00fcl preis"
+    ]
+  },
+  {
+    "when": "2026-01-24",
+    "title": "Liquor",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "filmfestival max oph\u00fcl preis"
+    ]
+  },
+  {
+    "when": "2026-01-24",
+    "title": "In Your Quiet Steps",
+    "rating": 5.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "filmfestival max oph\u00fcl preis"
+    ]
+  },
+  {
+    "when": "2026-01-24",
+    "title": "Loss of Altitude",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "filmfestival max oph\u00fcl preis"
+    ]
+  },
+  {
+    "when": "2026-01-24",
+    "title": "Graben",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "filmfestival max oph\u00fcl preis"
+    ]
+  },
+  {
+    "when": "2026-01-24",
+    "title": "A. will raus (\u00fcber Neutralit\u00e4t)",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "filmfestival max oph\u00fcl preis"
+    ]
+  },
+  {
+    "when": "2026-01-24",
+    "title": "Non-Lieux",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "filmfestival max oph\u00fcl preis"
+    ]
+  },
+  {
+    "when": "2026-01-24",
+    "title": "Babystar",
+    "rating": 5.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "filmfestival max oph\u00fcl preis"
+    ]
+  },
+  {
+    "when": "2026-01-26",
+    "title": "No Other Choice",
+    "rating": 5.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "sneak"
+    ]
+  },
+  {
+    "when": "2026-01-28",
+    "title": "Send Help",
+    "rating": 5.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "ov sneak"
+    ]
+  },
+  {
+    "when": "2026-02-11",
+    "title": "Dead of Winter",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "ov sneak"
+    ]
+  },
+  {
+    "when": "2026-02-12",
+    "title": "Princess Mononoke",
+    "rating": 5.0,
+    "rewatch": true,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "ghibli & beyond"
+    ]
+  },
+  {
+    "when": "2026-02-14",
+    "title": "Iron Lung",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "filmpalast"
+    ]
+  },
+  {
+    "when": "2026-02-15",
+    "title": "2001: A Space Odyssey",
+    "rating": 5.0,
+    "rewatch": true,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "70mm"
+    ]
+  },
+  {
+    "when": "2026-02-16",
+    "title": "Hear Me: Our Summer",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "best of cinema",
+      "sneak"
+    ]
+  },
+  {
+    "when": "2026-02-18",
+    "title": "Marty Supreme",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "ov sneak"
+    ]
+  },
+  {
+    "when": "2026-02-19",
+    "title": "Angel's Egg",
+    "rating": 5.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "ghibli & beyond"
+    ]
+  },
+  {
+    "when": "2026-02-22",
+    "title": "Cliffhanger",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "kult-sneak"
+    ]
+  },
+  {
+    "when": "2026-02-23",
+    "title": "Yellow Letters",
+    "rating": 5.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "sneak"
+    ]
+  },
+  {
+    "when": "2026-02-25",
+    "title": "Pillion",
+    "rating": 5.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "ov sneak"
+    ]
+  },
+  {
+    "when": "2026-02-26",
+    "title": "Scarlet",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "ghibli & beyond"
+    ]
+  },
+  {
+    "when": "2026-03-01",
+    "title": "No Other Choice",
+    "rating": 5.0,
+    "rewatch": true,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "omeu"
+    ]
+  },
+  {
+    "when": "2026-03-02",
+    "title": "Father Mother Sister Brother",
+    "rating": 5.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "ov"
+    ]
+  },
+  {
+    "when": "2026-03-02",
+    "title": "Mr. Putifar's Wacky Plan",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "sneak"
+    ]
+  },
+  {
+    "when": "2026-03-03",
+    "title": "You Believe in Angels, Mr. Drowak?",
+    "rating": 5.0,
+    "rewatch": true,
+    "liked": true,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2026-03-03",
+    "title": "Oldboy",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "universum city kino",
+      "best of cinema",
+      "omu"
+    ]
+  },
+  {
+    "when": "2026-03-04",
+    "title": "The History of Sound",
+    "rating": 5.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "ov sneak"
+    ]
+  },
+  {
+    "when": "2026-03-05",
+    "title": "The Boy and the Beast",
+    "rating": 5.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "ghibli & beyond"
+    ]
+  },
+  {
+    "when": "2026-03-08",
+    "title": "Barry Lyndon",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "ov"
+    ]
+  },
+  {
+    "when": "2026-03-08",
+    "title": "2001: A Space Odyssey",
+    "rating": 5.0,
+    "rewatch": true,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "ov",
+      "70mm"
+    ]
+  },
+  {
+    "when": "2026-03-09",
+    "title": "Ida",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2026-03-09",
+    "title": "Nouvelle Vague",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "sneak"
+    ]
+  },
+  {
+    "when": "2026-03-11",
+    "title": "Good Luck, Have Fun, Don't Die",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "ov sneak"
+    ]
+  },
+  {
+    "when": "2026-03-12",
+    "title": "Castle in the Sky",
+    "rating": 5.0,
+    "rewatch": true,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "ghibli & beyond"
+    ]
+  },
+  {
+    "when": "2026-03-15",
+    "title": "Nouvelle Vague",
+    "rating": 4.0,
+    "rewatch": true,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "subtitled"
+    ]
+  },
+  {
+    "when": "2026-03-16",
+    "title": "DJ Ahmet",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "sneak"
+    ]
+  },
+  {
+    "when": "2026-03-17",
+    "title": "The Bride!",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "ov"
+    ]
+  },
+  {
+    "when": "2026-03-18",
+    "title": "Plastic Little: The Adventures of Captain Tita",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "jellyfin",
+      "fansub"
+    ]
+  },
+  {
+    "when": "2026-03-18",
+    "title": "American Sweatshop",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "ov sneak"
+    ]
+  },
+  {
+    "when": "2026-03-19",
+    "title": "My Neighbor Totoro",
+    "rating": 5.0,
+    "rewatch": true,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "ghibli & beyond"
+    ]
+  },
+  {
+    "when": "2026-03-20",
+    "title": "Is This Thing On?",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "ov"
+    ]
+  },
+  {
+    "when": "2026-03-22",
+    "title": "Breathless",
+    "rating": 5.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "omu",
+      "nouvelle vague"
+    ]
+  },
+  {
+    "when": "2026-03-23",
+    "title": "Blue Moon",
+    "rating": 5.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "sneak"
+    ]
+  },
+  {
+    "when": "2026-03-24",
+    "title": "Project Hail Mary",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "ov",
+      "universum city kino"
+    ]
+  },
+  {
+    "when": "2026-03-25",
+    "title": "How to Make a Killing",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "ov sneak"
+    ]
+  },
+  {
+    "when": "2026-03-26",
+    "title": "Pom Poko",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "ghibli & beyond"
+    ]
+  },
+  {
+    "when": "2026-03-27",
+    "title": "The Testament of Ann Lee",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "ov",
+      "70mm"
+    ]
+  },
+  {
+    "when": "2026-03-28",
+    "title": "Up",
+    "rating": 5.0,
+    "rewatch": true,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "german dub"
+    ]
+  },
+  {
+    "when": "2026-03-29",
+    "title": "The 400 Blows",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "nouvelle vague",
+      "omu"
+    ]
+  },
+  {
+    "when": "2026-03-29",
+    "title": "The Big Lebowski",
+    "rating": 4.0,
+    "rewatch": true,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "kult-sneak",
+      "german dub"
+    ]
+  },
+  {
+    "when": "2026-03-30",
+    "title": "VIRGIN PUNK Clockwork Girl",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": []
+  },
+  {
+    "when": "2026-03-30",
+    "title": "Second Victims",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "sneak"
+    ]
+  },
+  {
+    "when": "2026-03-31",
+    "title": "A Useful Ghost",
+    "rating": 3.5,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "german dub",
+      "cinema"
+    ]
+  },
+  {
+    "when": "2026-04-01",
+    "title": "Palestine 36",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "ov sneak",
+      "cinema"
+    ]
+  },
+  {
+    "when": "2026-04-02",
+    "title": "Wolf Children",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "ghibli & beyond",
+      "japanese with german subtitles"
+    ]
+  },
+  {
+    "when": "2026-04-03",
+    "title": "Ben-Hur",
+    "rating": 3.5,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "english with german subtitles"
+    ]
+  },
+  {
+    "when": "2026-04-06",
+    "title": "Rose",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "sneak",
+      "cinema"
+    ]
+  },
+  {
+    "when": "2026-04-07",
+    "title": "The Drama",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "ov",
+      "cinema"
+    ]
+  },
+  {
+    "when": "2026-04-08",
+    "title": "Normal",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "ov sneak",
+      "cinema",
+      "top2026"
+    ]
+  },
+  {
+    "when": "2026-04-09",
+    "title": "Spirited Away",
+    "rating": 5.0,
+    "rewatch": true,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "ghibli & beyond",
+      "japanese with german subtitles",
+      "cinema"
+    ]
+  },
+  {
+    "when": "2026-04-12",
+    "title": "Kill Bill: The Whole Bloody Affair",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "ov",
+      "cinema",
+      "70mm"
+    ]
+  },
+  {
+    "when": "2026-04-12",
+    "title": "Cl\u00e9o from 5 to 7",
+    "rating": 3.5,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "nouvelle vague",
+      "french with english subs"
+    ]
+  },
+  {
+    "when": "2026-04-13",
+    "title": "A Private Life",
+    "rating": 2.5,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "sneak",
+      "cinema"
+    ]
+  },
+  {
+    "when": "2026-04-15",
+    "title": "Incinerate",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "ov with english subtitles",
+      "id25",
+      "independent days 2026"
+    ]
+  },
+  {
+    "when": "2026-04-15",
+    "title": "Humorm\u00e0tic",
+    "rating": 3.5,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "independent days 2026",
+      "id25",
+      "spanish with english subtitles"
+    ]
+  },
+  {
+    "when": "2026-04-15",
+    "title": "And That's for This Christmas",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "independent days 2026",
+      "id25",
+      "cinema",
+      "bulgarian with english subtitles"
+    ]
+  },
+  {
+    "when": "2026-04-15",
+    "title": "Nuremberg",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "ov sneak",
+      "cinema",
+      "ov"
+    ]
+  },
+  {
+    "when": "2026-04-15",
+    "title": "Goodbye Milo",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "id25",
+      "independent days 2026",
+      "schauburg",
+      "cinema"
+    ]
+  },
+  {
+    "when": "2026-04-16",
+    "title": "Africa Blanca",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "id25",
+      "independent days 2026"
+    ]
+  },
+  {
+    "when": "2026-04-16",
+    "title": "Summer Wars",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "ghibli & beyond",
+      "japanese with german subtitles"
+    ]
+  },
+  {
+    "when": "2026-04-17",
+    "title": "Dream Theatre",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "id25",
+      "independent days 2026"
+    ]
+  },
+  {
+    "when": "2026-04-17",
+    "title": "Mi casa amarilla",
+    "rating": 3.5,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "id25",
+      "independent days 2026",
+      "spanish with english subtitles"
+    ]
+  },
+  {
+    "when": "2026-04-18",
+    "title": "Big City Pizza",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "id25",
+      "independent days 2026",
+      "omu",
+      "cinema"
+    ]
+  },
+  {
+    "when": "2026-04-19",
+    "title": "Somber Tides",
+    "rating": 3.5,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "id25",
+      "independent days 2026",
+      "cinema"
+    ]
+  },
+  {
+    "when": "2026-04-19",
+    "title": "The Young Girls of Rochefort",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "french with english subs",
+      "cinema",
+      "nouvelle vague"
+    ]
+  },
+  {
+    "when": "2026-04-20",
+    "title": "Rosebush Pruning",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "sneak"
+    ]
+  },
+  {
+    "when": "2026-04-22",
+    "title": "I Swear",
+    "rating": 5.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "ov sneak",
+      "cinema"
+    ]
+  },
+  {
+    "when": "2026-04-23",
+    "title": "Howl's Moving Castle",
+    "rating": 5.0,
+    "rewatch": true,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "japanese with german subtitles",
+      "ghibli & beyond"
+    ]
+  },
+  {
+    "when": "2026-04-26",
+    "title": "Dead Poets Society",
+    "rating": 5.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "kult-sneak"
+    ]
+  },
+  {
+    "when": "2026-04-27",
+    "title": "The Frog and the Water",
+    "rating": 3.5,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "sneak",
+      "cinema"
+    ]
+  },
+  {
+    "when": "2026-04-29",
+    "title": "The Devil Wears Prada 2",
+    "rating": 3.5,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "ov sneak",
+      "cinema"
+    ]
+  },
+  {
+    "when": "2026-04-30",
+    "title": "The Tale of The Princess Kaguya",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "ghibli & beyond",
+      "japanese with german subtitles"
+    ]
+  },
+  {
+    "when": "2026-05-03",
+    "title": "The Day the Earth Stood Still",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "english with german subtitles",
+      "traumfabrik"
+    ]
+  },
+  {
+    "when": "2026-05-04",
+    "title": "Guru",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "sneak",
+      "cinema"
+    ]
+  },
+  {
+    "when": "2026-05-05",
+    "title": "Michael",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "ov"
+    ]
+  },
+  {
+    "when": "2026-05-06",
+    "title": "Heel",
+    "rating": 3.5,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "ov sneak",
+      "cinema"
+    ]
+  },
+  {
+    "when": "2026-05-10",
+    "title": "La Strada",
+    "rating": 3.5,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "italian with german subtitles"
+    ]
+  },
+  {
+    "when": "2026-05-11",
+    "title": "LOL 2.0: Anne\u2019s Golden Hour",
+    "rating": 3.5,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "sneak",
+      "cinema"
+    ]
+  },
+  {
+    "when": "2026-05-12",
+    "title": "Ni\u00f1xs",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "spanish with german subtitles"
+    ]
+  },
+  {
+    "when": "2026-05-13",
+    "title": "The North",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "ov sneak",
+      "cinema"
+    ]
+  },
+  {
+    "when": "2026-05-16",
+    "title": "The Guard",
+    "rating": 4.0,
+    "rewatch": true,
+    "liked": false,
+    "tags": []
+  },
+  {
+    "when": "2026-05-17",
+    "title": "The Good, the Bad and the Ugly",
+    "rating": 4.0,
+    "rewatch": true,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "english with german subtitles",
+      "traumfabrik"
+    ]
+  },
+  {
+    "when": "2026-05-18",
+    "title": "A Brief Affair",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "sneak",
+      "cinema"
+    ]
+  },
+  {
+    "when": "2026-05-19",
+    "title": "The Sheep Detectives",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "ov",
+      "top2026"
+    ]
+  },
+  {
+    "when": "2026-05-20",
+    "title": "In the Grey",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "ov sneak",
+      "cinema"
+    ]
+  },
+  {
+    "when": "2026-05-22",
+    "title": "Money from Home",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "8th technicolor festival"
+    ]
+  },
+  {
+    "when": "2026-05-22",
+    "title": "Red Sundown",
+    "rating": 3.5,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "8th technicolor festival"
+    ]
+  },
+  {
+    "when": "2026-05-23",
+    "title": "Mondo candido",
+    "rating": 3.5,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "8th technicolor festival"
+    ]
+  },
+  {
+    "when": "2026-05-23",
+    "title": "On the Riviera",
+    "rating": 3.5,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "8th technicolor festival"
+    ]
+  },
+  {
+    "when": "2026-05-23",
+    "title": "The Violent Four",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "8th technicolor festival"
+    ]
+  },
+  {
+    "when": "2026-05-23",
+    "title": "The Long, Long Trailer",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "8th technicolor festival"
+    ]
+  },
+  {
+    "when": "2026-05-23",
+    "title": "The Swimmer",
+    "rating": 2.5,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "8th technicolor festival"
+    ]
+  },
+  {
+    "when": "2026-05-23",
+    "title": "Games",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "8th technicolor festival"
+    ]
+  },
+  {
+    "when": "2026-05-24",
+    "title": "After the Fox",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "8th technicolor festival"
+    ]
+  },
+  {
+    "when": "2026-05-24",
+    "title": "The Legend of Lobo",
+    "rating": 3.5,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "8th technicolor festival"
+    ]
+  },
+  {
+    "when": "2026-05-24",
+    "title": "Mary Poppins",
+    "rating": 5.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "8th technicolor festival"
+    ]
+  },
+  {
+    "when": "2026-05-24",
+    "title": "Lovers and Other Relatives",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "8th technicolor festival"
+    ]
+  },
+  {
+    "when": "2026-05-24",
+    "title": "Medium Cool",
+    "rating": 2.5,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "8th technicolor festival"
+    ]
+  },
+  {
+    "when": "2026-05-25",
+    "title": "Davy Crockett, King of the Wild Frontier",
+    "rating": 2.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "8th technicolor festival"
+    ]
+  },
+  {
+    "when": "2026-05-25",
+    "title": "Model Shop",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "8th technicolor festival"
+    ]
+  },
+  {
+    "when": "2026-05-25",
+    "title": "Adventures of Don Juan",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "8th technicolor festival"
+    ]
+  },
+  {
+    "when": "2026-05-25",
+    "title": "Kiss Me Kate",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "8th technicolor festival"
+    ]
+  },
+  {
+    "when": "2026-05-25",
+    "title": "The Love That Remains",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "sneak"
+    ]
+  },
+  {
+    "when": "2026-05-26",
+    "title": "Perfect Blue",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "japanese with german subtitles",
+      "cinema",
+      "cineplex mannheim"
+    ]
+  },
+  {
+    "when": "2026-05-27",
+    "title": "Tuner",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "ov sneak"
+    ]
+  },
+  {
+    "when": "2026-06-02",
+    "title": "Telephones",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "museum of communication frankfurt"
+    ]
+  },
+  {
+    "when": "2026-06-02",
+    "title": "Fujiko",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "26th nippon connection"
+    ]
+  },
+  {
+    "when": "2026-06-03",
+    "title": "AnyMart",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "26th nippon connection"
+    ]
+  },
+  {
+    "when": "2026-06-03",
+    "title": "How Dare You?",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "26th nippon connection"
+    ]
+  },
+  {
+    "when": "2026-06-03",
+    "title": "Suzuki=Bakudan",
+    "rating": 3.5,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "26th nippon connection"
+    ]
+  },
+  {
+    "when": "2026-06-03",
+    "title": "5 Centimeters per Second",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "26th nippon connection"
+    ]
+  },
+  {
+    "when": "2026-06-03",
+    "title": "Night Flower",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "26th nippon connection"
+    ]
+  },
+  {
+    "when": "2026-06-04",
+    "title": "The Last Blossom",
+    "rating": 5.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "26th nippon connection"
+    ]
+  },
+  {
+    "when": "2026-06-04",
+    "title": "Blue Boy Trial",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "26th nippon connection"
+    ]
+  },
+  {
+    "when": "2026-06-04",
+    "title": "Sato and Sato",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "26th nippon connection"
+    ]
+  },
+  {
+    "when": "2026-06-04",
+    "title": "1st Kiss",
+    "rating": 3.5,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "26th nippon connection"
+    ]
+  },
+  {
+    "when": "2026-06-05",
+    "title": "Jinsei",
+    "rating": 2.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "26th nippon connection"
+    ]
+  },
+  {
+    "when": "2026-06-05",
+    "title": "Chimney Town: Frozen in Time",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "26th nippon connection"
+    ]
+  },
+  {
+    "when": "2026-06-05",
+    "title": "Fiamma",
+    "rating": 2.5,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "26th nippon connection"
+    ]
+  },
+  {
+    "when": "2026-06-05",
+    "title": "A Pale View of Hills",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "26th nippon connection"
+    ]
+  },
+  {
+    "when": "2026-06-05",
+    "title": "New Group",
+    "rating": 3.5,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "26th nippon connection"
+    ]
+  },
+  {
+    "when": "2026-06-06",
+    "title": "Sai: Disaster",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "26th nippon connection"
+    ]
+  },
+  {
+    "when": "2026-06-06",
+    "title": "A Moon in the Ordinary",
+    "rating": 4.5,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "26th nippon connection"
+    ]
+  },
+  {
+    "when": "2026-06-06",
+    "title": "ChaO",
+    "rating": 5.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "26th nippon connection"
+    ]
+  },
+  {
+    "when": "2026-06-06",
+    "title": "Tiger",
+    "rating": 4.5,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "26th nippon connection"
+    ]
+  },
+  {
+    "when": "2026-06-06",
+    "title": "find me",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "26th nippon connection",
+      "nippon animation shorts awards winner"
+    ]
+  },
+  {
+    "when": "2026-06-06",
+    "title": "A New Dawn",
+    "rating": 3.5,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "26th nippon connection"
+    ]
+  },
+  {
+    "when": "2026-06-07",
+    "title": "Mag Mag",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "26th nippon connection"
+    ]
+  },
+  {
+    "when": "2026-06-07",
+    "title": "The Obsessed",
+    "rating": 3.5,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "26th nippon connection"
+    ]
+  },
+  {
+    "when": "2026-06-07",
+    "title": "All Greens",
+    "rating": 5.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "26th nippon connection",
+      "top2026"
+    ]
+  },
+  {
+    "when": "2026-06-07",
+    "title": "Two Seasons, Two Strangers",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "26th nippon connection"
+    ]
+  },
+  {
+    "when": "2026-06-07",
+    "title": "Tokyo Taxi",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "26th nippon connection",
+      "top2026"
+    ]
+  },
+  {
+    "when": "2026-06-15",
+    "title": "The Fearless Vampire Killers",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "omu"
+    ]
+  },
+  {
+    "when": "2026-06-15",
+    "title": "Good Vibes Only",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "sneak"
+    ]
+  },
+  {
+    "when": "2026-06-17",
+    "title": "Savage House",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "ov sneak"
+    ]
+  },
+  {
+    "when": "2026-06-18",
+    "title": "The Wind Rises",
+    "rating": 3.0,
+    "rewatch": true,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "japanese with german subtitles",
+      "ghibli & beyond volume 2"
+    ]
+  },
+  {
+    "when": "2026-06-19",
+    "title": "Backrooms",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "ov"
+    ]
+  },
+  {
+    "when": "2026-06-21",
+    "title": "A Clockwork Orange",
+    "rating": 4.0,
+    "rewatch": true,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "traumfabrik"
+    ]
+  },
+  {
+    "when": "2026-06-22",
+    "title": "Spices and Lies",
+    "rating": 2.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "sneak"
+    ]
+  },
+  {
+    "when": "2026-06-24",
+    "title": "Dreams",
+    "rating": 1.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "ov sneak"
+    ]
+  },
+  {
+    "when": "2026-06-25",
+    "title": "From Up on Poppy Hill",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "ghibli & beyond volume 2",
+      "japanese with german subtitles"
+    ]
+  },
+  {
+    "when": "2026-06-28",
+    "title": "Fitzcarraldo",
+    "rating": 3.5,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "traumfabrik",
+      "traumfabrik emotion cinema"
+    ]
+  },
+  {
+    "when": "2026-06-28",
+    "title": "The Matrix",
+    "rating": 4.0,
+    "rewatch": true,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "kult-sneak",
+      "german dub"
+    ]
+  },
+  {
+    "when": "2026-06-29",
+    "title": "The Money Maker",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "sneak",
+      "german dub"
+    ]
+  },
+  {
+    "when": "2026-07-01",
+    "title": "Virginia Woolf's Night & Day",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "ov sneak"
+    ]
+  },
+  {
+    "when": "2026-07-02",
+    "title": "Grave of the Fireflies",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "ghibli & beyond volume 2",
+      "japanese with german subtitles"
+    ]
+  },
+  {
+    "when": "2026-07-05",
+    "title": "Buena Vista Social Club",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "spanish and english with german subtitles",
+      "traumfabrik emotion cinema"
+    ]
+  },
+  {
+    "when": "2026-07-06",
+    "title": "Love In Separate Beds",
+    "rating": 3.5,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "sneak"
+    ]
+  },
+  {
+    "when": "2026-07-08",
+    "title": "Toy Story 5",
+    "rating": 5.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "ov sneak",
+      "topstats",
+      "top2026"
+    ]
+  },
+  {
+    "when": "2026-07-09",
+    "title": "Howl's Moving Castle",
+    "rating": 5.0,
+    "rewatch": true,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "japanese with german subtitles",
+      "ghibli & beyond volume 2"
+    ]
+  },
+  {
+    "when": "2026-07-12",
+    "title": "Blue Velvet",
+    "rating": 3.5,
+    "rewatch": true,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "traumfabrik emotion cinema",
+      "english with german subtitles"
+    ]
+  },
+  {
+    "when": "2026-07-12",
+    "title": "Toy Story",
+    "rating": 5.0,
+    "rewatch": true,
+    "liked": true,
+    "tags": [
+      "blu-ray",
+      "4k blu-ray"
+    ]
+  },
+  {
+    "when": "2026-07-12",
+    "title": "Toy Story 2",
+    "rating": 5.0,
+    "rewatch": true,
+    "liked": true,
+    "tags": [
+      "4k blu-ray"
+    ]
+  },
+  {
+    "when": "2026-07-13",
+    "title": "Toy Story 3",
+    "rating": 5.0,
+    "rewatch": true,
+    "liked": true,
+    "tags": [
+      "4k blu-ray"
+    ]
+  },
+  {
+    "when": "2026-07-13",
+    "title": "Toy Story 4",
+    "rating": 5.0,
+    "rewatch": true,
+    "liked": true,
+    "tags": [
+      "4k blu-ray"
+    ]
+  },
+  {
+    "when": "2026-07-13",
+    "title": "Riki-Oh: The Story of Ricky",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "4k blu-ray",
+      "uncut",
+      "german dub"
+    ]
+  },
+  {
+    "when": "2026-07-13",
+    "title": "Marsupilami",
+    "rating": 3.5,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "sneak",
+      "german dub"
+    ]
+  },
+  {
+    "when": "2026-07-15",
+    "title": "The Invite",
+    "rating": 2.5,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "ov sneak"
+    ]
+  },
+  {
+    "when": "2026-07-16",
+    "title": "Whisper of the Heart",
+    "rating": 5.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "ghibli & beyond volume 2",
+      "japanese with german subtitles"
+    ]
+  },
+  {
+    "when": "2026-07-19",
+    "title": "Joker",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "english with german subtitles",
+      "traumfabrik emotion cinema"
+    ]
+  },
+  {
+    "when": "2026-07-20",
+    "title": "H Is for Hawk",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "sneak",
+      "german dub"
+    ]
+  },
+  {
+    "when": "2026-07-22",
+    "title": "Sunny Dancer",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "ov sneak"
+    ]
+  },
+  {
+    "when": "2026-07-22",
+    "title": "The Little Orphan",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "cinema"
+    ]
+  },
+  {
+    "when": "2026-07-23",
+    "title": "The Girl Who Leapt Through Time",
+    "rating": 5.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "ghibli & beyond volume 2",
+      "japanese with german subtitles"
+    ]
+  },
+  {
+    "when": "2026-07-25",
+    "title": "Toy Story 5",
+    "rating": 5.0,
+    "rewatch": true,
+    "liked": true,
+    "tags": [
+      "cinema",
+      "ov",
+      "cineplex capitol kassel"
+    ]
+  },
+  {
+    "when": "2026-07-26",
+    "title": "The Miracle of Bern",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "kult-sneak",
+      "german dub"
+    ]
+  },
+  {
+    "when": "2026-07-27",
+    "title": "Bitter Christmas",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "sneak",
+      "german dub"
+    ]
+  },
+  {
+    "when": "2026-07-28",
+    "title": "Jane Austen's Period Drama",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "english with german subtitles",
+      "live-action short film",
+      "oscars 2026"
+    ]
+  },
+  {
+    "when": "2026-07-28",
+    "title": "Butcher's Stain",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "oscars 2026",
+      "live-action short film"
+    ]
+  },
+  {
+    "when": "2026-07-28",
+    "title": "The Singers",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "oscars 2026",
+      "live-action short film"
+    ]
+  },
+  {
+    "when": "2026-07-28",
+    "title": "Two People Exchanging Saliva",
+    "rating": 5.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "oscars 2026",
+      "live-action short film"
+    ]
+  },
+  {
+    "when": "2026-07-28",
+    "title": "A Friend of Dorothy",
+    "rating": 5.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "oscars 2026",
+      "live-action short film"
+    ]
+  },
+  {
+    "when": "2026-07-28",
+    "title": "Obsession",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "ov"
+    ]
+  },
+  {
+    "when": "2026-07-29",
+    "title": "You, Me & Tuscany",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "ov sneak"
+    ]
+  },
+  {
+    "when": "2026-07-30",
+    "title": "Ghost in the Shell",
+    "rating": 4.0,
+    "rewatch": true,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "ghibli & beyond volume 2",
+      "japanese with german subtitles"
+    ]
+  },
+  {
+    "when": "2026-08-01",
+    "title": "The Odyssey",
+    "rating": 3.5,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "ov",
+      "70mm"
+    ]
+  },
+  {
+    "when": "2026-08-03",
+    "title": "Let It Rain",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "sneak",
+      "german dub"
+    ]
+  },
+  {
+    "when": "2026-08-04",
+    "title": "The Terminator",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "cinema",
+      "filmpalast",
+      "german dub",
+      "best of cinema"
+    ]
+  },
+  {
+    "when": "2026-08-05",
+    "title": "LifeHack",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "ov sneak"
+    ]
+  },
+  {
+    "when": "2026-08-06",
+    "title": "Only Yesterday",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "japanese with german subtitles",
+      "ghibli & beyond volume 2",
+      "original sound"
+    ]
+  },
+  {
+    "when": "2026-08-07",
+    "title": "Ghost in the Shell",
+    "rating": 4.0,
+    "rewatch": true,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "japanese with german subtitles",
+      "original sound"
+    ]
+  },
+  {
+    "when": "2026-08-10",
+    "title": "A Stroll to Syracuse",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "sneak",
+      "original sound"
+    ]
+  },
+  {
+    "when": "2026-08-12",
+    "title": "One Night Only",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "ov sneak",
+      "original sound"
+    ]
+  },
+  {
+    "when": "2026-08-13",
+    "title": "Princess Mononoke",
+    "rating": 5.0,
+    "rewatch": true,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "original sound",
+      "ghibli & beyond volume 2",
+      "japanese with german subtitles"
+    ]
+  },
+  {
+    "when": "2026-08-14",
+    "title": "Exit 8",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "original sound",
+      "japanese with german subtitles"
+    ]
+  },
+  {
+    "when": "2026-08-16",
+    "title": "Akira",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "camerazwo",
+      "german dub"
+    ]
+  },
+  {
+    "when": "2026-08-17",
+    "title": "Prosecution",
+    "rating": 2.5,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "sneak",
+      "original sound"
+    ]
+  },
+  {
+    "when": "2026-08-18",
+    "title": "Vampire Hunter D",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "dvd",
+      "original sound",
+      "german subtitles"
+    ]
+  },
+  {
+    "when": "2026-08-19",
+    "title": "No Time for Nuts",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "short before sneak"
+    ]
+  },
+  {
+    "when": "2026-08-19",
+    "title": "Christy",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "ov sneak",
+      "original sound"
+    ]
+  },
+  {
+    "when": "2026-08-20",
+    "title": "Spirited Away",
+    "rating": 5.0,
+    "rewatch": true,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "original sound",
+      "japanese with german subtitles",
+      "ghibli & beyond volume 2",
+      "cinema26"
+    ]
+  },
+  {
+    "when": "2026-08-20",
+    "title": "Teenage Sex and Death at Camp Miasma",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "original sound",
+      "cinema26"
+    ]
+  },
+  {
+    "when": "2026-08-21",
+    "title": "Vampire Hunter D: Bloodlust",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "dvd",
+      "german dub"
+    ]
+  },
+  {
+    "when": "2026-08-23",
+    "title": "The Punisher",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "dvd",
+      "original sound"
+    ]
+  },
+  {
+    "when": "2026-08-23",
+    "title": "The City of the Dead",
+    "rating": 3.5,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "original sound",
+      "blu-ray"
+    ]
+  },
+  {
+    "when": "2026-08-23",
+    "title": "Night of the Comet",
+    "rating": 3.5,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "blu-ray",
+      "original sound"
+    ]
+  },
+  {
+    "when": "2026-08-23",
+    "title": "A Thief in the Night",
+    "rating": 1.5,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "original sound",
+      "dvd"
+    ]
+  },
+  {
+    "when": "2026-08-23",
+    "title": "If Footmen Tire You, What Will Horses Do?",
+    "rating": 0.5,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "blu-ray",
+      "original sound"
+    ]
+  },
+  {
+    "when": "2026-08-24",
+    "title": "The Odyssey",
+    "rating": 4.0,
+    "rewatch": true,
+    "liked": false,
+    "tags": [
+      "original sound",
+      "imax",
+      "filmpalast am zkm",
+      "cinema",
+      "cinema26"
+    ]
+  },
+  {
+    "when": "2026-08-24",
+    "title": "Adam's Eight",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "cinema26",
+      "sneak",
+      "original sound"
+    ]
+  },
+  {
+    "when": "2026-08-25",
+    "title": "Detective Conan: Fallen Angel of the Highway",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "original sound",
+      "japanese with german subtitles",
+      "cineplex mannheim",
+      "cinema26",
+      "cinema",
+      "top2026"
+    ]
+  },
+  {
+    "when": "2026-08-26",
+    "title": "Bad Apples",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "cinema26",
+      "ov sneak",
+      "original sound"
+    ]
+  },
+  {
+    "when": "2026-08-27",
+    "title": "Castle in the Sky",
+    "rating": 5.0,
+    "rewatch": true,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "cinema26",
+      "original sound",
+      "japanese with german subtitles",
+      "ghibli & beyond volume 2"
+    ]
+  },
+  {
+    "when": "2026-08-27",
+    "title": "The Dog Stars",
+    "rating": 3.5,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "cinema26",
+      "original sound"
+    ]
+  },
+  {
+    "when": "2026-08-29",
+    "title": "Terminator 2: Judgment Day",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "cinema",
+      "filmpalast am zkm",
+      "german dub",
+      "cinema26"
+    ]
+  },
+  {
+    "when": "2026-08-29",
+    "title": "Toy Story 5",
+    "rating": 5.0,
+    "rewatch": true,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "cinema26",
+      "german dub"
+    ]
+  },
+  {
+    "when": "2026-08-29",
+    "title": "The Terminator",
+    "rating": 4.0,
+    "rewatch": true,
+    "liked": true,
+    "tags": [
+      "4k blu-ray",
+      "original sound"
+    ]
+  },
+  {
+    "when": "2026-08-30",
+    "title": "Terminator 2: Judgment Day",
+    "rating": 4.0,
+    "rewatch": true,
+    "liked": true,
+    "tags": [
+      "original sound",
+      "4k blu-ray",
+      "top2026"
+    ]
+  },
+  {
+    "when": "2026-08-30",
+    "title": "The Full Monty",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "cinema26",
+      "kult-sneak",
+      "german dub"
+    ]
+  },
+  {
+    "when": "2026-08-31",
+    "title": "Toy Story 5",
+    "rating": 5.0,
+    "rewatch": true,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "cinema",
+      "german dub",
+      "cinema26",
+      "top2026"
+    ]
+  },
+  {
+    "when": "2026-09-01",
+    "title": "Memories",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "kino im zeiss planetarium",
+      "cinema",
+      "cinema26",
+      "japanese with german subtitles",
+      "original sound"
+    ]
+  },
+  {
+    "when": "2026-09-02",
+    "title": "Leviticus",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "cinema",
+      "cinema26",
+      "original sound",
+      "fantasy filmfest"
+    ]
+  },
+  {
+    "when": "2026-09-02",
+    "title": "Hex",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "cinema",
+      "cinema26",
+      "original sound",
+      "norwegian with english subs"
+    ]
+  },
+  {
+    "when": "2026-09-03",
+    "title": "At the Place of Ghosts",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "cinema",
+      "cinema26",
+      "original sound",
+      "fantasy filmfest"
+    ]
+  },
+  {
+    "when": "2026-09-03",
+    "title": "The Birthday Party",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "cinema",
+      "cinema26",
+      "original sound",
+      "french with english subs",
+      "fantasy filmfest"
+    ]
+  },
+  {
+    "when": "2026-09-03",
+    "title": "Carolina Caroline",
+    "rating": 5.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "cinema",
+      "cinema26",
+      "fantasy filmfest",
+      "zoo palast",
+      "berlin",
+      "original sound"
+    ]
+  },
+  {
+    "when": "2026-09-04",
+    "title": "Blades of the Guardians",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "cinema",
+      "original sound",
+      "cinema26",
+      "fantasy filmfest",
+      "berlin",
+      "zoo palast",
+      "chinese with english subtitles"
+    ]
+  },
+  {
+    "when": "2026-09-04",
+    "title": "Recluse",
+    "rating": 2.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "cinema",
+      "fantasy filmfest",
+      "original sound",
+      "cinema26",
+      "berlin",
+      "zoo palast"
+    ]
+  },
+  {
+    "when": "2026-09-04",
+    "title": "The Restoration at Grayson Manor",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "cinema",
+      "cinema26",
+      "berlin",
+      "zoo palast",
+      "fantasy filmfest",
+      "original sound"
+    ]
+  },
+  {
+    "when": "2026-09-04",
+    "title": "Never After Dark",
+    "rating": 5.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "cinema",
+      "cinema26",
+      "berlin",
+      "zoo palast",
+      "fantasy filmfest",
+      "original sound",
+      "english subtitles"
+    ]
+  },
+  {
+    "when": "2026-09-04",
+    "title": "Buddy",
+    "rating": 5.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "cinema",
+      "cinema26",
+      "fantasy filmfest",
+      "berlin",
+      "zoo palast",
+      "original sound"
+    ]
+  },
+  {
+    "when": "2026-09-04",
+    "title": "Tristes Tropiques",
+    "rating": 5.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "cinema",
+      "cinema26",
+      "berlin",
+      "fantasy filmfest",
+      "deutschlandpremiere",
+      "original sound",
+      "english subtitles"
+    ]
+  },
+  {
+    "when": "2026-09-05",
+    "title": "Mark\u2018s invisible hand",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "cinema",
+      "cinema26",
+      "berlin",
+      "zoo palast",
+      "fantasy filmfest"
+    ]
+  },
+  {
+    "when": "2026-09-05",
+    "title": "Stone Growth",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "cinema",
+      "cinema26",
+      "berlin",
+      "zoo palast",
+      "fantasy filmfest"
+    ]
+  },
+  {
+    "when": "2026-09-05",
+    "title": "A man going his own way",
+    "rating": 3.5,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "cinema",
+      "cinema26",
+      "berlin",
+      "zoo palast",
+      "fantasy filmfest"
+    ]
+  },
+  {
+    "when": "2026-09-05",
+    "title": "Pockets of Happiness",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "cinema",
+      "cinema26",
+      "fantasy filmfest",
+      "berlin",
+      "zoo palast"
+    ]
+  },
+  {
+    "when": "2026-09-05",
+    "title": "Loss of Altitude",
+    "rating": 4.0,
+    "rewatch": true,
+    "liked": true,
+    "tags": [
+      "cinema",
+      "cinema26",
+      "berlin",
+      "zoo palast",
+      "fantasy filmfest"
+    ]
+  },
+  {
+    "when": "2026-09-05",
+    "title": "Window Shopper",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "cinema",
+      "cinema26",
+      "berlin",
+      "zoo palast",
+      "fantasy filmfest"
+    ]
+  },
+  {
+    "when": "2026-09-05",
+    "title": "Vertiginous",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "cinema",
+      "cinema26",
+      "berlin",
+      "zoo palast",
+      "fantasy filmfest"
+    ]
+  },
+  {
+    "when": "2026-09-05",
+    "title": "AnyMart",
+    "rating": 4.0,
+    "rewatch": true,
+    "liked": true,
+    "tags": [
+      "cinema",
+      "cinema26",
+      "berlin",
+      "zoo palast",
+      "fantasy filmfest",
+      "original sound",
+      "english subtitles"
+    ]
+  },
+  {
+    "when": "2026-09-05",
+    "title": "Species",
+    "rating": 5.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "cinema",
+      "cinema26",
+      "berlin",
+      "zoo palast",
+      "fantasy filmfest",
+      "original sound",
+      "english subtitles"
+    ]
+  },
+  {
+    "when": "2026-09-05",
+    "title": "Hokum",
+    "rating": 3.5,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "cinema",
+      "cinema26",
+      "berlin",
+      "zoo palast",
+      "fantasy filmfest",
+      "original sound"
+    ]
+  },
+  {
+    "when": "2026-09-05",
+    "title": "A Chinese Ghost Story",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "cinema",
+      "cinema26",
+      "berlin",
+      "zoo palast",
+      "fantasy filmfest",
+      "original sound",
+      "english subtitles"
+    ]
+  },
+  {
+    "when": "2026-09-06",
+    "title": "Don't Look Now",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "cinema",
+      "cinema26",
+      "fantasy filmfest",
+      "berlin",
+      "zoo palast"
+    ]
+  },
+  {
+    "when": "2026-09-06",
+    "title": "Charlie Is Not a Boy",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "cinema",
+      "cinema26",
+      "fantasy filmfest",
+      "berlin",
+      "zoo palast"
+    ]
+  },
+  {
+    "when": "2026-09-06",
+    "title": "The Last Jiangshi",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "cinema",
+      "cinema26",
+      "berlin",
+      "zoo palast",
+      "fantasy filmfest"
+    ]
+  },
+  {
+    "when": "2026-09-06",
+    "title": "Man Eating Pussy",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "cinema",
+      "cinema26",
+      "berlin",
+      "zoo palast",
+      "fantasy filmfest"
+    ]
+  },
+  {
+    "when": "2026-09-06",
+    "title": "Goodbye, Monster",
+    "rating": 3.5,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "cinema",
+      "cinema26",
+      "berlin",
+      "fantasy filmfest",
+      "zoo palast"
+    ]
+  },
+  {
+    "when": "2026-09-06",
+    "title": "Flock",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "berlin",
+      "zoo palast",
+      "fantasy filmfest",
+      "cinema26",
+      "cinema"
+    ]
+  },
+  {
+    "when": "2026-09-06",
+    "title": "Square Peg in a Black Hole",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "berlin",
+      "zoo palast",
+      "fantasy filmfest",
+      "cinema26"
+    ]
+  },
+  {
+    "when": "2026-09-06",
+    "title": "In The Weeds",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "cinema26",
+      "berlin",
+      "zoo palast",
+      "fantasy filmfest"
+    ]
+  },
+  {
+    "when": "2026-09-06",
+    "title": "Book U Can Ask ???s",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "cinema26",
+      "fantasy filmfest",
+      "berlin",
+      "zoo palast"
+    ]
+  },
+  {
+    "when": "2026-09-06",
+    "title": "Jealous People Are Ugly People",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "cinema26",
+      "berlin",
+      "zoo palast",
+      "fantasy filmfest"
+    ]
+  },
+  {
+    "when": "2026-09-06",
+    "title": "The Old Lady and the Eternity",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "cinema26",
+      "zoo palast",
+      "berlin",
+      "fantasy filmfest"
+    ]
+  },
+  {
+    "when": "2026-09-06",
+    "title": "The Plague",
+    "rating": 4.5,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "cinema26",
+      "berlin",
+      "zoo palast",
+      "fantasy filmfest",
+      "original sound"
+    ]
+  },
+  {
+    "when": "2026-09-06",
+    "title": "Mutter: The Diary of a Mother",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "cinema26",
+      "berlin",
+      "fantasy filmfest",
+      "zoo palast",
+      "original sound",
+      "english subtitles"
+    ]
+  },
+  {
+    "when": "2026-09-06",
+    "title": "The Ones Who Grieve",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "cinema26",
+      "berlin",
+      "zoo palast",
+      "fantasy filmfest"
+    ]
+  },
+  {
+    "when": "2026-09-07",
+    "title": "Motherwitch",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "cinema26",
+      "berlin",
+      "zoo palast",
+      "fantasy filmfest"
+    ]
+  },
+  {
+    "when": "2026-09-07",
+    "title": "Nervous",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "cinema26",
+      "original sound",
+      "berlin",
+      "zoo palast",
+      "fantasy filmfest"
+    ]
+  },
+  {
+    "when": "2026-09-07",
+    "title": "The Fox",
+    "rating": 5.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "cinema26",
+      "original sound",
+      "fantasy filmfest",
+      "zoo palast",
+      "berlin"
+    ]
+  },
+  {
+    "when": "2026-09-07",
+    "title": "The Chaser",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "cinema26",
+      "berlin",
+      "zoo palast",
+      "fantasy filmfest",
+      "original sound",
+      "english subtitles"
+    ]
+  },
+  {
+    "when": "2026-09-08",
+    "title": "Beasts of the Southern Wild",
+    "rating": 5.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "cinema26",
+      "original sound",
+      "fantasy filmfest",
+      "berlin",
+      "zoo palast"
+    ]
+  },
+  {
+    "when": "2026-09-08",
+    "title": "Unholy Night",
+    "rating": 3.5,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "cinema26",
+      "original sound",
+      "zoo palast",
+      "fantasy filmfest",
+      "berlin"
+    ]
+  },
+  {
+    "when": "2026-09-08",
+    "title": "You Are the Film",
+    "rating": 5.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "cinema26",
+      "original sound",
+      "berlin",
+      "fantasy filmfest",
+      "zoo palast",
+      "english subtitles"
+    ]
+  },
+  {
+    "when": "2026-09-08",
+    "title": "Sicko",
+    "rating": 5.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "cinema26",
+      "original sound",
+      "zoo palast",
+      "berlin",
+      "fantasy filmfest",
+      "english subtitles"
+    ]
+  },
+  {
+    "when": "2026-09-08",
+    "title": "Ghost in the Cell",
+    "rating": 5.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "cinema26",
+      "original sound",
+      "fantasy filmfest",
+      "berlin",
+      "zoo palast",
+      "english subtitles"
+    ]
+  },
+  {
+    "when": "2026-09-09",
+    "title": "Alter Ego",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "cinema26",
+      "original sound",
+      "berlin",
+      "zoo palast",
+      "fantasy filmfest",
+      "english subtitles"
+    ]
+  },
+  {
+    "when": "2026-09-09",
+    "title": "Another World",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "cinema26",
+      "original sound",
+      "fantasy filmfest",
+      "berlin",
+      "zoo palast",
+      "english subtitles"
+    ]
+  },
+  {
+    "when": "2026-09-09",
+    "title": "Fuck My Son!",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "cinema26",
+      "original sound",
+      "fantasy filmfest",
+      "berlin",
+      "zoo palast"
+    ]
+  },
+  {
+    "when": "2026-09-09",
+    "title": "Hope",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "cinema26",
+      "original sound",
+      "fantasy filmfest",
+      "berlin",
+      "zoo palast",
+      "english subtitles"
+    ]
+  },
+  {
+    "when": "2026-09-10",
+    "title": "Paprika",
+    "rating": 5.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "cinema26",
+      "original sound",
+      "english subtitles",
+      "berlin",
+      "babylon"
+    ]
+  },
+  {
+    "when": "2026-09-14",
+    "title": "Chopin, a Sonata in Paris",
+    "rating": 3.5,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "cinema26",
+      "schauburg",
+      "sneak"
+    ]
+  },
+  {
+    "when": "2026-09-15",
+    "title": "Fatherland",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "cinema26",
+      "original sound",
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2026-09-16",
+    "title": "Yankee Doodle Daffy",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "cinema26",
+      "original sound"
+    ]
+  },
+  {
+    "when": "2026-09-16",
+    "title": "Pressure",
+    "rating": 3.5,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "cinema26",
+      "original sound",
+      "ov sneak"
+    ]
+  },
+  {
+    "when": "2026-09-20",
+    "title": "Coyote vs. Acme",
+    "rating": 5.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "cinema26",
+      "original sound",
+      "filmpalast am zkm"
+    ]
+  },
+  {
+    "when": "2026-09-20",
+    "title": "Toy Story 5",
+    "rating": 5.0,
+    "rewatch": true,
+    "liked": true,
+    "tags": [
+      "cinema26",
+      "german dub",
+      "filmpalast am zkm"
+    ]
+  },
+  {
+    "when": "2026-09-20",
+    "title": "The Raid",
+    "rating": 5.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "blu-ray",
+      "original sound",
+      "german subtitles",
+      "uncut"
+    ]
+  },
+  {
+    "when": "2026-09-20",
+    "title": "In the Mouth of Madness",
+    "rating": 5.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "original sound",
+      "blu-ray"
+    ]
+  },
+  {
+    "when": "2026-09-20",
+    "title": "Event Horizon",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "original sound",
+      "dvd"
+    ]
+  },
+  {
+    "when": "2026-09-21",
+    "title": "How Can I Help",
+    "rating": 2.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "cinema26",
+      "schauburg",
+      "sneak",
+      "original sound"
+    ]
+  },
+  {
+    "when": "2026-09-23",
+    "title": "Spa Weekend",
+    "rating": 2.5,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "cinema26",
+      "original sound",
+      "fantasy filmfest",
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2026-09-26",
+    "title": "Primetime",
+    "rating": 2.5,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "cinema26",
+      "original sound",
+      "schauburg"
+    ]
+  },
+  {
+    "when": "2026-09-27",
+    "title": "Toy Story 5",
+    "rating": 5.0,
+    "rewatch": true,
+    "liked": true,
+    "tags": [
+      "cinema26",
+      "german dub",
+      "filmpalast am zkm",
+      "wampen woody"
+    ]
+  },
+  {
+    "when": "2026-09-27",
+    "title": "Chocolat",
+    "rating": 3.5,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "cinema26",
+      "schauburg",
+      "german dub",
+      "kult-sneak"
+    ]
+  },
+  {
+    "when": "2026-09-28",
+    "title": "Sundays",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "cinema26",
+      "sneak",
+      "german dub"
+    ]
+  },
+  {
+    "when": "2026-09-30",
+    "title": "Maspalomas",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "original sound",
+      "german subtitles",
+      "cinema26"
+    ]
+  },
+  {
+    "when": "2026-09-30",
+    "title": "Bob Trevino Likes It",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "cinema26",
+      "schauburg",
+      "original sound",
+      "ov sneak"
+    ]
+  },
+  {
+    "when": "2026-10-02",
+    "title": "Digger",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "cinema26",
+      "original sound"
+    ]
+  },
+  {
+    "when": "2026-10-03",
+    "title": "Resident Evil",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "cinema26",
+      "original sound",
+      "filmpalast am zkm"
+    ]
+  },
+  {
+    "when": "2026-10-03",
+    "title": "Toy Story 5",
+    "rating": 5.0,
+    "rewatch": true,
+    "liked": true,
+    "tags": [
+      "cinema26",
+      "filmpalast am zkm",
+      "german dub"
+    ]
+  },
+  {
+    "when": "2026-10-03",
+    "title": "Dear You",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "cinema26",
+      "original sound",
+      "english subtitles",
+      "universum city kino"
+    ]
+  },
+  {
+    "when": "2026-10-04",
+    "title": "Verity",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "cinema26",
+      "original sound",
+      "filmpalast am zkm"
+    ]
+  },
+  {
+    "when": "2026-10-05",
+    "title": "Hope",
+    "rating": 4.0,
+    "rewatch": true,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "cinema26",
+      "german dub",
+      "sneak"
+    ]
+  },
+  {
+    "when": "2026-10-06",
+    "title": "Watching People Watching Birds",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "cinema26",
+      "schauburg",
+      "original sound"
+    ]
+  },
+  {
+    "when": "2026-10-06",
+    "title": "Digger",
+    "rating": 5.0,
+    "rewatch": true,
+    "liked": true,
+    "tags": [
+      "cinema26",
+      "schauburg",
+      "original sound"
+    ]
+  },
+  {
+    "when": "2026-10-07",
+    "title": "Gift Wrapped",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "cinema26",
+      "original sound",
+      "ov sneak",
+      "short before sneak"
+    ]
+  },
+  {
+    "when": "2026-10-07",
+    "title": "Sense and Sensibility",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "cinema26",
+      "original sound",
+      "ov sneak"
+    ]
+  },
+  {
+    "when": "2026-10-08",
+    "title": "Ryan's Daughter",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "cinema26",
+      "german dub",
+      "70mm",
+      "todd ao 70mm film festival"
+    ]
+  },
+  {
+    "when": "2026-10-09",
+    "title": "Savage Pampas",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "cinema26",
+      "german dub",
+      "todd ao 70mm film festival"
+    ]
+  },
+  {
+    "when": "2026-10-09",
+    "title": "Baraka",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "cinema26",
+      "original sound",
+      "todd ao 70mm film festival"
+    ]
+  },
+  {
+    "when": "2026-10-09",
+    "title": "Disclosure Day",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "cinema26",
+      "original sound",
+      "todd ao 70mm film festival"
+    ]
+  },
+  {
+    "when": "2026-10-10",
+    "title": "Custer of the West",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "cinema26",
+      "german dub",
+      "todd ao 70mm film festival"
+    ]
+  },
+  {
+    "when": "2026-10-10",
+    "title": "Marty Supreme",
+    "rating": 4.0,
+    "rewatch": true,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "cinema26",
+      "original sound",
+      "todd ao 70mm film festival"
+    ]
+  },
+  {
+    "when": "2026-10-10",
+    "title": "Far and Away",
+    "rating": 3.5,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "cinema26",
+      "german dub",
+      "todd ao 70mm film festival"
+    ]
+  },
+  {
+    "when": "2026-10-11",
+    "title": "Night of the Living Dead",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "cinema26",
+      "filmpalast am zkm",
+      "german dub",
+      "black&white"
+    ]
+  },
+  {
+    "when": "2026-10-11",
+    "title": "Cut",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "cinema26",
+      "original sound",
+      "todd ao 70mm film festival"
+    ]
+  },
+  {
+    "when": "2026-10-11",
+    "title": "Forever\u2026Forever",
+    "rating": 2.5,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "cinema26",
+      "original sound",
+      "todd ao 70mm film festival"
+    ]
+  },
+  {
+    "when": "2026-10-11",
+    "title": "Project Hail Mary",
+    "rating": 5.0,
+    "rewatch": true,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "cinema26",
+      "original sound",
+      "german dub",
+      "todd ao 70mm film festival"
+    ]
+  },
+  {
+    "when": "2026-10-11",
+    "title": "Terminator 2: Judgment Day",
+    "rating": 5.0,
+    "rewatch": true,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "cinema26",
+      "original sound",
+      "todd ao 70mm film festival"
+    ]
+  },
+  {
+    "when": "2026-10-11",
+    "title": "The Big Blue",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "cinema26",
+      "german dub",
+      "todd ao 70mm film festival"
+    ]
+  },
+  {
+    "when": "2026-10-12",
+    "title": "The Blood Countess",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "cinema26",
+      "original sound",
+      "sneak"
+    ]
+  },
+  {
+    "when": "2026-10-14",
+    "title": "The Thing with Feathers",
+    "rating": 1.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "cinema26",
+      "original sound",
+      "ov sneak"
+    ]
+  },
+  {
+    "when": "2026-10-17",
+    "title": "Street Fighter",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "cinema26",
+      "original sound",
+      "filmpalast am zkm"
+    ]
+  },
+  {
+    "when": "2026-10-19",
+    "title": "Agnes & Amir",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg",
+      "cinema26",
+      "original sound",
+      "sneak"
+    ]
+  },
+  {
+    "when": "2026-10-21",
+    "title": "A Talent for Murder",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "cinema26",
+      "original sound",
+      "ov sneak"
+    ]
+  },
+  {
+    "when": "2026-10-25",
+    "title": "Toy Story 5",
+    "rating": 5.0,
+    "rewatch": true,
+    "liked": true,
+    "tags": [
+      "schauburg",
+      "cinema26",
+      "german dub",
+      "schauburg cinema"
+    ]
+  },
+  {
+    "when": "2026-10-25",
+    "title": "Absolute Power",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg saal",
+      "cinema26",
+      "original sound",
+      "kult-sneak",
+      "retro-sneak"
+    ]
+  },
+  {
+    "when": "2026-10-26",
+    "title": "Klara and the Sun",
+    "rating": 5.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "cinema26",
+      "schauburg saal",
+      "german dub",
+      "sneak"
+    ]
+  },
+  {
+    "when": "2026-10-27",
+    "title": "Arr. for a Scene",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg bambi",
+      "cinema26",
+      "original sound"
+    ]
+  },
+  {
+    "when": "2026-10-27",
+    "title": "I'll Be Your Kettle",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg bambi",
+      "original sound",
+      "cinema26"
+    ]
+  },
+  {
+    "when": "2026-10-27",
+    "title": "Human Nature",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "cinema26",
+      "original sound",
+      "schauburg bambi"
+    ]
+  },
+  {
+    "when": "2026-10-27",
+    "title": "Papier m\u00e2ch\u00e9",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "cinema26",
+      "original sound",
+      "schauburg bambi"
+    ]
+  },
+  {
+    "when": "2026-10-27",
+    "title": "Heavenly",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "cinema26",
+      "original sound",
+      "schauburg bambi"
+    ]
+  },
+  {
+    "when": "2026-10-28",
+    "title": "Wildwood",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "cinema26",
+      "original sound",
+      "ov sneak",
+      "schauburg saal"
+    ]
+  },
+  {
+    "when": "2026-10-29",
+    "title": "Dirty Dancing",
+    "rating": 5.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "cinema26",
+      "original sound",
+      "german dub",
+      "schauburg saal"
+    ]
+  },
+  {
+    "when": "2026-10-31",
+    "title": "Krabat",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "cinema26",
+      "original sound",
+      "schauburg bambi"
+    ]
+  },
+  {
+    "when": "2026-10-31",
+    "title": "Wildwood",
+    "rating": 5.0,
+    "rewatch": true,
+    "liked": true,
+    "tags": []
+  },
+  {
+    "when": "2026-10-31",
+    "title": "Carnival of Souls",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "cinema26",
+      "original sound",
+      "schauburg cinema",
+      "halloween double feature"
+    ]
+  },
+  {
+    "when": "2026-10-31",
+    "title": "Invasion of the Body Snatchers",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "cinema26",
+      "original sound",
+      "german dub",
+      "halloween double feature"
+    ]
+  },
+  {
+    "when": "2026-11-01",
+    "title": "Metropolis",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg cinema",
+      "original sound",
+      "cinema26",
+      "traumfabrik"
+    ]
+  },
+  {
+    "when": "2026-11-02",
+    "title": "April X",
+    "rating": 2.5,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "cinema26",
+      "sneak",
+      "schauburg saal"
+    ]
+  },
+  {
+    "when": "2026-11-03",
+    "title": "Rocky",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "cinema26",
+      "german dub",
+      "filmpalast am zkm",
+      "adrian"
+    ]
+  },
+  {
+    "when": "2026-11-04",
+    "title": "Wild Horse Nine",
+    "rating": 5.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "schauburg saal",
+      "ov sneak",
+      "original sound"
+    ]
+  },
+  {
+    "when": "2026-11-05",
+    "title": "The Umbrellas of Cherbourg",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg saal",
+      "original sound",
+      "german subtitles"
+    ]
+  },
+  {
+    "when": "2026-11-06",
+    "title": "Wildwood",
+    "rating": 5.0,
+    "rewatch": true,
+    "liked": true,
+    "tags": [
+      "cinema26",
+      "original sound",
+      "schauburg saal"
+    ]
+  },
+  {
+    "when": "2026-11-08",
+    "title": "Desk Set",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "cinema26",
+      "original sound",
+      "german subtitles",
+      "traumfabrik",
+      "schauburg saal"
+    ]
+  },
+  {
+    "when": "2026-11-08",
+    "title": "Klara and the Sun",
+    "rating": 5.0,
+    "rewatch": true,
+    "liked": true,
+    "tags": [
+      "cinema26",
+      "original sound",
+      "schauburg saal"
+    ]
+  },
+  {
+    "when": "2026-11-09",
+    "title": "Just an Illusion",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "cinema26",
+      "german dub",
+      "schauburg saal",
+      "sneak"
+    ]
+  },
+  {
+    "when": "2026-11-10",
+    "title": "Alice in the Cities",
+    "rating": 5.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "original sound",
+      "blu-ray",
+      "criterion"
+    ]
+  },
+  {
+    "when": "2026-11-11",
+    "title": "The Only Living Pickpocket in New York",
+    "rating": 3.5,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "cinema26",
+      "original sound",
+      "schauburg cinema",
+      "ov sneak"
+    ]
+  },
+  {
+    "when": "2026-11-12",
+    "title": "Cabaret",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "cinema26",
+      "original sound",
+      "schauburg saal"
+    ]
+  },
+  {
+    "when": "2026-11-12",
+    "title": "Her Private Hell",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "schauburg saal",
+      "original sound",
+      "cinema26"
+    ]
+  },
+  {
+    "when": "2026-11-13",
+    "title": "Prospect",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "original sound",
+      "4k",
+      "blu-ray"
+    ]
+  },
+  {
+    "when": "2026-11-13",
+    "title": "The Boogeyman",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "original sound",
+      "4k"
+    ]
+  },
+  {
+    "when": "2026-11-13",
+    "title": "Wildwood",
+    "rating": 5.0,
+    "rewatch": true,
+    "liked": true,
+    "tags": [
+      "cinema26",
+      "original sound",
+      "schauburg saal"
+    ]
+  },
+  {
+    "when": "2026-11-14",
+    "title": "Coraline",
+    "rating": 5.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "original sound",
+      "4k",
+      "blu-ray"
+    ]
+  },
+  {
+    "when": "2026-11-14",
+    "title": "Wildwood",
+    "rating": 5.0,
+    "rewatch": true,
+    "liked": true,
+    "tags": [
+      "cinema26",
+      "schauburg saal",
+      "german dub"
+    ]
+  },
+  {
+    "when": "2026-11-14",
+    "title": "La Bola Negra",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "cinema26",
+      "original sound",
+      "german subtitles",
+      "schauburg saal"
+    ]
+  },
+  {
+    "when": "2026-11-15",
+    "title": "A.I. Artificial Intelligence",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "cinema26",
+      "original sound",
+      "german subtitles",
+      "traumfabrik",
+      "schauburg cinema"
+    ]
+  },
+  {
+    "when": "2026-11-16",
+    "title": "The Incomer",
+    "rating": 4.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "cinema26",
+      "german dub",
+      "sneak",
+      "schauburg saal"
+    ]
+  },
+  {
+    "when": "2026-11-17",
+    "title": "Leica \u2013 A Century of Vision",
+    "rating": 3.0,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "cinema26",
+      "original sound",
+      "schauburg saal",
+      "german subtitles"
+    ]
+  },
+  {
+    "when": "2026-11-17",
+    "title": "Her Private Hell",
+    "rating": 3.0,
+    "rewatch": true,
+    "liked": false,
+    "tags": []
+  },
+  {
+    "when": "2026-11-18",
+    "title": "The Miracle Club",
+    "rating": 2.5,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "cinema26",
+      "original sound",
+      "ov sneak",
+      "schauburg saal"
+    ]
+  }
+]
