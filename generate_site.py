@@ -215,7 +215,6 @@ def favorites_html(diary: list[dict]) -> str:
     posters = fetch_posters([t for t, _ in items])
     cards = []
     for title, dates in items:
-        n = len(dates)
         poster = posters.get(title)
         if poster:
             art = (f"<img src='{TMDB_IMAGE}{poster}' "
@@ -223,10 +222,13 @@ def favorites_html(diary: list[dict]) -> str:
         else:
             art = (f"<span class='fplaceholder' "
                    f"aria-hidden='true'>{escape(title[:1])}</span>")
+        when = ", ".join(
+            date.fromisoformat(d).strftime("%d %b %Y")
+            for d in sorted(dates))
         cards.append(
-            f"<div class='fcard'><div class='fposter'>{art}"
-            f"<span class='fcount'>{n}×</span></div>"
-            f"<div class='fname'>{escape(title)}</div></div>")
+            f"<div class='fcard'><div class='fposter'>{art}</div>"
+            f"<div class='fname'>{escape(title)}</div>"
+            f"<div class='fwatched'>Watched on {escape(when)}</div></div>")
     return "\n".join(cards)
 
 
@@ -410,9 +412,8 @@ PAGE = """<!doctype html>
   .fposter {{ position:relative; display:block; line-height:0; }}
   .fposter img {{ width:100%; aspect-ratio:2/3; object-fit:cover;
           border-radius:8px; border:1px solid var(--border); }}
-  .fcount {{ position:absolute; right:6px; bottom:6px;
-          background:rgba(0,0,0,.75); color:var(--accent); font-size:12px;
-          font-weight:700; padding:2px 7px; border-radius:999px; }}
+  .fwatched {{ color:var(--muted); font-size:11.5px; margin-top:2px;
+          line-height:1.35; }}
   .fname {{ font-size:12.5px; margin-top:6px; line-height:1.25; }}
   .fplaceholder {{ display:flex; align-items:center; justify-content:center;
           width:100%; aspect-ratio:2/3; border-radius:8px; font-size:34px;
