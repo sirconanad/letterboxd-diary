@@ -210,9 +210,7 @@ def monthly_line_svg(diary: list[dict]) -> str:
 
 
 def sneak_rows_html(sneaks: list[dict]) -> str:
-    ordered = sorted(sneaks,
-                     key=lambda s: (s["gap_days"] is None,
-                                    -(s["gap_days"] or 0)))
+    ordered = sorted(sneaks, key=lambda s: s["watched"], reverse=True)
     rows = []
     for s in ordered:
         if s["kinostart"] and s["gap_days"] is not None:

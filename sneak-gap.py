@@ -201,8 +201,7 @@ def fmt_table(sneaks: list[Sneak]) -> str:
     header = (f"{'Film':<42} {'Year':<5} {'Watched':<11} "
               f"{'Cinema (DE)':<13} {'Gap':>10}")
     rows = [header, "-" * len(header)]
-    for s in sorted(sneaks, key=lambda x: (x.gap_days is None,
-                                           -(x.gap_days or 0))):
+    for s in sorted(sneaks, key=lambda x: x.watched, reverse=True):
         if s.kinostart and s.gap_days is not None:
             gap = (f"{abs(s.gap_days)} days "
                    f"{'before' if s.gap_days > 0 else 'after'} release")
@@ -235,8 +234,7 @@ def fmt_table(sneaks: list[Sneak]) -> str:
 
 
 def fmt_markdown(sneaks: list[Sneak]) -> str:
-    ordered = sorted(sneaks, key=lambda x: (x.gap_days is None,
-                                            -(x.gap_days or 0)))
+    ordered = sorted(sneaks, key=lambda x: x.watched, reverse=True)
     lines = ["# Sneak / OV-Sneak vs. German cinema release", "",
              f"{len(sneaks)} diary entries tagged **sneak** or **ov sneak**; "
              "\"gap\" = release date − watch date (negative means watched "
@@ -341,8 +339,7 @@ def main(argv: list[str]) -> int:
                 "title", "year", "watched", "kinostart", "gap_days",
                 "tags", "tmdb_id"])
             writer.writeheader()
-            for s in sorted(sneaks, key=lambda x: (x.gap_days is None,
-                                                   -(x.gap_days or 0))):
+            for s in sorted(sneaks, key=lambda x: x.watched, reverse=True):
                 writer.writerow({
                     "title": s.title, "year": s.year,
                     "watched": s.watched.isoformat(),
