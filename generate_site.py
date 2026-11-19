@@ -37,12 +37,32 @@ def load_sneaks(path: Path) -> list[dict]:
     return rows
 
 
-def contribution_svg(diary: list[dict]) -> str:
-    counts = Counter(e["when"] for e in diary)
-    start = date.fromisoformat(min(counts))
-    end = date.today()
+SVG_BG = "#1f2430"  # blends with the dark theme instead of white
+
+
+def year_graph_svg(diary: list[dict], year: int) -> str:
+    ds = [e for e in diary if e["when"].startswith(str(year))]
+    if not ds:
+        return ""
+    counts = Counter(e["when"] for e in ds)
+    start = date(year, 1, 1)
+    end = date(year, 12, 31) if year < date.today().year else date.today()
     levels = graph.build_levels(counts)
-    return graph.render_svg(levels, counts, start, end)
+    svg = graph.render_svg(levels, counts, start, end)
+    return svg.replace('fill="#ffffff"', f'fill="{SVG_BG}"')
+
+
+def yearly_graphs_html(diary: list[dict]) -> str:
+    years = sorted({int(e["when"][:4]) for e in diary})
+    blocks = []
+    for year in years:
+        svg = year_graph_svg(diary, year)
+        if not svg:
+            continue
+        blocks.append(
+            f'<div class="year">'
+            f'<div class="year-label">{year}</div>{svg}</div>')
+    return "\n".join(blocks)
 
 
 def card(kind: str, value: str, label: str) -> str:
@@ -196,6 +216,9 @@ PAGE = """<!doctype html>
   .month {{ display:grid; grid-template-columns:70px 1fr 40px; gap:10px;
          align-items:center; font-size:12.5px; }}
   .month-name, .month-count {{ color:var(--muted); }}
+  .year {{ margin:6px 0 18px; }}
+  .year-label {{ text-align:center; color:var(--muted); font-size:13px;
+         margin-bottom:4px; letter-spacing:.08em; }}
   table {{ border-collapse:collapse; width:100%; font-size:13.5px; }}
   th, td {{ padding:7px 10px; border-bottom:1px solid var(--border);
          text-align:left; white-space:nowrap; }}
@@ -222,8 +245,8 @@ PAGE = """<!doctype html>
 <h2>Im Überblick</h2>
 <div class="stats">{stat_cards}</div>
 
-<h2>Kinotage <small>(Filme pro Tag seit Anfang des Diaries)</small></h2>
-<div class="panel">{graph_svg}</div>
+<h2>Kinotage <small>(Filme pro Tag, pro Jahr)</small></h2>
+<div class="panel">{year_graphs}</div>
 
 <h2>Monatliche Aktivität</h2>
 <div class="panel"><div class="months">{monthly}</div></div>
@@ -270,7 +293,7 @@ def main(args: list[str]) -> int:
     out.write_text(PAGE.format(
         generated=generated,
         stat_cards=build_stat_cards(diary, sneaks),
-        graph_svg=contribution_svg(diary),
+        year_graphs=yearly_graphs_html(diary),
         monthly=monthly_html(diary),
         tags=tags_html(diary),
         favorites=favorites_html(diary),

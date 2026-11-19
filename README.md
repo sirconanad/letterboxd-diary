@@ -76,7 +76,7 @@ activity only.
 ## Highlights page
 
 `generate_site.py` builds a single self-contained `site/index.html` from
-`diary.json` and `sneak-gap.csv`: stat cards, the full contribution graph,
+`diary.json` and `sneak-gap.csv`: stat cards, per-year contribution graphs,
 monthly activity, top tags, favourites, and the sneak-vs-Kinostart table.
 It's meant to be deployed to GitHub Pages (`sirconanad.github.io`).
 
