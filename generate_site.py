@@ -50,8 +50,15 @@ def year_graph_svg(diary: list[dict], year: int) -> str:
     end = date(year, 12, 31) if year < date.today().year else date.today()
     levels = graph.build_levels(counts)
     svg = graph.render_svg(levels, counts, start, end)
-    return (svg.replace('fill="#ffffff"', f'fill="{SVG_BG}"')
-               .replace('fill="#ebedf0"', f'fill="{SVG_EMPTY}"'))
+    svg = (svg.replace('fill="#ffffff"', f'fill="{SVG_BG}"')
+              .replace('fill="#ebedf0"', f'fill="{SVG_EMPTY}"')
+              # raise SVG text contrast for the dark theme
+              .replace('fill="#767676"', 'fill="#9aa3b2"'))
+    # accessible svg: keep the remaining width/height/viewBox attributes
+    return svg.replace(
+        '<svg xmlns="http://www.w3.org/2000/svg"',
+        f'<svg xmlns="http://www.w3.org/2000/svg" role="img" '
+        f'aria-label="Films watched per day in {year}"', 1)
 
 
 def yearly_graphs_html(diary: list[dict]) -> str:
@@ -172,7 +179,9 @@ def monthly_line_svg(diary: list[dict]) -> str:
         return pad_t + plot_h * (1 - v / maxv)
 
     out = [f'<svg xmlns="http://www.w3.org/2000/svg" '
-           f'viewBox="0 0 {W} {H}">']
+           f'viewBox="0 0 {W} {H}" role="img" '
+           f'aria-label="Films watched per month, '
+           f'{months[0]} to {months[-1]}">']
     step = _nice_step(maxv)
     for k in range(0, maxv + 1, step):
         gy = y(k)
@@ -236,13 +245,30 @@ PAGE = """<!doctype html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>sirconanad · Letterboxd Highlights</title>
+<meta name="description" content="sirconanad's Letterboxd highlights: contribution graphs of films watched, monthly activity, most-used tags, favourites and sneak-preview viewings compared with their German cinema releases.">
+<meta name="author" content="sirconanad">
+<meta name="theme-color" content="#0f1115">
+<link rel="canonical" href="https://sirconanad.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="sirconanad · cinema">
+<meta property="og:locale" content="en_GB">
+<meta property="og:title" content="sirconanad · Letterboxd Highlights">
+<meta property="og:description" content="Films watched, monthly activity, tags, favourites and sneak-preview viewings vs. German cinema releases.">
+<meta property="og:url" content="https://sirconanad.github.io/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="sirconanad · Letterboxd Highlights">
+<meta name="twitter:description" content="Films watched, monthly activity, tags, favourites and sneak-preview viewings vs. German cinema releases.">
+<script type="application/ld+json">{{"@context":"https://schema.org","@type":"WebSite","url":"https://sirconanad.github.io/","name":"sirconanad · cinema","description":"sirconanad's Letterboxd highlights: films watched, monthly activity, tags, favourites and sneak-preview viewings vs. German cinema releases."}}</script>
 <style>
   :root {{ --bg:#0f1115; --panel:#171a21; --panel2:#1e222b;
           --text:#e7e9ee; --muted:#9aa3b2; --accent:#7ee08e;
-          --accent2:#3fb950; --late:#f58d8d; --border:#2a2f3a; }}
+          --accent2:#3fb950; --late:#f58d8d; --border:#2a2f3a;
+          color-scheme:dark; }}
   * {{ box-sizing:border-box; }}
+  html {{ font-size:16px; }}
   body {{ margin:0; font:15px/1.5 -apple-system,Segoe UI,Roboto,Helvetica,
          Arial,sans-serif; background:var(--bg); color:var(--text); }}
+  :focus-visible {{ outline:2px solid var(--accent); outline-offset:2px; }}
   .wrap {{ max-width:1080px; margin:0 auto; padding:28px 20px 60px; }}
   header {{ border-bottom:1px solid var(--border); padding-bottom:18px;
            margin-bottom:26px; }}
@@ -300,7 +326,7 @@ PAGE = """<!doctype html>
 <body>
 <div class="wrap">
 <header>
-  <h1>sirconanad<span class="dot">·</span>cinema</h1>
+  <h1>sirconanad<span class="dot" aria-hidden="true">·</span>cinema</h1>
   <div class="sub">Letterboxd highlights · {generated}</div>
 </header>
 
@@ -321,8 +347,9 @@ PAGE = """<!doctype html>
 
 <h2>Sneak / OV-sneak vs. German cinema release <small>({sneak_count} entries, on average {avg_gap} days early)</small></h2>
 <div class="scroll"><table>
-  <thead><tr><th>Film</th><th>Year</th><th>Watched</th>
-  <th>Cinema release (DE)</th><th class="t-gap">Gap</th><th>Tags</th></tr></thead>
+  <thead><tr><th scope="col">Film</th><th scope="col">Year</th>
+  <th scope="col">Watched</th>
+  <th scope="col">Cinema release (DE)</th><th scope="col" class="t-gap">Gap</th><th scope="col">Tags</th></tr></thead>
   <tbody>{sneak_rows}</tbody>
 </table></div>
 
