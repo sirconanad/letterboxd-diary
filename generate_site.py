@@ -19,7 +19,11 @@ import argparse
 import csv
 import html
 import json
+import os
 import sys
+import time
+import urllib.parse
+import urllib.request
 from collections import Counter
 from datetime import date
 from pathlib import Path
@@ -29,6 +33,79 @@ sys.path.insert(0, str(PROJECT_ROOT / "graphs"))
 import graph  # canonical graphs/graph.py
 
 SNEAK_CSV_DEFAULT = PROJECT_ROOT / "sneak-preview" / "sneak-gap.csv"
+
+# TMDB poster lookups for the Favorites section (best-effort, cached).
+TMDB_IMAGE = "https://image.tmdb.org/t/p/w185"
+POSTER_CACHE_PATH = Path(__file__).resolve().parent / "poster-cache.json"
+
+
+def load_dotenv(paths=()) -> None:
+    """Load KEY=VALUE pairs from .env files without overriding existing vars."""
+    if not paths:
+        paths = (PROJECT_ROOT / ".env", Path.cwd() / ".env")
+    for path in paths:
+        if not path.exists():
+            continue
+        for line in path.read_text(encoding="utf-8").splitlines():
+            line = line.strip()
+            if not line or line.startswith("#") or "=" not in line:
+                continue
+            key, _, value = line.partition("=")
+            os.environ.setdefault(key.strip(), value.strip().strip('"'))
+
+
+def _tmdb_key() -> str:
+    load_dotenv()
+    return (os.environ.get("TMDB_API_KEY")
+            or (lambda p: p.read_text().strip()
+                if p.exists() and p.read_text().strip() else None)(
+                PROJECT_ROOT / ".env")
+            or "")
+
+
+def _load_posters_cache() -> dict:
+    if POSTER_CACHE_PATH.exists():
+        try:
+            return json.loads(POSTER_CACHE_PATH.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, OSError):
+            pass
+    return {}
+
+
+def _save_posters_cache(cache: dict) -> None:
+    tmp = POSTER_CACHE_PATH.with_suffix(".json.tmp")
+    tmp.write_text(json.dumps(cache, indent=2, ensure_ascii=False) + "\n",
+                   encoding="utf-8")
+    tmp.replace(POSTER_CACHE_PATH)
+
+
+def fetch_posters(titles: list[str]) -> dict:
+    """Map of title -> TMDB poster_path (or None). Best-effort + cached."""
+    cache = _load_posters_cache()
+    missing = [t for t in titles if t not in cache]
+    key = _tmdb_key()
+    for t in missing:
+        if not key:
+            cache[t] = None
+            continue
+        url = ("https://api.themoviedb.org/3/search/movie"
+               f"?api_key={key}&query={urllib.parse.quote(t)}"
+               "&include_adult=false")
+        poster = None
+        try:
+            with urllib.request.urlopen(url, timeout=20) as resp:
+                data = json.loads(resp.read().decode("utf-8"))
+            for res in data.get("results") or []:
+                if res.get("poster_path"):
+                    poster = res["poster_path"]
+                    break
+        except Exception:
+            pass
+        cache[t] = poster
+        time.sleep(0.25)
+    if missing:
+        _save_posters_cache(cache)
+    return cache
 
 
 def escape(s):  # already-unicode-safe short alias
@@ -126,24 +203,31 @@ def tags_html(diary: list[dict], top: int = 12) -> str:
     return "\n".join(rows)
 
 
-def favorites_html(diary: list[dict], limit: int = 12) -> str:
-    favs = (e for e in diary if e.get("rating") == 5 and e.get("liked"))
+def favorites_html(diary: list[dict]) -> str:
+    """Films watched at least 3 times, shown with their movie poster."""
     grouped: dict[str, list[str]] = {}
-    for e in favs:
+    for e in diary:
         grouped.setdefault(e["title"], []).append(e["when"])
-    if not grouped:
-        return "<p>No favourites found.</p>"
-    items = sorted(grouped.items(), key=lambda kv: max(kv[1]), reverse=True)
-    cells = []
-    for title, dates in items[:limit]:
+    items = [(t, dates) for t, dates in grouped.items() if len(dates) >= 3]
+    if not items:
+        return "<p>No films watched 3+ times yet.</p>"
+    items.sort(key=lambda kv: max(kv[1]), reverse=True)
+    posters = fetch_posters([t for t, _ in items])
+    cards = []
+    for title, dates in items:
         n = len(dates)
-        label = escape(title) + (f" ×{n}" if n > 1 else "")
-        cells.append(f'<span class="chip"><span class="chip-star">★</span>'
-                     f"{label} <em>{max(dates)}</em></span>")
-    return '\n'.join(cells) + \
-        (f'<p class="subtle">… and {len(items) - limit} more '
-         f"five-star film{'s' if len(items) - limit != 1 else ''}.</p>"
-         if len(items) > limit else "")
+        poster = posters.get(title)
+        if poster:
+            art = (f"<img src='{TMDB_IMAGE}{poster}' "
+                   f"alt='Poster for {escape(title)}' loading='lazy'>")
+        else:
+            art = (f"<span class='fplaceholder' "
+                   f"aria-hidden='true'>{escape(title[:1])}</span>")
+        cards.append(
+            f"<div class='fcard'><div class='fposter'>{art}"
+            f"<span class='fcount'>{n}×</span></div>"
+            f"<div class='fname'>{escape(title)}</div></div>")
+    return "\n".join(cards)
 
 
 def _nice_step(maxv: int) -> int:
@@ -262,7 +346,7 @@ PAGE = """<!doctype html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>sirconanad · Letterboxd Highlights</title>
-<meta name="description" content="sirconanad's Letterboxd highlights: contribution graphs of films watched, monthly activity, most-used tags, favourites and sneak-preview viewings compared with their German cinema releases.">
+<meta name="description" content="sirconanad's Letterboxd highlights: contribution graphs of films watched, monthly activity, most-used tags, favorites and sneak-preview viewings compared with their German cinema releases.">
 <meta name="author" content="sirconanad">
 <meta name="theme-color" content="#0f1115">
 <link rel="canonical" href="https://sirconanad.github.io/">
@@ -270,12 +354,12 @@ PAGE = """<!doctype html>
 <meta property="og:site_name" content="sirconanad · cinema">
 <meta property="og:locale" content="en_GB">
 <meta property="og:title" content="sirconanad · Letterboxd Highlights">
-<meta property="og:description" content="Films watched, monthly activity, tags, favourites and sneak-preview viewings vs. German cinema releases.">
+<meta property="og:description" content="Films watched, monthly activity, tags, favorites and sneak-preview viewings vs. German cinema releases.">
 <meta property="og:url" content="https://sirconanad.github.io/">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="sirconanad · Letterboxd Highlights">
-<meta name="twitter:description" content="Films watched, monthly activity, tags, favourites and sneak-preview viewings vs. German cinema releases.">
-<script type="application/ld+json">{{"@context":"https://schema.org","@type":"WebSite","url":"https://sirconanad.github.io/","name":"sirconanad · cinema","description":"sirconanad's Letterboxd highlights: films watched, monthly activity, tags, favourites and sneak-preview viewings vs. German cinema releases."}}</script>
+<meta name="twitter:description" content="Films watched, monthly activity, tags, favorites and sneak-preview viewings vs. German cinema releases.">
+<script type="application/ld+json">{{"@context":"https://schema.org","@type":"WebSite","url":"https://sirconanad.github.io/","name":"sirconanad · cinema","description":"sirconanad's Letterboxd highlights: films watched, monthly activity, tags, favorites and sneak-preview viewings vs. German cinema releases."}}</script>
 <style>
   :root {{ --bg:#0f1115; --panel:#171a21; --panel2:#1e222b;
           --text:#e7e9ee; --muted:#9aa3b2; --accent:#7ee08e;
@@ -321,6 +405,19 @@ PAGE = """<!doctype html>
          padding:6px 12px; border-radius:999px; font-size:13.5px; }}
   .chip-star {{ color:#f7b32b; }} .chip em {{ color:var(--muted);
          font-style:normal; font-size:12px; }}
+  .favorites {{ display:grid; grid-template-columns:repeat(auto-fill,
+          minmax(120px,1fr)); gap:14px; }}
+  .fposter {{ position:relative; display:block; line-height:0; }}
+  .fposter img {{ width:100%; aspect-ratio:2/3; object-fit:cover;
+          border-radius:8px; border:1px solid var(--border); }}
+  .fcount {{ position:absolute; right:6px; bottom:6px;
+          background:rgba(0,0,0,.75); color:var(--accent); font-size:12px;
+          font-weight:700; padding:2px 7px; border-radius:999px; }}
+  .fname {{ font-size:12.5px; margin-top:6px; line-height:1.25; }}
+  .fplaceholder {{ display:flex; align-items:center; justify-content:center;
+          width:100%; aspect-ratio:2/3; border-radius:8px; font-size:34px;
+          color:var(--muted); background:linear-gradient(135deg,
+          var(--panel2),var(--panel)); }}
   .year {{ margin:6px 0 18px; }}
   .year-label {{ text-align:center; color:var(--muted); font-size:13px;
          margin-bottom:4px; letter-spacing:.08em; }}
@@ -361,8 +458,8 @@ PAGE = """<!doctype html>
 <h2>Most-used tags</h2>
 <div class="panel"><div class="tags">{tags}</div></div>
 
-<h2>Favourites <small>(5★ &amp; liked)</small></h2>
-<div class="panel"><div class="chips">{favorites}</div></div>
+<h2>Favorites <small>(watched 3+ times)</small></h2>
+<div class="panel"><div class="favorites">{favorites}</div></div>
 
 <h2>Sneak / OV-sneak vs. German cinema release <small>({sneak_count} entries, on average {avg_gap} days early)</small></h2>
 <div class="scroll"><table>
