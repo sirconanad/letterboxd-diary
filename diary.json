@@ -7557,5 +7557,33 @@
       "ov sneak",
       "schauburg saal"
     ]
+  },
+  {
+    "when": "2026-11-19",
+    "title": "You Can See Everything",
+    "rating": 1.25,
+    "rewatch": false,
+    "liked": false,
+    "tags": [
+      "cinema26",
+      "original sound",
+      "schauburg saal",
+      "german subtitles"
+    ],
+    "year": 2026
+  },
+  {
+    "when": "2026-11-19",
+    "title": "Jesus Christ Superstar",
+    "rating": 2.0,
+    "rewatch": false,
+    "liked": true,
+    "tags": [
+      "original sound",
+      "german subtitles",
+      "schauburg cinema",
+      "cinema26"
+    ],
+    "year": 1973
   }
 ]

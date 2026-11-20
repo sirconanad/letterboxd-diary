@@ -288,7 +288,7 @@ def merge_diary(merged: list[dict], new_entries: list[Entry]):
     for e in new_entries:
         row = asdict(e)
         row["when"] = e.when.isoformat()
-        key = (row["when"], e["title"])
+        key = (row["when"], e.title)
         if key not in merged_keys:
             merged.append(row)
             merged_keys.add(key)
