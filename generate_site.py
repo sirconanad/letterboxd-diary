@@ -211,7 +211,7 @@ def favorites_html(diary: list[dict]) -> str:
     items = [(t, dates) for t, dates in grouped.items() if len(dates) >= 3]
     if not items:
         return "<p>No films watched 3+ times yet.</p>"
-    items.sort(key=lambda kv: max(kv[1]), reverse=True)
+    items.sort(key=lambda kv: (len(kv[1]), max(kv[1])), reverse=True)
     posters = fetch_posters([t for t, _ in items])
     cards = []
     for title, dates in items:
